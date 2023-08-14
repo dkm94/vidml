@@ -8,11 +8,14 @@ import { NextAppDirEmotionCacheProvider } from './EmotionCache';
 
 const theme = createTheme(themeOptions);
 
+interface ThemeRegistryProps {
+	children: React.ReactNode;
+	options: any;
+}
+
 // This implementation is from emotion-js
 // https://github.com/emotion-js/emotion/issues/2928#issuecomment-1319747902
-function ThemeRegistry({ children }: {
-	children: React.ReactNode;
-  }) {
+function ThemeRegistry({ children, options }: ThemeRegistryProps) {
 
 	return (
 		<NextAppDirEmotionCacheProvider options={{ key: 'mui' }}>

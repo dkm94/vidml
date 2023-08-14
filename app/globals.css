@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,19 +8,30 @@
   /* --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255; */
-  /* --background-vlBeige: theme; */
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
 
   }
-}
+} */
 
 body {
  
 }
 
-.nav-container {
-  @apply relative w-full h-[64px] bg-[theme('colors.vlBeige')];
+.footer {
+  @apply bg-[theme('colors.black')];
+}
+
+.navigation__container {
+  @apply w-full h-fit bg-[theme('colors.vlBeige')];
+}
+
+.navbar {
+  @apply flex justify-between w-full z-[999] items-center text-gray-500 flex-wrap h-16 sticky py-0 px-8 bg-[theme('colors.vlBeige')]
+}
+
+.square-title {
+  font-family: 'Bebas Neue', sans-serif;
 }

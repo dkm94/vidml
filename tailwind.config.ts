@@ -6,7 +6,14 @@ const config: Config = {
 		'./components/**/*.{js,ts,jsx,tsx,mdx}',
 		'./app/**/*.{js,ts,jsx,tsx,mdx}'
 	],
-	theme: { extend: { colors: { vlBeige: '#FFF9F0' } }, },
+	theme: {
+		extend: {
+			colors: {
+				vlBeige: '#FFFDFB',
+				black: '#212121' 
+			} 
+		}, 
+	},
 	plugins: [],
 };
 export default config;

@@ -1,7 +1,8 @@
 import './globals.css';
+
 import type { Metadata } from 'next';
 
-import { Navbar, Footer } from '@/components/layout';
+import { Footer, MobileNavbar } from '@/components/layout';
 import ThemeRegistry from '../theme/ThemeRegistry';
 
 export const metadata: Metadata = {
@@ -14,9 +15,9 @@ export default function RootLayout({ children, }: {
 }) {
 	return (
 		<html lang="fr">
-			<body className="relative">
+			<body>
 				<ThemeRegistry options={{ key: 'mui' }}>
-					<Navbar />
+					<MobileNavbar />
 					{children}
 					<Footer />
 				</ThemeRegistry>
