@@ -1,3 +1,6 @@
+'use client';
+
+import { SquareComponent } from '@/components';
 import React from 'react';
 
 export default function Home() {
@@ -5,9 +8,7 @@ export default function Home() {
 
 	return (
 		<main className="overflow-hidden relative h-[94vh]">
-			<div className='absolute border-solid border-slate-50 border-8 left-2/4 top-[42%] translate-x-[-50%] translate-y-2/4 px-12 py-3'>
-				<span className='text-stone-50 text-4xl square-title'>Enter</span>
-			</div>
+			<SquareComponent isLink={true} path='/collections' containerStyle='border-slate-50 z-[1000]' childStyle='text-stone-50' text="Enter" />
 			<video autoPlay loop muted className='h-[100%] object-cover w-full'>
 				<source src={videoURL} type="video/mp4" height="100%" width="200" />
 			</video>
