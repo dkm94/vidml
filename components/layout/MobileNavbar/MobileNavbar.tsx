@@ -51,15 +51,6 @@ const MobileNavbar = () => {
 				<li className="navbar__item block md:hidden slideDown-1">
 					<Link
 						className="px-[5px] text-gray-50 no-underline block p-4 bg-inherit uppercase text-[5vw]"
-						href="/archives"
-						onClick={() => setShowLinks(!showLinks)}
-					>
-            Archives
-					</Link>
-				</li>
-				<li className="navbar__item block md:hidden slideDown-1">
-					<Link
-						className="px-[5px] text-gray-50 no-underline block p-4 bg-inherit uppercase text-[5vw]"
 						href="/services"
 						onClick={() => setShowLinks(!showLinks)}
 					>
