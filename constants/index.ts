@@ -11,26 +11,18 @@ export const themeOptions: ThemeOptions = {
 export const illustrations: Illustration[] = [
 	{
 		id: '1',
-		title: 'Image One',
+		title: 'Gallery One',
 	},
 	{
 		id: '2',
-		title: 'Image Two' 
+		title: 'Gallery Two' 
 	},
 	{
 		id: '3',
-		title: 'Image Three' 
+		title: 'Gallery Three' 
 	},
 	{
 		id: '4',
-		title: 'Image Four' 
+		title: 'Gallery Four' 
 	},
-	{
-		id: '5',
-		title: 'Image Five'
-	},
-	{
-		id: '6',
-		title: 'Image Six'
-	}
 ];
