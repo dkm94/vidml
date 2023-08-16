@@ -46,7 +46,7 @@ const GalleryPage = ({ params }: GalleryPageProps) => {
 							{gallery?.images?.map(({ title, description, url, id }, index) => 
 								<div key={index} className='relative'>
 									<Image src={url} alt={title} className='w-full h-full object-cover' width={200} height={300} />
-									{selectedId == id ? <div className='bg-gradient-to-t from-gray-400 to-transparent absolute bottom-0 flex flex-col w-full h-52 gap-2 bg-opacity-80 p-4 justify-between self-end'>
+									{selectedId == id ? <div className='animate-[fade-in-up_0.5s_ease-in-out] bg-gradient-to-t from-gray-400 to-transparent absolute bottom-0 flex flex-col w-full h-52 gap-2 bg-opacity-80 p-4 justify-between self-end'>
 										<div className='flex flex-col gap-2'>
 											<div className='font-bold'>{title}</div>
 											<div>{description}</div>

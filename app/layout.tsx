@@ -21,6 +21,9 @@ export default function RootLayout({ children, }: {
 					{children}
 					<Footer />
 				</ThemeRegistry>
+				<script
+					type="text/javascript"
+					src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js" async />
 			</body>
 		</html>
 	);

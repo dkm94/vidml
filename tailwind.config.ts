@@ -4,7 +4,12 @@ const config: Config = {
 	content: [
 		'./pages/**/*.{js,ts,jsx,tsx,mdx}',
 		'./components/**/*.{js,ts,jsx,tsx,mdx}',
-		'./app/**/*.{js,ts,jsx,tsx,mdx}'
+		'./app/**/*.{js,ts,jsx,tsx,mdx}',
+		'./node_modules/tw-elements/dist/js/**/*.js'
+	],
+	safelist: [
+		'animate-[fade-in-up_1s_ease-in-out]',
+		'animate-[fade-out-down_1s_ease-in-out]'
 	],
 	theme: {
 		extend: {
@@ -22,6 +27,8 @@ const config: Config = {
 			fontFamily: { mono: [ 'var(--font-cardo)' ], }
 		}, 
 	},
-	plugins: [],
+	plugins: [
+		require('tw-elements/dist/plugin.cjs')
+	],
 };
 export default config;
