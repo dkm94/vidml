@@ -19,6 +19,7 @@ const config: Config = {
 				'contact-bg': 'url("/assets/bg-4.jpg")',
 				'header-bg': 'url("/assets/section-bg.png")' 
 			},
+			fontFamily: { mono: [ 'var(--font-cardo)' ], }
 		}, 
 	},
 	plugins: [],

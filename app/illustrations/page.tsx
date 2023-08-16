@@ -5,7 +5,7 @@ import { PageContent, PageHeader } from '@/components';
 const IllustrationsPage = () => {
 
 	const titleToArray = (title: string): React.ReactNode => {
-		return title.split(' ').map((word: string) => <><span key={word}>{word}</span><br /></>);
+		return title.split(' ').map((word: string) => <><span className='text-xl' key={word}>{word}</span><br /></>);
 	};
 
 	return (
@@ -14,7 +14,7 @@ const IllustrationsPage = () => {
 			<PageContent>
 				<div className={'bg-illustrations-bg content-bg'} aria-hidden="true" />
 				<div className='relative'>
-					<span className='content-[""] absolute left-2/4 w-1 h-full bg-slate-900' aria-hidden="true"></span>
+					<span className='content-[""] absolute left-2/4 w-[1px] h-full bg-slate-900' aria-hidden="true"></span>
 					<ul className='relative py-8 flex flex-col gap-10'>
 						{illustrations.map(({ id, title }, index) => {
 							return <li key={id} className="relative flex odd:flex-row odd:text-right even:flex-row-reverse even:text-left">
