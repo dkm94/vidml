@@ -7,10 +7,17 @@ export interface SquareComponentsProps {
     text: string;
 }
 
-export type Illustration = {
-    id: string;
+type Image = {
+    id: string | number;
     title: string;
     description?: string;
+    url: string;
+}
+
+export type Gallery = {
+    id: string;
+    title: string;
+    images?: Image[];
 }
 
 export interface PageHeaderProps {
