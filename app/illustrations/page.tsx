@@ -4,7 +4,7 @@ import { PageContent, PageHeader } from '@/components';
 
 const IllustrationsPage = () => {
 
-	const titleToArray = (title): string[] => {
+	const titleToArray = (title: string): React.ReactNode => {
 		return title.split(' ').map((word: string) => <><span key={word}>{word}</span><br /></>);
 	};
 
