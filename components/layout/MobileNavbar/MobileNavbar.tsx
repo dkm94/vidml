@@ -42,10 +42,10 @@ const MobileNavbar = () => {
 				<li className="navbar__item block md:hidden slideDown-1">
 					<Link
 						className="px-[5px] text-gray-50 no-underline block p-4 bg-inherit uppercase text-[5vw]"
-						href="/collections"
+						href="/illustrations"
 						onClick={() => setShowLinks(!showLinks)}
 					>
-            Collections
+            Illustrations
 					</Link>
 				</li>
 				<li className="navbar__item block md:hidden slideDown-1">
