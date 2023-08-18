@@ -27,3 +27,15 @@ export interface PageHeaderProps {
 export interface PageContentProps {
     children: React.ReactNode;
 }
+
+export type NavLink = {
+    title: string;
+    path: string;
+}
+export interface NavLinkProps {
+    key: number;
+    title: string;
+    path: string;
+    setShowLinks: (showLinks: boolean) => void;
+    showLinks: boolean;
+}

@@ -1,4 +1,4 @@
-import { Gallery } from '@/types';
+import { Gallery, NavLink } from '@/types';
 import { ThemeOptions } from '@mui/material';
 
 export const themeOptions: ThemeOptions = {
@@ -7,6 +7,29 @@ export const themeOptions: ThemeOptions = {
 	typography: {}
 
 };
+
+export const navlinks: NavLink[] = [
+	{
+		title: 'Home',
+		path: '/'
+	},
+	{
+		title: 'Illustrations',
+		path: '/illustrations'
+	},
+	{
+		title: 'Services',
+		path: '/services'
+	},
+	{
+		title: 'About me',
+		path: '/about'
+	},
+	{
+		title: 'Contact',
+		path: '/contact'
+	}
+];
 
 export const galleries: Gallery[] = [
 	{

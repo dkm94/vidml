@@ -1,7 +1,6 @@
 'use client';
 
 import { SquareComponent } from '@/components';
-import React from 'react';
 
 export default function Home() {
 	const videoURL = 'https://res.cloudinary.com/dbj8kfftk/video/upload/v1692029954/smoke_tmttji.mp4';

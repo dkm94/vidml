@@ -1,6 +1,5 @@
 
 .navbar__links {
-    display: flex;
     margin-bottom: 0;
     flex-direction: column;
     justify-content: center;
@@ -11,7 +10,7 @@
     right: -100vw;
     bottom: 0;
     width: 0;
-    height: 94vh;
+    /* height: 94vh; */
     padding: 2rem;
     background: #1b1b1a;
     transition: all .8s ease-out;
@@ -61,9 +60,9 @@
 .navbar__item:last-child::after {
     display: none;
 }
-.navbar__item {
+/* .navbar__item {
     transform: translateY(100vh);
-}
+} */
 .show_nav .navbar__item {
     transform: translateY(0);
 }

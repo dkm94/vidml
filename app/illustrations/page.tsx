@@ -1,4 +1,3 @@
-import React from 'react';
 import { galleries } from '@/constants';
 import { PageContent, PageHeader } from '@/components';
 import Link from 'next/link';

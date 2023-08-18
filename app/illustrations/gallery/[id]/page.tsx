@@ -1,6 +1,5 @@
 'use client';
 
-import React, { useState } from 'react';
 import Image from 'next/image';
 import { cardo } from '@/app/fonts';
 
@@ -42,7 +41,7 @@ const GalleryPage = ({ params }: GalleryPageProps) => {
 				<div className={'bg-contact-bg content-bg'} aria-hidden="true" />
 				<div className='relative'>
 					{filteredGallery?.map((gallery, index) => (
-						<div key={index} className='grid grid-cols-1 gap-2'>
+						<div key={index} className='grid grid-cols-1 gap-2 sm:grid-cols-2'>
 							{gallery?.images?.map(({ title, description, url, id }, index) => 
 								<div key={index} className='relative'>
 									<Image src={url} alt={title} className='w-full h-full object-cover' width={200} height={300} />

@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 
 import InstagramIcon from '@mui/icons-material/Instagram';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';

@@ -28,8 +28,12 @@ body {
   @apply w-full h-fit bg-[theme('colors.vlBeige')];
 }
 
+.navigation {
+  @apply sticky top-0 z-[1000] bg-[theme('colors.vlBeige')]
+}
+
 .navbar {
-  @apply flex justify-between w-full z-[999] items-center text-gray-500 flex-wrap h-16 sticky py-0 px-8 bg-[theme('colors.vlBeige')]
+  @apply max-w-[1175px] m-auto flex justify-between w-full items-center text-gray-500 flex-wrap h-16 py-0 px-8 
 }
 
 .square-title {
@@ -37,5 +41,5 @@ body {
 }
 
 .content-bg {
-  @apply  bg-fixed absolute top-0 bottom-0 left-0 right-0 content-[""] opacity-40;
+  @apply  bg-fixed bg-cover absolute top-0 bottom-0 left-0 right-0 content-[""] opacity-40;
 }
