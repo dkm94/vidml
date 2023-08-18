@@ -43,3 +43,7 @@ body {
 .content-bg {
   @apply  bg-fixed bg-cover absolute top-0 bottom-0 left-0 right-0 content-[""] opacity-40;
 }
+
+.navlink > .navbar__item > .navlink-a {
+  font-family: "Inria", serif;
+}

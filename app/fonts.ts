@@ -1,4 +1,4 @@
-import { Bebas_Neue, Cardo } from 'next/font/google';
+import { Bebas_Neue, Cardo, Inria_Serif } from 'next/font/google';
 
 export const bebasNeue = Bebas_Neue({
 	subsets: [ 'latin' ],
@@ -12,4 +12,11 @@ export const cardo = Cardo({
 	weight: [ '400', '700' ],
 	display: 'swap',
 	variable: '--font-cardo'
+});
+
+export const inria = Inria_Serif({
+	subsets: [ 'latin' ],
+	weight: [ '300' ],
+	display: 'swap',
+	variable: '--font-inria'
 });
