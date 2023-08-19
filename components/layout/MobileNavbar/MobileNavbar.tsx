@@ -18,7 +18,7 @@ const MobileNavbar = () => {
 	};
 	
 	return (
-		<nav className='navigation lg:border-b lg:border-slate-900'>
+		<nav className='navigation'>
 			<div className={`navbar ${ showLinks ? 'show_nav' : '' }`}>
 				<button className="w-5 h-3 bg-transparent lg:hidden border-none block z-[1000] cursor-pointer" onClick={handleShowLinks}>
 					<span className="burger_bar"></span>

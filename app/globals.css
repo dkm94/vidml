@@ -47,3 +47,11 @@ body {
 .navlink > .navbar__item > .navlink-a {
   font-family: "Inria", serif;
 }
+
+.text-nowrap {
+  text-wrap: nowrap;
+}
+
+.center-child {
+  @apply top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+}

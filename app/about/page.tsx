@@ -16,7 +16,7 @@ const AboutPage = () => {
 					</div>
 					<div className='relative md:w-1/2'>
 						<div className='absolute bg-white opacity-50 w-full h-full' aria-hidden="true"/>
-						<div className='relative px-5 py-10 flex flex-col gap-6'>
+						<div className='relative px-10 py-16 flex flex-col gap-6'>
 							<h2 className='text-center text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl'>Who am I ?</h2>
 							{introduction.map((text, index) => <p key={index}>{text}</p>)}
 						</div>
