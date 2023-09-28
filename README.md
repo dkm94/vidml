@@ -20,7 +20,7 @@
 
 ## Visuals
 
-<div align="center"> 
+<div> 
     <img src="public/readme-assets/home.png" alt="home page" height="500" width="auto">
     <img src="public/readme-assets/about.png" alt="home page" height="500" width="auto">
     <img src="public/readme-assets/contact.png" alt="home page" height="500" width="auto">
