@@ -3,7 +3,7 @@
 import { SquareComponent } from '@/components';
 
 export default function Home() {
-	const videoURL = 'https://res.cloudinary.com/dbj8kfftk/video/upload/v1692029954/smoke_tmttji.mp4';
+	const videoURL: string = 'https://res.cloudinary.com/dbj8kfftk/video/upload/v1692029954/smoke_tmttji.mp4';
 
 	return (
 		<main className="overflow-hidden relative h-[94vh]">
