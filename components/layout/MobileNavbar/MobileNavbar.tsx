@@ -1,26 +1,28 @@
 'use client';
 
-import React, { ReactNode, useState } from 'react';
-// import { Link } from 'react-router-dom';
-import Image from 'next/image';
-import { navlinks } from '@/constants';
-
 import './MobileNavbar.css';
-import Navlink from '@/components/Navlink';
+
+import React, { FC, ReactNode } from 'react';
+import Image from 'next/image';
+
+import { navlinks } from '@/constants';
 import { NavLink } from '@/types';
+import Navlink from '@/components/Navlink';
 
-const MobileNavbar = () => {
 
-	const [ showLinks, setShowLinks ] = useState<boolean>(false);
+interface MobileNavbarProps {
+	handleShowLinks: () => void;
+	showLinks: boolean;
+	path: string;
+	setShowLinks: (showLinks: boolean) => void;
+};
 
-	const handleShowLinks = (): void => {
-		setShowLinks(!showLinks);
-	};
+const MobileNavbar: FC<MobileNavbarProps> = ({ handleShowLinks, showLinks, setShowLinks, path }) => {
 	
 	return (
 		<nav className='navigation'>
 			<div className={`navbar ${ showLinks ? 'show_nav' : '' }`}>
-				<button className="w-5 h-3 bg-transparent lg:hidden border-none block z-[1000] cursor-pointer" onClick={handleShowLinks}>
+				<button className={`${ path === '/' ? 'hidden' : '' } w-5 h-3 bg-transparent lg:hidden border-none block z-[1000] cursor-pointer`} onClick={handleShowLinks}>
 					<span className="burger_bar"></span>
 				</button>
 				<div className='navlink hidden lg:flex m-auto'>
@@ -44,6 +46,8 @@ const MobileNavbar = () => {
 					<Navlink key={4} title={navlinks[ 4 ].title} path={navlinks[ 4 ].path} setShowLinks={setShowLinks} showLinks={showLinks} />
 				</div>
 				<ul className="navbar__links flex lg:hidden">
+					{/* <button className='top-6 absolute right-8' onClick={handleShowLinks}>Close</button> */}
+
 					{navlinks.map((link: NavLink, index: number): ReactNode => {
 						return <Navlink key={index} title={link.title} path={link.path} setShowLinks={setShowLinks} showLinks={showLinks} />;
 					})}
