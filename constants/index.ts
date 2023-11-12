@@ -10,7 +10,7 @@ export const themeOptions: ThemeOptions = {
 
 export const navlinks: NavLink[] = [
 	{
-		title: 'Home',
+		title: 'Accueil',
 		path: '/'
 	},
 	{
@@ -22,7 +22,7 @@ export const navlinks: NavLink[] = [
 		path: '/services'
 	},
 	{
-		title: 'About me',
+		title: 'À propos',
 		path: '/about'
 	},
 	{

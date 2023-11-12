@@ -5,9 +5,7 @@ const ServicesPage = () => {
 		<main className='services flex flex-col gap-2'>
 			<PageHeader title='Services'/>
 			<PageContent>
-				<div className={'bg-services-bg content-bg'} aria-hidden="true" />
-				<div className='relative'>
-				</div>
+				<div>Text</div>
 			</PageContent>
 		</main>
 	);

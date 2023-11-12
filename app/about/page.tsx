@@ -5,10 +5,9 @@ import Image from 'next/image';
 const AboutPage = () => {
 	return (
 		<main className='about flex flex-col gap-2'>
-			<PageHeader title='About me'/>
+			<PageHeader title='À propos'/>
 			<PageContent>
-				<div className={'bg-about-bg content-bg'} aria-hidden="true" />
-				<div className='relative flex flex-col md:flex-row max-w-[1175px] m-auto gap-4'>
+				<div className='flex flex-col md:flex-row max-w-[1175px] m-auto gap-4'>
 					<div className='md:w-1/2'>
 						<div className='border-solid border-white border flex justify-center p-5'>
 							<Image src={'/assets/portrait.jpg'} alt="portrait" width={300} height={200} className='w-full h-auto object-cover max-h-[500px]' />

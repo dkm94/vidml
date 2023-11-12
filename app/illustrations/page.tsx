@@ -12,7 +12,6 @@ const IllustrationsPage = () => {
 		<main className='illustrations flex flex-col gap-2'>
 			<PageHeader title='Illustrations' />
 			<PageContent>
-				<div className={'bg-illustrations-bg content-bg'} aria-hidden="true" />
 				<div className='relative'>
 					<span className='content-[""] absolute left-2/4 w-[1px] h-full bg-slate-900' aria-hidden="true"></span>
 					<ul className='relative py-8 flex flex-col gap-10'>

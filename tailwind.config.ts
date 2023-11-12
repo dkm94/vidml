@@ -19,6 +19,7 @@ const config: Config = {
 				black: '#212121' 
 			},
 			backgroundImage: {
+				'default': 'url("/assets/background.jpg")',
 				'illustrations-bg': 'url("/assets/bg-2.jpg")',
 				'services-bg': 'url("/assets/bg-1.jpg")',
 				'about-bg': 'url("/assets/bg-3.jpg")',

@@ -37,7 +37,6 @@ const GalleryPage = ({ params }: GalleryPageProps) => {
 				<h2 className='text-center'>{filteredGallery[ 0 ].title}</h2>
 			</div>
 			<PageContent>
-				<div className={'bg-contact-bg content-bg'} aria-hidden="true" />
 				<div className='relative'>
 					{filteredGallery?.map((gallery, index) => (
 						<div key={index} className='grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3'>
