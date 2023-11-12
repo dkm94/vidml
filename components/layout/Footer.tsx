@@ -8,9 +8,9 @@ import Link from 'next/link';
 const Footer = () => {
 	return (
 		<footer className='footer flex justify-center mt-2'>
-			<div className='md:flex md:flex-row md:relative pl-12 pr-12 max-w-[1170px] w-full'>
-				<div className='text-center text-red-50 py-4 flex flex-col md:flex-row gap-4'>
-					<span className='uppercase text-nowrap md:self-center md:text-xs'>Get in touch</span>
+			<div className='md:flex md:flex-row md:relative pl-12 pr-12 max-w-[1170px] w-full mt-4'>
+				<div className='text-center text-red-50 py-4 flex flex-row md:flex-row gap-4'>
+					<span className='uppercase text-nowrap md:self-center md:text-xs self-center font-neue tracking-wider'>Get in touch</span>
 					<div className='flex flex-wrap gap-2 justify-center w-full'>
 						<Link href='https://www.instagram.com/vidml.illustration/' target="_blank">
 							<IconButton className='md:h-[24px] md:w-[24px] md:p-4' style={{ backgroundColor: '#FFFDFB' }} >
@@ -23,11 +23,11 @@ const Footer = () => {
 							</IconButton>
 						</Link>
 					</div>
-					<div className='flex justify-center md:hidden'><hr className='bg-orange-50 mt-2 w-[205px]' /></div>
+					{/* <div className='flex justify-center md:hidden'><hr className='bg-orange-50 mt-2 w-[205px]' /></div> */}
 				</div>
 			
 				<div className='text-center text-red-50 py-4 ml-auto mr-auto md:absolute md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2'>
-					<span className='text-xs'>Copyright 2023 - </span><a className='text-xs' target="_blank" href="https://github.com/dkm94">DKM</a>
+					<span className='text-xs font-semibold'>Copyright © 2023 </span><a className='text-xs font-semibold' target="_blank" href="https://github.com/dkm94">DKM</a>
 				</div>
 			</div>
 		</footer>

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -40,11 +41,15 @@ body {
   font-family: 'Bebas Neue', sans-serif;
 }
 
+.font-neue {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
 .content-bg {
   @apply  bg-fixed bg-cover absolute top-0 bottom-0 left-0 right-0 content-[""] opacity-40;
 }
 
-.navlink > .navbar__item > .navlink-a, footer {
+.navlink > .navbar__item > .navlink-a {
   font-family: "Inria", serif;
 }
 
@@ -54,4 +59,16 @@ body {
 
 .center-child {
   @apply top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+}
+
+.text-shadow {
+  text-shadow: 4px -2px 4px rgba(31,13,8,0.61);
+}
+
+.menu-shadow {
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  -webkit-text-stroke-width: 0.15px; 
+  -webkit-text-stroke-color: #FFFDFB; 
+  /* text-shadow: 0 1px 1px #969795, -1px 0px 1px #e4e8e3, -1px 1px 0px #C5C9C3; */
 }

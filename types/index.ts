@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 
 export interface SquareComponentsProps {
     isLink: boolean;
@@ -36,6 +37,14 @@ export interface NavLinkProps {
     key: number;
     title: string;
     path: string;
-    setShowLinks: (showLinks: boolean) => void;
-    showLinks: boolean;
+    setShowLinks: () => void;
 }
+
+export interface HomeProps {
+	handleClick: () => void;
+	hidden: string;
+};
+
+export interface LayoutProps {
+	children: ReactNode | undefined;
+  };
