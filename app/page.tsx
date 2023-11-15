@@ -1,35 +1,20 @@
 'use client';
 
-import React, { FC, useEffect } from 'react';
+import React, { FC, useContext } from 'react';
 
 import { HomeProps } from '@/types';
 
 import Video from '@/components/video/Video';
+import { WindowWidthContext } from './layout';
 
 const Home: FC<HomeProps> = (props: HomeProps) => {
 	const { handleClick, hidden } = props;
 
 	// const videoURL: string = 'https://res.cloudinary.com/dbj8kfftk/video/upload/v1699741540/vidml/home-video-mobile_g0eswj.mp4';
 	// const videoURlXL: string = 'https://res.cloudinary.com/dbj8kfftk/video/upload/v1699878936/vidml/generated-home_kusz4h.mp4';
-	
-	const [ width, setWidth ] = React.useState<number>(0);
 
-	const isMobile = width < 815;
-	
-	const getWindowWidth = () => {
-		const w = window.outerWidth;
-		setWidth(w);
-	};
+	const { isMobile } = useContext(WindowWidthContext);
 
-	useEffect(() => {
-		getWindowWidth();
-		window.addEventListener('resize', getWindowWidth);
-		return () => {
-			window.removeEventListener('resize', getWindowWidth);
-		};
-		
-	}, []);
-	
 	return (
 		<div>
 			<main className="overflow-hidden relative h-[94vh]">

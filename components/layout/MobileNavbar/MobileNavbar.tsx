@@ -6,14 +6,8 @@ import React, { FC, ReactNode } from 'react';
 import Image from 'next/image';
 
 import { navlinks } from '@/constants';
-import { NavLink } from '@/types';
+import { NavLink, MobileNavbarProps } from '@/types';
 import Navlink from '@/components/Navlink';
-
-interface MobileNavbarProps {
-	handleShowLinks: () => void;
-	showLinks: boolean;
-	path: string;
-};
 
 const MobileNavbar: FC<MobileNavbarProps> = ({ handleShowLinks, showLinks, path }) => {
 	

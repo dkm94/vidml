@@ -52,3 +52,16 @@ export interface LayoutProps {
 export interface VideoProps {
     src: string;
 }
+
+export interface MobileNavbarProps {
+	handleShowLinks: () => void;
+	showLinks: boolean;
+	path: string;
+};
+
+export interface DesktopNavbarProps extends MobileNavbarProps {
+};
+
+export interface IWindowWidthContextProps {
+    isMobile: boolean | undefined;
+}
