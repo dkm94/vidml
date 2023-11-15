@@ -10,7 +10,7 @@ const Footer = () => {
 		<footer className='footer flex justify-center mt-2'>
 			<div className='md:flex md:flex-row md:relative pl-12 pr-12 max-w-[1170px] w-full mt-4'>
 				<div className='text-center text-red-50 py-4 flex flex-row md:flex-row gap-4'>
-					<span className='uppercase text-nowrap md:self-center md:text-xs self-center font-neue tracking-wider'>contactez-moi</span>
+					<span className='uppercase text-nowrap md:self-center md:text-xs self-center'>contactez-moi</span>
 					<div className='flex flex-wrap gap-2 justify-center w-full'>
 						<Link href='https://www.instagram.com/vidml.illustration/' target="_blank">
 							<IconButton className='md:h-[24px] md:w-[24px] md:p-4' style={{ backgroundColor: '#FFFDFB' }} >

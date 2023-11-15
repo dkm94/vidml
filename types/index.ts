@@ -48,3 +48,7 @@ export interface HomeProps {
 export interface LayoutProps {
 	children: ReactNode | undefined;
   };
+
+export interface VideoProps {
+    src: string;
+}
