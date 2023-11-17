@@ -20,7 +20,7 @@ const DesktopNavbar: FC<DesktopNavbarProps> = ({ handleShowLinks, showLinks, pat
 			<Logo background="bg-white" height='h-fit' width="w-full" />
 			<ul className="flex flex-col p-8 gap-y-4">
 				{navlinks.map((link: NavLink, index: number): ReactNode => {
-					return <Link className={`text-white uppercase ${ inter.className }`} key={index} href={link.path} >{link.title}</Link>;
+					return <Link className={`nav-link w-[100px] text-white uppercase text-base 2xl:text-xs ${ inter.className }`} key={index} href={link.path} >{link.title}</Link>;
 				})}
 			</ul>
 			<div className='absolute bottom-40 p-8 w-full flex flex-row gap-4'>

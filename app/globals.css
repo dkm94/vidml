@@ -76,3 +76,12 @@ body {
   -webkit-text-stroke-color: #FFFDFB; 
   /* text-shadow: 0 1px 1px #969795, -1px 0px 1px #e4e8e3, -1px 1px 0px #C5C9C3; */
 }
+
+.nav-link {
+  transition: transform .3s ease-out;
+}
+.nav-link:hover {
+  font-weight: bolder !important;
+  font-size: 1rem;
+  transform: scale(1.3) translateX(16px);
+}

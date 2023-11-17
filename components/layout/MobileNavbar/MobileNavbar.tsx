@@ -10,7 +10,6 @@ import Navlink from '@/components/Navlink';
 import { Logo } from '@/components';
 
 const MobileNavbar: FC<MobileNavbarProps> = ({ handleShowLinks, showLinks, path, windowWidth }) => {
-	console.log('🚀 ~ file: MobileNavbar.tsx:13 ~ windowWidth:', windowWidth);
 	
 	return (
 		<nav className='navigation'>
