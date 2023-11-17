@@ -19,7 +19,7 @@ const Home: FC<HomeProps> = (props: HomeProps) => {
 
 	return (
 		<div className={`${ !isMobile && 'w-full' }`}>
-			<main className={`overflow-hidden relative ${ isMobile ? 'h-[94vh]' : 'h-[100vh]' }`}>
+			<main className={`overflow-hidden relative ${ isMobile ? 'h-[94vh]' : 'h-[100vh]' } bg-[#09080B]`}>
 				{isNotLarge && <button type='button' className={`z-[1000] absolute top-[94%] left-1/2 translate-y-[-50%] translate-x-[-50%] square-title width-base width-gray-900 menu-shadow ${ hidden }`} onClick={handleClick}>Menu</button>}
 				<div className="absolute top-0 left-0 w-full h-full z-[99]" />
 				{isMobile && (

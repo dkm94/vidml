@@ -1,11 +1,17 @@
+import Image from 'next/image';
+import { Divider } from '@mui/material';
+
 import { PageContent, PageHeader } from '@/components';
 import { introduction } from '@/constants';
-import Image from 'next/image';
 
 const AboutPage = () => {
 	return (
-		<main className='about flex flex-col gap-2'>
+		<main className='h-full about flex flex-col bg-[#09080B]'>
 			<PageHeader title='À propos'/>
+			<Divider style={{
+				height: '1px',
+				background: '#FFFFFF' 
+			}} />
 			<PageContent>
 				<div className='flex flex-col md:flex-row max-w-[1175px] m-auto gap-4'>
 					<div className='md:w-1/2'>

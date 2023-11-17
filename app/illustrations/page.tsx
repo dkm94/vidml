@@ -1,6 +1,8 @@
+import Link from 'next/link';
+import { Divider } from '@mui/material';
+
 import { galleries } from '@/constants';
 import { PageContent, PageHeader } from '@/components';
-import Link from 'next/link';
 
 const IllustrationsPage = () => {
 
@@ -9,8 +11,12 @@ const IllustrationsPage = () => {
 	};
 
 	return (
-		<main className='illustrations flex flex-col gap-2'>
+		<main className='illustrations h-full flex flex-col bg-[#09080B]'>
 			<PageHeader title='Illustrations' />
+			<Divider style={{
+				height: '1px',
+				background: '#FFFFFF' 
+			}} />
 			<PageContent>
 				<div className='relative'>
 					<span className='content-[""] absolute left-2/4 w-[1px] h-full bg-slate-900' aria-hidden="true"></span>

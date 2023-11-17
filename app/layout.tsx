@@ -60,20 +60,20 @@ export const RootLayout: FunctionComponent<LayoutProps> = ( props: LayoutProps )
 
 	return (
 		<html lang="fr" className={`${ cardo.variable } ${ inria.variable } ${ bebasNeue.variable }`}>
-			<body>
+			<body className={width > 815 ? 'min-h-[100vh]' : ''}>
 				<ThemeRegistry options={{ key: 'mui' }}>
 					<WindowWidthContext.Provider value={{
 						isMobile,
 						isTablet,
 						isDesktop,
 						isLarge,
-						isNotLarge
+						isNotLarge,
 					}}>
 						{isNotLarge && <MobileNavbar handleShowLinks={handleShowLinks} showLinks={showLinks} path={pathname} windowWidth={width} />}
 						<div className={isNotLarge ? 'relative' : 'flex flex-row'}>
 							{width > 815 && <DesktopNavbar handleShowLinks={handleShowLinks} showLinks={showLinks} path={pathname} />}
 							{ pathname === '/' && <Home handleClick={handleShowLinks} hidden={hidden} /> }
-							{ pathname !== '/' && children }
+							{ pathname !== '/' && <div className='min-h-[100vh] bg-slate-50 w-full'>{children}</div>}
 						</div>
 						{isNotLarge && <Footer />}
 					</WindowWidthContext.Provider>

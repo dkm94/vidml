@@ -20,11 +20,9 @@ const config: Config = {
 			},
 			backgroundImage: {
 				'default': 'url("/assets/background.jpg")',
-				'illustrations-bg': 'url("/assets/bg-2.jpg")',
-				'services-bg': 'url("/assets/bg-1.jpg")',
-				'about-bg': 'url("/assets/bg-3.jpg")',
-				'contact-bg': 'url("/assets/bg-4.jpg")',
-				'header-bg': 'url("/assets/section-bg.png")' 
+				'background-section-sm': 'url("/assets/background-section/sm.jpg")',
+				'background-section-md': 'url("/assets/background-section/md.jpg")',
+				'background-section-hd': 'url("/assets/background-section/hd.jpg")',
 			},
 			fontFamily: {
 				cardo: [ 'var(--font-cardo)' ],
