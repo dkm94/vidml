@@ -9,7 +9,8 @@ import { NavLink, MobileNavbarProps } from '@/types';
 import Navlink from '@/components/Navlink';
 import { Logo } from '@/components';
 
-const MobileNavbar: FC<MobileNavbarProps> = ({ handleShowLinks, showLinks, path }) => {
+const MobileNavbar: FC<MobileNavbarProps> = ({ handleShowLinks, showLinks, path, windowWidth }) => {
+	console.log('🚀 ~ file: MobileNavbar.tsx:13 ~ windowWidth:', windowWidth);
 	
 	return (
 		<nav className='navigation'>
@@ -23,7 +24,7 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ handleShowLinks, showLinks, path 
 				<div className='navlink hidden lg:flex m-auto'>
 					<Navlink key={2} title={navlinks[ 2 ].title} path={navlinks[ 2 ].path} setShowLinks={handleShowLinks} />
 				</div>
-				<Logo background="transparent" height='h-full' width='w-fit' />
+				<Logo background="transparent" height='h-full' width='w-fit' windowWidth={windowWidth} />
 				<div className='navlink hidden lg:flex m-auto'>
 					<Navlink key={3} title={navlinks[ 3 ].title} path={navlinks[ 3 ].path} setShowLinks={handleShowLinks} />
 				</div>

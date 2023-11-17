@@ -4,15 +4,15 @@ import { usePathname } from 'next/navigation';
 import { ILogoProps } from '@/types';
 import { WindowWidthContext } from '@/app/layout';
 
-const Logo: FC<ILogoProps> = ({ background, height, width }) => {
+const Logo: FC<ILogoProps> = ({ background, height, width, windowWidth }) => {
 	// const pathname = usePathname();
 
 	const windowWidthContext = useContext(WindowWidthContext);
-	const isMobile = windowWidthContext?.isMobile ?? false;
+	const isNotLarge = windowWidthContext?.isNotLarge ?? false;
 
 	return (
 		<div
-			className={`cursor-pointer ml-auto mr-auto p-4 flex justify-center items-center ${ background } ${ height } ${ width } ${ !isMobile ? 'absolute top-[120px]' : '' }`}
+			className={`cursor-pointer ml-auto mr-auto p-4 flex justify-center items-center ${ background } ${ height } ${ width } ${ !isNotLarge ? 'absolute top-[120px]' : '' }`}
 			onClick={() => {
 				window.location.pathname = '/';
 			}}

@@ -30,7 +30,11 @@ export const RootLayout: FunctionComponent<LayoutProps> = ( props: LayoutProps )
 	const [ pace, setPace ] = useState<number>(500);
 	const [ hidden, setHidden ] = useState<string>('');
 
-	const isMobile: boolean | undefined = width < 815;
+	const isMobile: boolean | undefined = width < 500;
+	const isTablet: boolean | undefined = width > 500 && width < 815;
+	const isDesktop: boolean | undefined = width > 815 && width < 1024;
+	const isLarge: boolean | undefined = width > 1024;
+	const isNotLarge: boolean | undefined = width < 815;
 
 	const handleShowLinks = (): void => {
 		setShowLinks(!showLinks);
@@ -58,14 +62,20 @@ export const RootLayout: FunctionComponent<LayoutProps> = ( props: LayoutProps )
 		<html lang="fr" className={`${ cardo.variable } ${ inria.variable } ${ bebasNeue.variable }`}>
 			<body>
 				<ThemeRegistry options={{ key: 'mui' }}>
-					<WindowWidthContext.Provider value={{ isMobile }}>
-						{isMobile && <MobileNavbar handleShowLinks={handleShowLinks} showLinks={showLinks} path={pathname} />}
-						<div className={isMobile ? 'relative' : 'flex flex-row'}>
-							{!isMobile && <DesktopNavbar handleShowLinks={handleShowLinks} showLinks={showLinks} path={pathname} />}
+					<WindowWidthContext.Provider value={{
+						isMobile,
+						isTablet,
+						isDesktop,
+						isLarge,
+						isNotLarge
+					}}>
+						{isNotLarge && <MobileNavbar handleShowLinks={handleShowLinks} showLinks={showLinks} path={pathname} windowWidth={width} />}
+						<div className={isNotLarge ? 'relative' : 'flex flex-row'}>
+							{width > 815 && <DesktopNavbar handleShowLinks={handleShowLinks} showLinks={showLinks} path={pathname} />}
 							{ pathname === '/' && <Home handleClick={handleShowLinks} hidden={hidden} /> }
 							{ pathname !== '/' && children }
 						</div>
-						{isMobile && <Footer />}
+						{isNotLarge && <Footer />}
 					</WindowWidthContext.Provider>
 				</ThemeRegistry>
 				<script

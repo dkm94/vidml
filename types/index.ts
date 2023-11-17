@@ -57,6 +57,7 @@ export interface MobileNavbarProps {
 	handleShowLinks: () => void;
 	showLinks: boolean;
 	path: string;
+    windowWidth?: number;
 };
 
 export interface DesktopNavbarProps extends MobileNavbarProps {
@@ -64,12 +65,17 @@ export interface DesktopNavbarProps extends MobileNavbarProps {
 
 export interface IWindowWidthContextProps {
     isMobile: boolean | null;
+    isTablet: boolean | null;
+    isDesktop: boolean | null
+    isLarge: boolean | null;
+    isNotLarge: boolean | null;
 }
 
 export interface ILogoProps {
     background: string; 
     height: string;
     width: string;
+    windowWidth?: number;
 }
 
 export interface ISocialButtonProps {

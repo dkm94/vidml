@@ -9,12 +9,12 @@ import { WindowWidthContext } from '@/app/layout';
 const Footer = () => {
 
 	const windowWidthContext = useContext(WindowWidthContext);
-	const isMobile = windowWidthContext?.isMobile ?? false;
+	const isNotLarge = windowWidthContext?.isNotLarge ?? false;
 	
 	return (
 		<footer className='footer flex justify-center mt-2'>
 			<div className='md:flex md:flex-row md:relative pl-12 pr-12 max-w-[1170px] w-full mt-4'>
-				{isMobile && <div className='text-center text-red-50 py-4 flex flex-row md:flex-row gap-4'>
+				{isNotLarge && <div className='text-center text-red-50 py-4 flex flex-row md:flex-row gap-4'>
 					<span className='uppercase text-nowrap md:self-center md:text-xs self-center'>contactez-moi</span>
 					<div className='flex flex-wrap gap-2 justify-center w-full'>
 						<SocialButton path='https://www.instagram.com/vidml.illustration/' icon={<InstagramIcon />} />
