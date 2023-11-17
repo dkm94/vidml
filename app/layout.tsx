@@ -11,13 +11,14 @@ import { IWindowWidthContextProps, LayoutProps } from '@/types';
 import { Footer, MobileNavbar } from '@/components/layout';
 import ThemeRegistry from '../theme/ThemeRegistry';
 import Home from './page';
+import DesktopNavbar from '@/components/layout/DesktopNavbar/DesktopNavbar';
 
 export const metadata: Metadata = {
 	title: 'ViDML | Gallery',
 	description: 'Portfolio of ViDML',
 };
 
-export const WindowWidthContext: React.Context<Record<string, boolean>> = createContext({});
+export const WindowWidthContext = createContext<IWindowWidthContextProps | null>(null);
 
 export const RootLayout: FunctionComponent<LayoutProps> = ( props: LayoutProps ) => {
 	
@@ -58,10 +59,13 @@ export const RootLayout: FunctionComponent<LayoutProps> = ( props: LayoutProps )
 			<body>
 				<ThemeRegistry options={{ key: 'mui' }}>
 					<WindowWidthContext.Provider value={{ isMobile }}>
-						<MobileNavbar handleShowLinks={handleShowLinks} showLinks={showLinks} path={pathname} />
-						{ pathname === '/' && <Home handleClick={handleShowLinks} hidden={hidden} /> }
-						{ pathname !== '/' && children }
-						<Footer />
+						{isMobile && <MobileNavbar handleShowLinks={handleShowLinks} showLinks={showLinks} path={pathname} />}
+						<div className={isMobile ? 'relative' : 'flex flex-row'}>
+							{!isMobile && <DesktopNavbar handleShowLinks={handleShowLinks} showLinks={showLinks} path={pathname} />}
+							{ pathname === '/' && <Home handleClick={handleShowLinks} hidden={hidden} /> }
+							{ pathname !== '/' && children }
+						</div>
+						{isMobile && <Footer />}
 					</WindowWidthContext.Provider>
 				</ThemeRegistry>
 				<script

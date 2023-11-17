@@ -63,5 +63,16 @@ export interface DesktopNavbarProps extends MobileNavbarProps {
 };
 
 export interface IWindowWidthContextProps {
-    isMobile: boolean | undefined;
+    isMobile: boolean | null;
+}
+
+export interface ILogoProps {
+    background: string; 
+    height: string;
+    width: string;
+}
+
+export interface ISocialButtonProps {
+    path: string;
+    icon: ReactNode;
 }

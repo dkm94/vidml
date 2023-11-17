@@ -3,11 +3,11 @@
 import './MobileNavbar.css';
 
 import React, { FC, ReactNode } from 'react';
-import Image from 'next/image';
 
 import { navlinks } from '@/constants';
 import { NavLink, MobileNavbarProps } from '@/types';
 import Navlink from '@/components/Navlink';
+import { Logo } from '@/components';
 
 const MobileNavbar: FC<MobileNavbarProps> = ({ handleShowLinks, showLinks, path }) => {
 	
@@ -23,14 +23,7 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ handleShowLinks, showLinks, path 
 				<div className='navlink hidden lg:flex m-auto'>
 					<Navlink key={2} title={navlinks[ 2 ].title} path={navlinks[ 2 ].path} setShowLinks={handleShowLinks} />
 				</div>
-				<div
-					className="cursor-pointer h-full ml-auto mr-auto p-4"
-					onClick={() => {
-						window.location.pathname = '/';
-					}}
-				>
-					<Image src='/assets/logo.png' height={50} width={120} alt='logo' className='h-full object-contain' />
-				</div>
+				<Logo background="transparent" height='h-full' width='w-fit' />
 				<div className='navlink hidden lg:flex m-auto'>
 					<Navlink key={3} title={navlinks[ 3 ].title} path={navlinks[ 3 ].path} setShowLinks={handleShowLinks} />
 				</div>
