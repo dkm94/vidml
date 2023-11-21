@@ -34,7 +34,7 @@ export type NavLink = {
     path: string;
 }
 export interface NavLinkProps {
-    key: number;
+    id: number;
     title: string;
     path: string;
     setShowLinks: () => void;
