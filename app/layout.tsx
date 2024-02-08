@@ -25,28 +25,23 @@ export const RootLayout: FunctionComponent<LayoutProps> = ( props: LayoutProps )
 	const { children } = props;
 
 	const pathname: string = usePathname();
-	const [ width, setWidth ] = React.useState<number>(0);
+	const [ width, setWidth ] = useState<number>(window.outerWidth);
 	const [ showLinks, setShowLinks ] = useState<boolean>(false);
-	const [ pace, setPace ] = useState<number>(500);
-	const [ hidden, setHidden ] = useState<string>('');
 
-	const isMobile: boolean | undefined = width < 500;
-	const isTablet: boolean | undefined = width > 500 && width < 815;
-	const isDesktop: boolean | undefined = width > 815 && width < 1024;
-	const isLarge: boolean | undefined = width > 1024;
-	const isNotLarge: boolean | undefined = width < 815;
+	const isMobile: boolean = width < 500;
+	const isTablet: boolean = width > 500 && width < 815;
+	const isDesktop: boolean = width > 815 && width < 1024;
+	const isLarge: boolean = width > 1024;
 
-	const handleShowLinks = (): void => {
-		setShowLinks(!showLinks);
-		setPace(showLinks ? 500 : 350);
-		setTimeout(() => {
-			setHidden(showLinks ? '' : 'hidden');
-		}, pace);
-	};
+	const isNotDesktop = isMobile || isTablet;
+
+	const handleShowLinks = (): void => setShowLinks(!showLinks);
 
 	const getWindowWidth = () => {
 		const w = window.outerWidth;
-		setWidth(w);
+		if(typeof w !== 'undefined'){
+			setWidth(w);
+		}
 	};
 
 	useEffect(() => {
@@ -59,7 +54,7 @@ export const RootLayout: FunctionComponent<LayoutProps> = ( props: LayoutProps )
 	}, []);
 
 	return (
-		<html lang="fr" className={`${ cardo.variable } ${ inria.variable } ${ bebasNeue.variable }`}>
+		<html lang="fr" className={`${ cardo.variable } ${ inria.variable } ${ bebasNeue.variable }`} suppressHydrationWarning={true}>
 			<body className={width > 815 ? 'min-h-[100vh]' : ''}>
 				<ThemeRegistry options={{ key: 'mui' }}>
 					<WindowWidthContext.Provider value={{
@@ -67,15 +62,14 @@ export const RootLayout: FunctionComponent<LayoutProps> = ( props: LayoutProps )
 						isTablet,
 						isDesktop,
 						isLarge,
-						isNotLarge,
 					}}>
-						{isNotLarge && <MobileNavbar handleShowLinks={handleShowLinks} showLinks={showLinks} path={pathname} windowWidth={width} />}
-						<div className={isNotLarge ? 'relative' : 'flex flex-row'}>
+						{isNotDesktop && <MobileNavbar handleShowLinks={handleShowLinks} showLinks={showLinks} path={pathname} windowWidth={width} />}
+						<div className={isMobile || isTablet ? 'relative' : 'flex flex-row'}>
 							{width > 815 && <DesktopNavbar handleShowLinks={handleShowLinks} showLinks={showLinks} path={pathname} />}
-							{ pathname === '/' && <Home handleClick={handleShowLinks} hidden={hidden} /> }
-							{ pathname !== '/' && <div className='min-h-[100vh] bg-slate-50 w-full'>{children}</div>}
+							{ pathname === '/' && <Home handleClick={handleShowLinks} /> }
+							{ pathname !== '/' && <div className='min-h-[100vh] bg-[#09080B] w-full'>{children}</div>}
 						</div>
-						{isNotLarge && <Footer />}
+						{isMobile && <Footer />}
 					</WindowWidthContext.Provider>
 				</ThemeRegistry>
 				<script

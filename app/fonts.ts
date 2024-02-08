@@ -1,4 +1,4 @@
-import { Bebas_Neue, Cardo, Inria_Serif, Inter } from 'next/font/google';
+import { Bebas_Neue as Bebas_Neue, Cardo as Cardo, Inria_Serif as Inria_Serif, Inter as Inter } from 'next/font/google';
 
 export const bebasNeue = Bebas_Neue({
 	subsets: [ 'latin' ],

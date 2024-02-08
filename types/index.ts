@@ -15,10 +15,9 @@ type Image = {
     url: string;
 }
 
-export type Gallery = {
-    id: string;
-    title: string;
-    images?: Image[];
+export type IllustrationType = {
+    id: number;
+    url: string;
 }
 
 export interface PageHeaderProps {
@@ -42,7 +41,6 @@ export interface NavLinkProps {
 
 export interface HomeProps {
 	handleClick: () => void;
-	hidden: string;
 };
 
 export interface LayoutProps {
@@ -64,11 +62,10 @@ export interface DesktopNavbarProps extends MobileNavbarProps {
 };
 
 export interface IWindowWidthContextProps {
-    isMobile: boolean | null;
-    isTablet: boolean | null;
-    isDesktop: boolean | null
-    isLarge: boolean | null;
-    isNotLarge: boolean | null;
+    isMobile: boolean;
+    isTablet: boolean;
+    isDesktop: boolean
+    isLarge: boolean;
 }
 
 export interface ILogoProps {

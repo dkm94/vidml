@@ -1,35 +1,29 @@
-import Link from 'next/link';
-import { Divider } from '@mui/material';
+'use client';
 
-import { galleries } from '@/constants';
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+
+import { IllustrationType } from '@/types';
+import { illustrations } from '@/constants';
 import { PageContent, PageHeader } from '@/components';
 
 const IllustrationsPage = () => {
 
-	const titleToArray = (title: string): React.ReactNode => {
-		return title.split(' ').map((word: string) => <><span className='text-xl' key={word}>{word}</span><br /></>);
-	};
+	const [ gallery, setGallery ] = useState<IllustrationType[]>([]);
+
+	useEffect(() => setGallery(illustrations), []);
 
 	return (
 		<main className='illustrations h-full flex flex-col bg-[#09080B]'>
 			<PageHeader title='Illustrations' />
-			<Divider style={{
-				height: '1px',
-				background: '#FFFFFF' 
-			}} />
 			<PageContent>
-				<div className='relative'>
-					<span className='content-[""] absolute left-2/4 w-[1px] h-full bg-slate-900' aria-hidden="true"></span>
-					<ul className='relative py-8 flex flex-col gap-10'>
-						{galleries.map(({ id, title }, index) => {
-							return <li key={id} className="relative flex odd:flex-row odd:text-right even:flex-row-reverse even:text-left">
-								<Link href={`/illustrations/gallery/${ id }`} className='w-1/2 px-6 uppercase'>{titleToArray(title)}</Link>
-								<div className='w-1/2'/>
-							</li>;
+				<div className='w-full h-full flex justify-center'>
+					<ul className='flex flex-row h-full w-[400px] overflow-hidden'>
+						{gallery?.map(({ id, url }, i) => {
+							return <Image key={i} alt="" src={url} height={400} width={400} style={{ objectFit: 'contain' }} />;
 						})}
 					</ul>
 				</div>
-				
 			</PageContent>
 
 		</main>

@@ -25,9 +25,6 @@ body {
   @apply bg-[theme('colors.black')];
 }
 
-.navigation__container {
-  @apply w-full h-fit bg-[theme('colors.vlBeige')];
-}
 
 .navigation {
   @apply sticky top-0 z-[1000] bg-[theme('colors.vlBeige')]

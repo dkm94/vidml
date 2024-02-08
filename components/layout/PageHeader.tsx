@@ -13,7 +13,7 @@ const PageHeader = ({ title }: PageHeaderProps) => {
 	const isLarge = windowWidthContext?.isLarge ?? false;
 
 	return (
-		<section className={`page-header bg-cover relative h-[135px] lg:border-b lg:border-t lg:border-slate-900 ${ isMobile && 'bg-background-section-sm' } ${ isTablet && 'bg-background-section-md' } ${ isLarge && 'bg-background-section-md' } `}>
+		<section className={`page-header bg-cover relative h-[179px] lg:border-b lg:border-t lg:border-slate-900 ${ isMobile && 'bg-background-section-sm' } ${ isTablet && 'bg-background-section-md' } ${ isLarge && 'bg-background-section-md' } `}>
 			<SquareComponent isLink={false} text={title} containerStyle='border-slate-900 z-[100] bg-slate-50' childStyle='text-slate-900' />
 		</section>
 	);
