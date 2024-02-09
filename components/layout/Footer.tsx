@@ -9,7 +9,9 @@ import { WindowWidthContext } from '@/app/layout';
 const Footer = () => {
 
 	const windowWidthContext = useContext(WindowWidthContext);
-	const isNotLarge = windowWidthContext?.isNotLarge ?? false;
+	const isMobile = windowWidthContext?.isMobile ?? false;
+	const isTablet = windowWidthContext?.isTablet ?? false;
+	const isNotLarge = isMobile || isTablet;
 	
 	return (
 		<footer className='footer flex justify-center mt-[0.1rem]'>
