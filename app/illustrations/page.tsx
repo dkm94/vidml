@@ -65,12 +65,11 @@ const IllustrationsPage = () => {
 									src={url} 
 									height={400} 
 									width={400} 
-									className={`cursor-pointer md:grayscale ${ activeClass === i ? 'grayscale-0 md:hover:grayscale-0' : 'grayscale' }`}
+									className={`cursor-pointer md:grayscale object-contain ${ activeClass === i ? 'grayscale-0 md:hover:grayscale-0' : 'grayscale' }`}
 									style={{
-										objectFit: 'contain',
 										transform: `translateX(-${ translateX }px) ${ activeClass === i ? 'scale(1)' : 'scale(0.5)' }`, 
 										transition: 'transform .5s ease-in-out'
-									}}
+									}} 
 								/>
 							);
 						})}
