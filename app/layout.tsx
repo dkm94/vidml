@@ -50,7 +50,6 @@ export const RootLayout: FunctionComponent<LayoutProps> = ( props: LayoutProps )
 		return () => {
 			window.removeEventListener('resize', getWindowWidth);
 		};
-		
 	}, []);
 
 	return (
