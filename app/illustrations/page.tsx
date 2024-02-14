@@ -13,32 +13,28 @@ const IllustrationsPage = () => {
 	const [ gallery, setGallery ] = useState<IllustrationType[]>([]);
 	const [ activeClass, setActiveClass ] = useState<number>(0);
 	const [ translateX, setTranslateX ] = useState<number | undefined>(0);
-	const [ largeurDiv, setLargeurDiv ] = useState(0);
-
-	// créer un hook useResize(imageRef) et exporter largeurDiv
-
-	const obtenirLargeurDiv = () => {
-	  if (imageRef.current) {
-			const rect = imageRef.current.getBoundingClientRect();
-			setLargeurDiv(rect.width);
-	  }
+	const [ imageWidth, setImageWidth ] = useState<number | null>(null);
+	
+	const resize = (): void => {
+		if (imageRef.current) {
+			const width = imageRef.current.offsetWidth;
+			setImageWidth(width);
+		  }
 	};
 
-	const handleImageLoad = () => {
-		obtenirLargeurDiv(); // Appeler la fonction pour mettre à jour la largeur après le chargement de l'image
-	};
+	// Obtenir la largeur au chargement de l'image
+	const handleOnLoad = (): void => resize();
 
 	useEffect(() => {
-	
 		// Appeler la fonction initiale pour obtenir la largeur initiale
-		obtenirLargeurDiv();
+		resize();
 	
 		// Ajouter un écouteur d'événements pour redimensionner
-		window.addEventListener('resize', obtenirLargeurDiv);
+		window.addEventListener('resize', resize);
 	
 		// Nettoyer l'écouteur d'événements lors du démontage du composant
 		return () => {
-		  window.removeEventListener('resize', obtenirLargeurDiv);
+		  window.removeEventListener('resize', resize);
 		};
 	  }, []);
 
@@ -57,22 +53,27 @@ const IllustrationsPage = () => {
 		};
 	}, []);
 
-	const handlePrevButton = () => {
+	useEffect(() => {
+	  setTranslateX(imageWidth! * activeClass);
+	}, [ imageWidth ])
+	
+
+	const handlePrevButton = (): void => {
 		if (activeClass === 0) {
 			setActiveClass(gallery.length - 1);
 		} else {
 			setActiveClass(activeClass - 1);
 		}
-		setTranslateX(translateX! - largeurDiv * 2);
+		setTranslateX(translateX! - imageWidth!);
 	};
 
-	const handleNextButton = () => {
+	const handleNextButton = (): void => {
 		if (activeClass === gallery.length - 1) {
 			setActiveClass(0);
 		} else {
 			setActiveClass(activeClass + 1);
 		}
-		setTranslateX(translateX! + largeurDiv * 2);
+		setTranslateX(translateX! + imageWidth!);
 	};
 
 	return (
@@ -85,7 +86,7 @@ const IllustrationsPage = () => {
 							return (
 								<Image
 									key={i} 
-									ref={imageRef}
+									ref={activeClass === i ? imageRef : null}
 									alt="" 
 									src={url} 
 									height={400} 
@@ -95,7 +96,7 @@ const IllustrationsPage = () => {
 										transform: `translateX(-${ translateX }px) ${ activeClass === i ? 'scale(1)' : 'scale(0.5)' }`, 
 										transition: 'transform .5s ease-in-out'
 									}} 
-									onLoad={handleImageLoad}
+									onLoad={handleOnLoad}
 								/>
 							);
 						})}
