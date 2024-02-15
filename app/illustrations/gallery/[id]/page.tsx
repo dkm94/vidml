@@ -34,7 +34,7 @@ const GalleryPage = ({ params }: GalleryPageProps) => {
 		<main className='gallery h-full flex flex-col bg-[#09080B]'>
 			<PageHeader title='Gallery'/>
 			<div className={'py-6 bg-[#fef8f1] font-cardo'}>
-				<h2 className='text-center'>{filteredGallery[ 0 ].title}</h2>
+				<h2 className='text-center text-balance'>{filteredGallery[ 0 ].title}</h2>
 			</div>
 			<PageContent>
 				<div className='relative'>

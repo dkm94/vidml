@@ -12,7 +12,7 @@ const ServicesPage = () => {
 			}} />
 			<PageContent>
 				<div className='text-slate-100 px-16 flex flex-col gap-5'>
-					<h2>We offer a wide range of services to help you achieve your dream project.</h2>
+					<h2 className='text-balance'>We offer a wide range of services to help you achieve your dream project.</h2>
 				</div>
 			</PageContent>
 		</main>

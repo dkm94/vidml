@@ -22,7 +22,7 @@
     @apply tracking-wider;
   }
   h2 {
-    @apply text-4xl font-bold text-center tracking-wider;
+    @apply md:text-4xl text-2xl font-bold text-center tracking-wider;
     /* font-family: 'Inter', sans-serif; */
     font-family: 'Bebas Neue', sans-serif;
   }
@@ -33,6 +33,10 @@
   form {
     font-family: 'Inter', sans-serif;
   }
+}
+
+.text-balance {
+  text-wrap: balance;
 }
 
 .footer {

@@ -12,7 +12,7 @@ const ContactPage = () => {
 			}} />
 			<PageContent>
 				<div className='text-slate-100 px-16 flex flex-col gap-5'>
-					<h2>{'Let\'s discuss about your project !'}</h2>
+					<h2 className='text-balance'>{'Let\'s discuss about your project !'}</h2>
 					<h3 className='text-pretty'>For business inquiries, quotes or if you have any question, I would be happy to fulfill your request</h3>
 				</div>
 				<ContactForm />
