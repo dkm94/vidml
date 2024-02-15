@@ -13,13 +13,13 @@ const Logo: FC<ILogoProps> = ({ background, height, width }) => {
 
 	return (
 		<div
-			className={`cursor-pointer ml-auto mr-auto p-4 flex justify-center items-center ${ background } ${ height } ${ width } ${ isNotMobile ? 'absolute top-[120px]' : '' }`}
+			className={`cursor-pointer ml-auto mr-auto p-4 flex justify-center items-center ${ background } ${ height } ${ width } ${ isNotMobile ? 'absolute top-[118px]' : '' }`}
 			onClick={() => {
 				window.location.pathname = '/';
 			}}
 		>
 			<Image 
-				src='/assets/logo.png' 
+				src='/assets/logo-2.png' 
 				height={50}
 				width={120} 
 				alt='logo' 
