@@ -19,21 +19,23 @@ const DesktopNavbar: FC<DesktopNavbarProps> = ({ handleShowLinks, showLinks, pat
 
 	return (
 		<div className={'sticky top-0 w-[30%] min-w-[200px] max-w-[350px] z-[100] bg-[#09080B] border-white border-solid border-r-[0.5px] h-[100vh]'}>
-			<div className={`${ isMobile ? 'absolute' : 'relative' } h-full text-white flex flex-col justify-center`}>
+			<div className={`${ isMobile ? 'absolute justify-center' : 'max-h-[1200px]' } overflow-y-auto h-full text-white flex flex-col`}>
 				<Logo background="bg-white" height='h-fit' width="w-full" />
-				<ul className="flex flex-col p-8 gap-y-4">
+				<ul className="flex flex-col p-8 gap-y-4 mt-auto">
 					{navlinks.map((link: NavLink, index: number): ReactNode => {
 						return <Link className={`nav-link w-[100px] text-white uppercase text-base 2xl:text-xs ${ inter.className } ${ pathname === link.path && 'font-black' }`} key={index} href={link.path} >{link.title}</Link>;
 					})}
 				</ul>
-				<div className='absolute bottom-40 p-8 w-full flex flex-row gap-4'>
-					<SocialButton path='https://www.instagram.com/vidml.illustration/' icon={<InstagramIcon />} />
-					<SocialButton path='mailto:vidml@gmail.com' icon={<MailOutlineIcon />} />
-				</div>
-				<div className='absolute bottom-0 right-0 pr-6 pb-4'>
-					<span className='font-light'>Copyright © 2024 </span>
-					<span className='font-light'>Designed by </span>
-					<span className='font-semibold'>Manag</span>
+				<div className='mt-auto'>
+					<div className='p-8 w-full flex flex-row gap-4 justify-end'>
+						<SocialButton path='https://www.instagram.com/vidml.illustration/' icon={<InstagramIcon />} />
+						<SocialButton path='mailto:vidml@gmail.com' icon={<MailOutlineIcon />} />
+					</div>
+					<div className='pr-6 pb-4 text-end'>
+						<span className='font-light'>Copyright © 2024 </span>
+						<span className='font-light'>Designed by </span>
+						<span className='font-semibold'>Manag</span>
+					</div>
 				</div>
 			</div>
 		</div>
