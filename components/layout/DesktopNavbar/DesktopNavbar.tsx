@@ -14,7 +14,6 @@ import { usePathname } from 'next/navigation';
 const DesktopNavbar: FC<DesktopNavbarProps> = ({ handleShowLinks, showLinks, path }) => {
 	const pathname = usePathname();
 	const windowWidthContext = useContext(WindowWidthContext);
-	// debugger;
 	const isMobile = windowWidthContext?.isMobile ?? false;
 
 	return (

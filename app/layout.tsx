@@ -29,14 +29,14 @@ export const RootLayout: FunctionComponent<LayoutProps> = ( props: LayoutProps )
 	const pathname: string = usePathname();
 	const [ width, setWidth ] = useState<number>(window.outerWidth);
 	const [ showLinks, setShowLinks ] = useState<boolean>(false);
-
+	
 	const isMobile: boolean = width < 500;
 	const isTablet: boolean = width > 500 && width < 815;
 	const isDesktop: boolean = width > 815 && width < 1024;
 	const isLarge: boolean = width > 1024;
-
+	
 	const isNotDesktop = isMobile || isTablet;
-
+	
 	const handleShowLinks = (): void => setShowLinks(!showLinks);
 
 	const getWindowWidth = () => {
@@ -64,7 +64,7 @@ export const RootLayout: FunctionComponent<LayoutProps> = ( props: LayoutProps )
 						isDesktop,
 						isLarge,
 					}}>
-						{isNotDesktop && <MobileNavbar handleShowLinks={handleShowLinks} showLinks={showLinks} path={pathname} windowWidth={width} />}
+						{width !== 0 && isNotDesktop && <MobileNavbar handleShowLinks={handleShowLinks} showLinks={showLinks} path={pathname} windowWidth={width} />}
 						<div className={isMobile || isTablet ? 'relative' : 'flex flex-row'}>
 							{width > 815 && <DesktopNavbar handleShowLinks={handleShowLinks} showLinks={showLinks} path={pathname} />}
 							{ pathname === '/' && <Home handleClick={handleShowLinks} /> }

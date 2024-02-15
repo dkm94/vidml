@@ -12,7 +12,6 @@ const ContactForm = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		console.log(name, email, subject, content);
 	};
 
 	return (
