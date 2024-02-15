@@ -5,7 +5,9 @@ import Image from 'next/image';
 
 import { IllustrationType } from '@/types';
 import { illustrations } from '@/constants';
+
 import { PageContent, PageHeader } from '@/components';
+import { Divider } from '@mui/material';
 
 const IllustrationsPage = () => {
 	const imageRef: MutableRefObject<HTMLImageElement | null> = useRef(null);
@@ -78,7 +80,8 @@ const IllustrationsPage = () => {
 
 	return (
 		<main className='illustrations h-full flex flex-col bg-[#09080B]'>
-			<PageHeader title='Illustrations' />	
+			<PageHeader title='Illustrations' />
+			<Divider className='h-2 bg-white min-[815px]:h-[1px]'/>
 			<PageContent>
 				<div className='w-full h-full flex justify-center'>
 					<ul className='flex flex-row h-full w-[400px]'>

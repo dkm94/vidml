@@ -27,7 +27,7 @@ export const RootLayout: FunctionComponent<LayoutProps> = ( props: LayoutProps )
 	const { children } = props;
 
 	const pathname: string = usePathname();
-	const [ width, setWidth ] = useState<number>(window.outerWidth);
+	const [ width, setWidth ] = useState<number>(0);
 	const [ showLinks, setShowLinks ] = useState<boolean>(false);
 	
 	const isMobile: boolean = width < 500;
@@ -36,7 +36,7 @@ export const RootLayout: FunctionComponent<LayoutProps> = ( props: LayoutProps )
 	const isLarge: boolean = width > 1024;
 	
 	const isNotDesktop = isMobile || isTablet;
-	
+
 	const handleShowLinks = (): void => setShowLinks(!showLinks);
 
 	const getWindowWidth = () => {
@@ -53,7 +53,7 @@ export const RootLayout: FunctionComponent<LayoutProps> = ( props: LayoutProps )
 			window.removeEventListener('resize', getWindowWidth);
 		};
 	}, []);
-
+	
 	return (
 		<html lang="fr" className={`${ cardo.variable } ${ inria.variable } ${ bebasNeue.variable }`} suppressHydrationWarning={true}>
 			<body className={width > 815 ? 'min-h-[100vh]' : ''}>
@@ -63,15 +63,18 @@ export const RootLayout: FunctionComponent<LayoutProps> = ( props: LayoutProps )
 						isTablet,
 						isDesktop,
 						isLarge,
-					}}>
-						{width !== 0 && isNotDesktop && <MobileNavbar handleShowLinks={handleShowLinks} showLinks={showLinks} path={pathname} windowWidth={width} />}
-						<div className={isMobile || isTablet ? 'relative' : 'flex flex-row'}>
-							{width > 815 && <DesktopNavbar handleShowLinks={handleShowLinks} showLinks={showLinks} path={pathname} />}
-							{ pathname === '/' && <Home handleClick={handleShowLinks} /> }
-							{ pathname !== '/' && <div className='min-h-[100vh] bg-[#09080B] w-full'>{children}</div>}
-						</div>
-						{isMobile && <Divider className='h-2 bg-white min-[815px]:h-[1px]'/>}
-						{isMobile && <Footer />}
+					}}> {width !== 0 && (
+							<>
+								{ isNotDesktop && <MobileNavbar handleShowLinks={handleShowLinks} showLinks={showLinks} path={pathname} windowWidth={width} />}
+								<div className={isMobile || isTablet ? 'relative' : 'flex flex-row'}>
+									{ width > 815 && <DesktopNavbar handleShowLinks={handleShowLinks} showLinks={showLinks} path={pathname} />}
+									{ pathname === '/' && <Home handleClick={handleShowLinks} /> }
+									{ pathname !== '/' && <div onLoad={getWindowWidth} className='min-h-[100vh] bg-[#09080B] w-full'>{children}</div>}
+								</div>
+								{ isMobile && <Divider className='h-2 bg-white min-[815px]:h-[1px]'/>}
+								{ isMobile && <Footer />}
+							</>
+						)}
 					</WindowWidthContext.Provider>
 				</ThemeRegistry>
 				<script

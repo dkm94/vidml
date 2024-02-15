@@ -4,6 +4,7 @@ import Image from 'next/image';
 
 import { PageContent, PageHeader } from '@/components';
 import { galleries } from '@/constants';
+import { Divider } from '@mui/material';
 
 interface GalleryPageProps {
     params: {
@@ -33,9 +34,7 @@ const GalleryPage = ({ params }: GalleryPageProps) => {
 	return (
 		<main className='gallery h-full flex flex-col bg-[#09080B]'>
 			<PageHeader title='Gallery'/>
-			<div className={'py-6 bg-[#fef8f1] font-cardo'}>
-				<h2 className='text-center text-balance'>{filteredGallery[ 0 ].title}</h2>
-			</div>
+			<Divider className='h-2 bg-white min-[815px]:h-[1px]'/>
 			<PageContent>
 				<div className='relative'>
 					{filteredGallery?.map((gallery, index) => (
