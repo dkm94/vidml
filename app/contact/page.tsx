@@ -6,10 +6,7 @@ const ContactPage = () => {
 	return (
 		<main className='h-full contact flex flex-col bg-[#09080B]'>
 			<PageHeader title='Contact'/>
-			<Divider style={{
-				height: '1px',
-				background: '#FFFFFF' 
-			}} />
+			<Divider className='h-2 bg-white min-[815px]:h-[1px]' />
 			<PageContent>
 				<div className='text-slate-100 px-16 flex flex-col gap-5'>
 					<h2 className='text-balance'>{'Et si on en discutait ?'}</h2>
