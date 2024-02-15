@@ -7,11 +7,13 @@ import type { Metadata } from 'next';
 import { usePathname } from 'next/navigation';
 import { bebasNeue, cardo, inria } from './fonts';
 
-import { IWindowWidthContextProps, LayoutProps } from '@/types';
-import { Footer, MobileNavbar } from '@/components/layout';
-import ThemeRegistry from '../theme/ThemeRegistry';
-import Home from './page';
+import { Divider } from '@mui/material';
 import DesktopNavbar from '@/components/layout/DesktopNavbar/DesktopNavbar';
+import { Footer, MobileNavbar } from '@/components/layout';
+import Home from './page';
+
+import { IWindowWidthContextProps, LayoutProps } from '@/types';
+import ThemeRegistry from '../theme/ThemeRegistry';
 
 export const metadata: Metadata = {
 	title: 'ViDML | Gallery',
@@ -68,6 +70,7 @@ export const RootLayout: FunctionComponent<LayoutProps> = ( props: LayoutProps )
 							{ pathname === '/' && <Home handleClick={handleShowLinks} /> }
 							{ pathname !== '/' && <div className='min-h-[100vh] bg-[#09080B] w-full'>{children}</div>}
 						</div>
+						{isMobile && <Divider className='h-2 bg-white min-[815px]:h-[1px]'/>}
 						{isMobile && <Footer />}
 					</WindowWidthContext.Provider>
 				</ThemeRegistry>

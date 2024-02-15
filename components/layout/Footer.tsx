@@ -14,7 +14,7 @@ const Footer = () => {
 	const isNotLarge = isMobile || isTablet;
 	
 	return (
-		<footer className='footer flex justify-center mt-[0.1rem]'>
+		<footer className='footer flex justify-center'>
 			<div className='sm:flex flex-col sm:flex-row sm:relative pl-12 pr-12 max-w-[1170px] w-full mt-2 mb-2'>
 				{isNotLarge && <div className='text-center text-red-50 py-4 flex flex-col sm:flex-row gap-4'>
 					<span className='uppercase text-nowrap md:self-center text-xs self-center'>contact</span>
