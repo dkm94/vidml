@@ -17,8 +17,22 @@
   }
 } */
 
-body {
- 
+@layer base {
+  h1 {
+    @apply tracking-wider;
+  }
+  h2 {
+    @apply text-4xl font-bold text-center tracking-wider;
+    /* font-family: 'Inter', sans-serif; */
+    font-family: 'Bebas Neue', sans-serif;
+  }
+  h3 {
+     @apply text-center;
+    font-family: 'Inter', sans-serif;
+  }
+  form {
+    font-family: 'Inter', sans-serif;
+  }
 }
 
 .footer {

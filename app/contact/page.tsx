@@ -1,6 +1,6 @@
 import { Divider } from '@mui/material';
 
-import { PageContent, PageHeader } from '@/components';
+import { ContactForm, PageContent, PageHeader } from '@/components';
 
 const ContactPage = () => {
 	return (
@@ -11,7 +11,11 @@ const ContactPage = () => {
 				background: '#FFFFFF' 
 			}} />
 			<PageContent>
-				<div>Text</div>
+				<div className='text-slate-100 px-16 flex flex-col gap-5'>
+					<h2>{'Let\'s discuss about your project !'}</h2>
+					<h3 className='text-pretty'>For business inquiries, quotes or if you have any question, I would be happy to fulfill your request</h3>
+				</div>
+				<ContactForm />
 			</PageContent>
 		</main>
 	);

@@ -31,8 +31,9 @@ const DesktopNavbar: FC<DesktopNavbarProps> = ({ handleShowLinks, showLinks, pat
 					<SocialButton path='mailto:vidml@gmail.com' icon={<MailOutlineIcon />} />
 				</div>
 				<div className='absolute bottom-0 right-0 pr-6 pb-4'>
-					<span>Copyright © 2023 </span>
-					<a className='font-semibold' target="_blank" href="https://github.com/dkm94">DKM</a>
+					<span className='font-light'>Copyright © 2024 </span>
+					<span className='font-light'>Designed by </span>
+					<span className='font-semibold'>Manag</span>
 				</div>
 			</div>
 		</div>
