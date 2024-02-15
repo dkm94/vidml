@@ -8,7 +8,7 @@ const ContactPage = () => {
 			<PageHeader title='Contact'/>
 			<Divider className='h-2 bg-white min-[815px]:h-[1px]' />
 			<PageContent>
-				<div className='text-slate-100 px-16 flex flex-col gap-5'>
+				<div className='text-slate-100 min-[815px]:px-16 flex flex-col gap-5'>
 					<h2 className='text-balance'>{'Et si on en discutait ?'}</h2>
 					<div className='flex flex-col'>
 						<h3 className='text-balance'>{'Vous avez des questions ? Vous souhaitez obtenir un devis ?'}</h3>
