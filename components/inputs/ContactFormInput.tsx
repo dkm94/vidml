@@ -13,7 +13,7 @@ const ContactFormInput = (props: ContactFormInputProps) => {
 	return (
 		<div className='flex flex-col'>
 			<label>{label}</label>
-			<input className='bg-transparent border-b border-solid border-black' type={type} name={name} onChange={handleChange} />
+			<input className='focus:outline-none bg-transparent border-b border-solid border-black' type={type} name={name} onChange={handleChange} />
 		</div>
 	);
 };
