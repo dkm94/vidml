@@ -8,17 +8,14 @@ const AboutPage = () => {
 	return (
 		<main className='h-full about flex flex-col bg-[#09080B]'>
 			<PageHeader title='À propos'/>
-			<Divider style={{
-				height: '1px',
-				background: '#FFFFFF' 
-			}} />
+			<Divider className='h-2 bg-white min-[815px]:h-[1px]'/>
 			<PageContent>
 				<div className='text-slate-100 md:px-16 flex flex-col gap-5'>
 					<h2 className='text-balance'>{'« Une oeuvre d\'art, c\'est le moyen d\'une âme »'}</h2>
 					<h3>Maurice Barrès</h3>
 				</div>
 				<div className='flex justify-center'>
-					<div className='flex flex-col px-16 min-[1200px]:flex-row max-w-[1175px] mt-8 md:mt-24 gap-4'>
+					<div className='flex flex-col px-16 min-[1200px]:flex-row max-w-[1175px] mt-14 md:mt-24 gap-4'>
 						<div className='flex justify-center'>
 							<div className='w-max h-fit max-w-xs border-solid border-white border flex justify-center p-5'>
 								<Image src={'/assets/about-me.jpg'} alt="portrait" width={300} height={200} className='w-full h-auto object-cover max-h-[500px]' />
