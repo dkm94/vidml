@@ -1,5 +1,3 @@
-'use client';
-
 import './globals.css';
 
 import React, { FunctionComponent, createContext, useEffect, useState } from 'react';
@@ -15,18 +13,27 @@ import Home from './page';
 import { IWindowWidthContextProps, LayoutProps } from '@/types';
 import ThemeRegistry from '../theme/ThemeRegistry';
 
-let metadata: Metadata | null = null;
+// let metadata: Metadata | null = null;
 
-if (typeof window !== 'undefined') {
-	metadata = {
+// if (typeof window !== 'undefined') {
+// 	metadata = {
+// 		title: 'ViDML | Gallery',
+// 		description: 'Portfolio of ViDML',
+// 	};
+// }
+
+// export { metadata };
+
+export const metadata: Metadata | null = (typeof window !== 'undefined')
+	? {
 		title: 'ViDML | Gallery',
-		description: 'Portfolio of ViDML',
-	};
-}
-
-export { metadata };
+		description: 'Portfolio de ViDML',
+	}
+	: null;
 
 export const WindowWidthContext = createContext<IWindowWidthContextProps | null>(null);
+
+'use client';
 
 export const RootLayout: FunctionComponent<LayoutProps> = ( props: LayoutProps ) => {
 	
