@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { ComponentPropsWithoutRef } from 'react';
 
 interface SubmitButtonProps extends ComponentPropsWithoutRef<'button'>{};
