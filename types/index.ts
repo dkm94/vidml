@@ -66,6 +66,7 @@ export interface IWindowWidthContextProps {
     isTablet: boolean;
     isDesktop: boolean
     isLarge: boolean;
+    width: number;
 }
 
 export interface ILogoProps {

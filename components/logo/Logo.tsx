@@ -1,7 +1,7 @@
 import React, { FC, useContext } from 'react';
 import Image from 'next/image';
 import { ILogoProps } from '@/types';
-import { WindowWidthContext } from '@/app/layout';
+import { WindowWidthContext } from '../layout/ThirdPartiesWrapper';
 
 const Logo: FC<ILogoProps> = ({ background, height, width }) => {
 	// const pathname = usePathname();

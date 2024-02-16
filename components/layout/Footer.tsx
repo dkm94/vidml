@@ -1,10 +1,12 @@
 'use client';
 import { useContext } from 'react';
+
 import InstagramIcon from '@mui/icons-material/Instagram';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 
 import { SocialButton } from '../buttons';
-import { WindowWidthContext } from '@/app/layout';
+
+import { WindowWidthContext } from './ThirdPartiesWrapper';
 
 const Footer = () => {
 

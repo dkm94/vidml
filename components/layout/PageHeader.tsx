@@ -1,9 +1,11 @@
 'use client';
 
-import { WindowWidthContext } from '@/app/layout';
-import { SquareComponent } from '@/components';
-import { PageHeaderProps } from '@/types';
 import { useContext } from 'react';
+
+import { SquareComponent } from '@/components';
+
+import { WindowWidthContext } from './ThirdPartiesWrapper';
+import { PageHeaderProps } from '@/types';
 
 const PageHeader = ({ title }: PageHeaderProps) => {
 

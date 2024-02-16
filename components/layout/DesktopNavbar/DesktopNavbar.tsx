@@ -11,7 +11,7 @@ import { SocialButton } from '@/components/buttons';
 import { DesktopNavbarProps, NavLink } from '@/types';
 import { navlinks } from '@/constants';
 import { inter } from '@/app/fonts';
-import { WindowWidthContext } from '@/app/layout';
+import { WindowWidthContext } from '../ThirdPartiesWrapper';
 
 
 const DesktopNavbar: FC<DesktopNavbarProps> = () => {

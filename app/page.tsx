@@ -5,7 +5,7 @@ import React, { FC, useContext } from 'react';
 import { HomeProps } from '@/types';
 
 import Video from '@/components/video/Video';
-import { WindowWidthContext } from './layout';
+import { WindowWidthContext } from '@/components/layout/ThirdPartiesWrapper';
 
 const Home: FC<HomeProps> = (props: HomeProps) => {
 	const { handleClick } = props;
