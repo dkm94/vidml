@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import { ContactFormInput, ContactFormTextArea, SubmitButton } from '..';
 
 const ContactForm = () => {
@@ -10,9 +10,8 @@ const ContactForm = () => {
 	const [ subject, setSubject ] = useState<string>('');
 	const [ content, setContent ] = useState<string>('');
 
-	const handleSubmit = (e) => {
+	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-
 	};
 
 	return (

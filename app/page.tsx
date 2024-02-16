@@ -1,13 +1,13 @@
 'use client';
 
-import React, { FC, useContext } from 'react';
+import React, { useContext } from 'react';
 
 import { HomeProps } from '@/types';
 
 import Video from '@/components/video/Video';
 import { WindowWidthContext } from '@/components/layout/ThirdPartiesWrapper';
 
-const Home: FC<HomeProps> = (props: HomeProps) => {
+export default function Home (props: HomeProps){
 	const { handleClick } = props;
 
 	const windowWidthContext = useContext(WindowWidthContext);
@@ -39,4 +39,3 @@ const Home: FC<HomeProps> = (props: HomeProps) => {
 		</div>
 	);
 };
-export default Home;

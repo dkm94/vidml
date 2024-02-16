@@ -1,3 +1,3 @@
-import { pageHeader, pageContent } from '../components/layout/PageHeader';
+import { PageHeader, PageContent } from '@/components';
 
-export { pageHeader, pageContent };
+export { PageHeader, PageContent };
