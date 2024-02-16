@@ -7,9 +7,8 @@ import React, { FC, ReactNode } from 'react';
 import { navlinks } from '@/constants';
 import { NavLink, MobileNavbarProps } from '@/types';
 import Navlink from '@/components/Navlink';
-import { Logo } from '@/components';
 
-const MobileNavbar: FC<MobileNavbarProps> = ({ handleShowLinks, showLinks, path, windowWidth }) => {
+const MobileNavbar: FC<MobileNavbarProps> = ({ handleShowLinks, showLinks }) => {
 	
 	return (
 		<nav className='navigation'>

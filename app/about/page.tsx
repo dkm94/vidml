@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { Divider } from '@mui/material';
 
 import { PageContent, PageHeader } from '@/components';
-import { introduction } from '@/constants';
 
 const AboutPage = () => {
 	return (
@@ -24,9 +23,10 @@ const AboutPage = () => {
 						<div className='relative flex items-center'>
 							<div className='absolute bg-white opacity-50 w-full h-full' aria-hidden="true"/>
 							<div className='relative px-10 py-16 flex flex-col gap-6'>
-								<p className='text-pretty'>Je suis Virginie, artiste autodidacte originaire de la région parisienne. Malgré mes origines modestes, je n'ai jamais fréquenté d'école d'art ni suivi de cours formels. Ma passion pour l'illustration et la mode a été le moteur de mon apprentissage, façonné par une persévérance inébranlable et des expériences enrichissantes avec des entreprises qui ont eu confiance en mon talent.</p>
-								<p>Mon parcours témoigne de mon dévouement envers mon art, résultant non seulement de ma créativité innée, mais également des opportunités que des collaborations professionnelles ont apportées. Je vous remercie sincèrement de visiter ma galerie et de partager cette aventure avec moi.</p>
-								<p>Prenez soin de vous</p>
+								<p className='text-pretty'>{'Artiste autodidacte originaire de la région parisienne, de par mes origines modestes, je n\'ai jamais fréquenté d\'école d\'art ni suivi de cours formels. Ma passion pour l\'illustration et la mode a été le moteur de mon apprentissage, façonné par une persévérance inébranlable et des expériences enrichissantes avec des entreprises qui ont eu confiance en mon talent.'}</p>
+								<p>{'Mon parcours témoigne de mon dévouement envers mon art, résultant non seulement de ma créativité innée, mais également des opportunités que des collaborations professionnelles ont apportées. Je vous remercie sincèrement de visiter ma galerie et de partager cette aventure avec moi.'}</p>
+								<p>{'Prenez soin de vous,'}</p>
+								<p className='text-end'>{'Virgine DML'}</p>
 							</div>
 						</div>
 					</div>

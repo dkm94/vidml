@@ -57,7 +57,8 @@ const IllustrationsPage = () => {
 
 	useEffect(() => {
 	  setTranslateX(imageWidth! * activeClass);
-	}, [ imageWidth ])
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [ imageWidth ]);
 	
 
 	const handlePrevButton = (): void => {

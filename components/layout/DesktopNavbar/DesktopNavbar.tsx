@@ -1,17 +1,20 @@
 import React, { FC, ReactNode, useContext } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
 import InstagramIcon from '@mui/icons-material/Instagram';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 
-import { DesktopNavbarProps, NavLink } from '@/types';
 import { Logo } from '@/components';
 import { SocialButton } from '@/components/buttons';
+
+import { DesktopNavbarProps, NavLink } from '@/types';
 import { navlinks } from '@/constants';
 import { inter } from '@/app/fonts';
 import { WindowWidthContext } from '@/app/layout';
-import { usePathname } from 'next/navigation';
 
-const DesktopNavbar: FC<DesktopNavbarProps> = ({ handleShowLinks, showLinks, path }) => {
+
+const DesktopNavbar: FC<DesktopNavbarProps> = () => {
 	const pathname = usePathname();
 	const windowWidthContext = useContext(WindowWidthContext);
 	const isMobile = windowWidthContext?.isMobile ?? false;
