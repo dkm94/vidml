@@ -15,10 +15,16 @@ import Home from './page';
 import { IWindowWidthContextProps, LayoutProps } from '@/types';
 import ThemeRegistry from '../theme/ThemeRegistry';
 
-export const metadata: Metadata = {
-	title: 'ViDML | Gallery',
-	description: 'Portfolio of ViDML',
-};
+let metadata: Metadata | null = null;
+
+if (typeof window !== 'undefined') {
+	metadata = {
+		title: 'ViDML | Gallery',
+		description: 'Portfolio of ViDML',
+	};
+}
+
+export { metadata };
 
 export const WindowWidthContext = createContext<IWindowWidthContextProps | null>(null);
 
