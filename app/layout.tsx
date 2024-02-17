@@ -1,31 +1,34 @@
 import './globals.css';
 
+import React, { FunctionComponent } from 'react';
 import type { Metadata } from 'next';
-
-import { Footer, MobileNavbar } from '@/components/layout';
-import ThemeRegistry from '../theme/ThemeRegistry';
 import { bebasNeue, cardo, inria } from './fonts';
 
-export const metadata: Metadata = {
-	title: 'ViDML | Gallery',
-	description: 'Portfolio of ViDML',
-};
+import { App, ThirdPartiesWrapper } from '@/components/layout';
 
-export default function RootLayout({ children, }: {
-  children: React.ReactNode
-}) {
+import { LayoutProps } from '@/types';
+
+export const metadata: Metadata | null = (typeof window !== 'undefined')
+	? {
+		title: 'ViDML | Gallery',
+		description: 'Portfolio de ViDML',
+	}
+	: null;
+
+export const RootLayout: FunctionComponent<LayoutProps> = ( props: LayoutProps ) => {
+	const { children } = props;
+	
 	return (
-		<html lang="fr" className={`${ cardo.variable } ${ inria.variable } ${ bebasNeue.variable }`}>
-			<body>
-				<ThemeRegistry options={{ key: 'mui' }}>
-					<MobileNavbar />
-					{children}
-					<Footer />
-				</ThemeRegistry>
+		<html lang="fr" className={`${ cardo.variable } ${ inria.variable } ${ bebasNeue.variable }`} suppressHydrationWarning={true}>
+			<body className="min-[815px]:min-h-[100vh]">
+				<ThirdPartiesWrapper>
+					<App>{children}</App>
+				</ThirdPartiesWrapper>
 				<script
 					type="text/javascript"
 					src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js" async />
 			</body>
 		</html>
 	);
-}
+};
+export default RootLayout;

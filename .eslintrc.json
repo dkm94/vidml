@@ -51,7 +51,7 @@
     "import/no-unresolved": [
       "error",
       {
-        "ignore": ["^components/.+", "^router/.+", "^pages" , "^styles/.+", "^seeds/.+", "^hooks/.+", "^services/.+", "^utils", "^Steps/.+", "^utils/.+"]
+        "ignore": ["^components/.+","^public/.+", "^router/.+", "^pages" , "^styles/.+", "^seeds/.+", "^hooks/.+", "^services/.+", "^utils", "^Steps/.+", "^utils/.+"]
       }
     ],
     // "prettier/prettier": ["error", { "endOfLine": "auto" }],

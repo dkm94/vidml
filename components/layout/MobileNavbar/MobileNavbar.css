@@ -12,14 +12,14 @@
     width: 0;
     /* height: 94vh; */
     padding: 2rem;
-    background: #1b1b1a;
+    /* background: #1b1b1a; */
     transition: all .8s ease-out;
 }
 .show_nav .navbar__links {
     right: 0;
     width: 100vw;
     visibility: visible;
-    opacity: 0.9;
+    /* opacity: 0.9; */
     top: 4rem;
 }
 

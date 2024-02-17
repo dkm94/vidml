@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 
 export interface SquareComponentsProps {
     isLink: boolean;
@@ -7,17 +8,22 @@ export interface SquareComponentsProps {
     text: string;
 }
 
-type Image = {
+export type Gallery = {
+    id: string;
+    title: string;
+    images: ImageType[];
+}
+
+export type ImageType = {
     id: string | number;
     title: string;
     description?: string;
     url: string;
 }
 
-export type Gallery = {
-    id: string;
-    title: string;
-    images?: Image[];
+export type IllustrationType = {
+    id: number;
+    url: string;
 }
 
 export interface PageHeaderProps {
@@ -33,9 +39,45 @@ export type NavLink = {
     path: string;
 }
 export interface NavLinkProps {
-    key: number;
+    id: number;
     title: string;
     path: string;
-    setShowLinks: (showLinks: boolean) => void;
-    showLinks: boolean;
+    setShowLinks: () => void;
+}
+
+export interface LayoutProps {
+	children: ReactNode | undefined;
+  };
+
+export interface VideoProps {
+    src: string;
+}
+
+export interface MobileNavbarProps {
+	path: string;
+    windowWidth?: number;
+};
+
+export interface DesktopNavbarProps {
+    path: string;
+};
+
+export interface IWindowWidthContextProps {
+    isMobile: boolean;
+    isTablet: boolean;
+    isDesktop: boolean
+    isLarge: boolean;
+    width: number;
+}
+
+export interface ILogoProps {
+    background: string; 
+    height: string;
+    width: string;
+    windowWidth?: number;
+}
+
+export interface ISocialButtonProps {
+    path: string;
+    icon: ReactNode;
 }
