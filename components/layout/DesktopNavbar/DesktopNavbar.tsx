@@ -36,7 +36,7 @@ const DesktopNavbar: FC<DesktopNavbarProps> = () => {
 					<div className='pr-6 pb-4 text-end'>
 						<span className='font-light'>Copyright © 2024 </span>
 						<span className='font-light'>Designed by </span>
-						<span className='font-semibold'>Manag</span>
+						<span className='font-semibold'>DKM</span>
 					</div>
 				</div>
 			</div>
