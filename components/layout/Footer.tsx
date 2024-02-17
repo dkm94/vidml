@@ -29,7 +29,7 @@ const Footer = () => {
 			
 				<div className='text-center self-center text-red-50 pb-4 sm:absolute sm:top-1/2 sm:left-1/2 sm:transform sm:-translate-x-1/2 sm:-translate-y-1/2'>
 					<span className='text-xs font-light'>Copyright © 2024 </span>
-					<span className='text-xs font-light'>Designed by </span><span className='text-xs font-semibold'>Manag</span>
+					<span className='text-xs font-light'>Designed by </span><span className='text-xs font-semibold'>DMK</span>
 				</div>
 			</div>
 		</footer>
