@@ -1,13 +1,10 @@
 import './layout/MobileNavbar/MobileNavbar.css';
-import { NavLinkProps } from '@/types';
-import { useNavbarLinks } from '@/utils';
+
 import Link from 'next/link';
-import { MouseEventHandler } from 'react';
+
+import { NavLinkProps } from '@/types';
 
 const Navlink = ({ id, title, path, setShowLinks }: NavLinkProps) => {
-	// const handleClick = () => {
-	// 	setShowLinks(!showLinks);
-	// };
 
 	return (
 		<li key={id} className={'navbar__item block lg:translate-y-0 slideDown-1'}>

@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 export interface SquareComponentsProps {
     isLink: boolean;
@@ -8,12 +8,18 @@ export interface SquareComponentsProps {
     text: string;
 }
 
-// type Image = {
-//     id: string | number;
-//     title: string;
-//     description?: string;
-//     url: string;
-// }
+export type Gallery = {
+    id: string;
+    title: string;
+    images: ImageType[];
+}
+
+export type ImageType = {
+    id: string | number;
+    title: string;
+    description?: string;
+    url: string;
+}
 
 export type IllustrationType = {
     id: number;

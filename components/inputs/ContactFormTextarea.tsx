@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 
 // interface TextareaProps {
 // 	// onChange: ChangeEventHandler<HTMLTextAreaElement>;
@@ -15,7 +15,7 @@ import React from 'react';
 interface ComponentProps {
 	name: string;
 	label: string;
-	onChange: (e) => void;
+	onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
 const ContactFormTextArea = (props: ComponentProps) => {

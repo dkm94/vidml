@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { PageContent, PageHeader } from '@/components';
 import { galleries } from '@/constants';
 import { Divider } from '@mui/material';
+import { ImageType } from '@/types';
 
 interface GalleryPageProps {
     params: {
@@ -39,7 +40,7 @@ const GalleryPage = ({ params }: GalleryPageProps) => {
 				<div className='relative'>
 					{filteredGallery?.map((gallery, index) => (
 						<div key={index} className='grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3'>
-							{gallery?.images?.map(({ title, description, url, id }: { title: string, description: string, url: string, id: number }, index: number) =>
+							{gallery?.images?.map(({ title, description, url, id }: ImageType, index: number) =>
 								<div key={index} className='flex justify-center'>
 									<div className='relative'>
 										<Image src={url} alt={title} className='w-auto h-full object-cover max-h-[400px]' width={200} height={300} />
