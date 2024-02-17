@@ -5,6 +5,7 @@ import React, { FC, createContext } from 'react';
 import ThemeRegistry from '@/theme/ThemeRegistry';
 import { useWindowWidth } from '@/utils';
 import { IWindowWidthContextProps } from '@/types';
+import { ShowLinksProvider } from '@/utils/contexts/ShowLinksContext';
 
 interface ThirdPartiesWrapperProps extends React.PropsWithChildren {
     children: React.ReactNode;
@@ -30,7 +31,11 @@ const ThirdPartiesWrapper: FC<ThirdPartiesWrapperProps> = (props) => {
 					isDesktop,
 					isLarge,
 					width
-				}}>{width !== 0 && children}</WindowWidthContext.Provider>
+				}}>
+				<ShowLinksProvider>
+					{width !== 0 && children}
+				</ShowLinksProvider>
+			</WindowWidthContext.Provider>
 		</ThemeRegistry>
 	);
 };

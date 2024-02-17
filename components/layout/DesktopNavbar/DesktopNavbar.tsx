@@ -13,9 +13,9 @@ import { navlinks } from '@/constants';
 import { inter } from '@/app/fonts';
 import { WindowWidthContext } from '../ThirdPartiesWrapper';
 
-
 const DesktopNavbar: FC<DesktopNavbarProps> = () => {
 	const pathname = usePathname();
+
 	const windowWidthContext = useContext(WindowWidthContext);
 	const isMobile = windowWidthContext?.isMobile ?? false;
 

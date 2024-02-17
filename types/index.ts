@@ -8,12 +8,12 @@ export interface SquareComponentsProps {
     text: string;
 }
 
-type Image = {
-    id: string | number;
-    title: string;
-    description?: string;
-    url: string;
-}
+// type Image = {
+//     id: string | number;
+//     title: string;
+//     description?: string;
+//     url: string;
+// }
 
 export type IllustrationType = {
     id: number;
@@ -39,10 +39,6 @@ export interface NavLinkProps {
     setShowLinks: () => void;
 }
 
-export interface HomeProps {
-	handleClick: () => void;
-};
-
 export interface LayoutProps {
 	children: ReactNode | undefined;
   };
@@ -52,13 +48,12 @@ export interface VideoProps {
 }
 
 export interface MobileNavbarProps {
-	handleShowLinks: () => void;
-	showLinks: boolean;
 	path: string;
     windowWidth?: number;
 };
 
-export interface DesktopNavbarProps extends MobileNavbarProps {
+export interface DesktopNavbarProps {
+    path: string;
 };
 
 export interface IWindowWidthContextProps {

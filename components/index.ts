@@ -6,6 +6,7 @@ import ContactForm from './contact-form/ContactForm';
 import ContactFormInput from './inputs/ContactFormInput';
 import ContactFormTextArea from './inputs/ContactFormTextarea';
 import SubmitButton from './buttons/SubmitButton';
+import Home from './home/Home';
 
 export {
 	SquareComponent, 
@@ -15,5 +16,6 @@ export {
 	ContactForm, 
 	ContactFormInput, 
 	ContactFormTextArea,
-	SubmitButton
+	SubmitButton,
+	Home
 };

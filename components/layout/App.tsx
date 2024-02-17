@@ -1,11 +1,11 @@
 'use client';
 
-import React, { FC, useContext, useState } from 'react';
+import React, { FC, useContext } from 'react';
 import { usePathname } from 'next/navigation';
 
 import { Divider } from '@mui/material';
 
-import Home from '@/app/page';
+import Page from '@/app/page';
 import { Footer, MobileNavbar } from '.';
 import DesktopNavbar from './DesktopNavbar/DesktopNavbar';
 
@@ -29,16 +29,12 @@ const App: FC<AppProps> = (props) => {
 
 	const isNotDesktop = isMobile || isTablet;
 
-	const [ showLinks, setShowLinks ] = useState<boolean>(false);
-
-	const handleShowLinks = (): void => setShowLinks(!showLinks);
-
 	return (
 		<div className='app'>
-			{ isNotDesktop && <MobileNavbar handleShowLinks={handleShowLinks} showLinks={showLinks} path={pathname} windowWidth={width} />}
+			{ isNotDesktop && <MobileNavbar path={pathname} windowWidth={width} />}
 			<div className={ isNotDesktop ? 'relative' : 'flex flex-row'}>
-				{ width > 815 && <DesktopNavbar handleShowLinks={handleShowLinks} showLinks={showLinks} path={pathname} />}
-				{ pathname === '/' && <Home handleClick={handleShowLinks} /> }
+				{ width > 815 && <DesktopNavbar path={pathname} />}
+				{ pathname === '/' && <Page /> }
 				{ pathname !== '/' && <div onLoad={getWindowWidth} className='min-h-[100vh] bg-[#09080B] w-full'>{children}</div>}
 			</div>
 			{ isMobile && <Divider className='h-2 bg-white min-[815px]:h-[1px]'/>}
