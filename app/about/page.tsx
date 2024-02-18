@@ -1,7 +1,10 @@
 import Image from 'next/image';
-import { Divider } from '@mui/material';
 
+import { Divider } from '@mui/material';
 import { PageContent, PageHeader } from '@/components';
+
+import { blurDataURL } from '@/constants';
+
 
 const AboutPage = () => {
 	return (
@@ -16,8 +19,8 @@ const AboutPage = () => {
 				<div className='flex justify-center'>
 					<div className='flex flex-col px-16 min-[1200px]:flex-row max-w-[1175px] mt-14 md:mt-24 gap-4'>
 						<div className='flex justify-center'>
-							<div className='w-max h-fit max-w-xs border-solid border-white border flex justify-center p-5'>
-								<Image src={'/assets/about-me.jpg'} alt="portrait" width={300} height={200} className='w-full h-auto object-cover max-h-[500px]' />
+							<div className='w-max h-fit min-h-[200px] min-w-[300px] max-w-xs border-solid border-white border flex justify-center p-5'>
+								<Image src={'/assets/about-me.jpg'} alt="portrait" width={300} height={200} className='w-full h-auto object-cover max-h-[500px]' placeholder='blur' priority loading='eager' blurDataURL={blurDataURL} />
 							</div>
 						</div>
 						<div className='relative flex items-center'>
