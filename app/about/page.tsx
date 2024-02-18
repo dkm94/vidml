@@ -1,5 +1,9 @@
+import { Metadata } from 'next';
+
 import { Divider } from '@mui/material';
 import { ImageComponent, PageContent, PageHeader } from '@/components';
+
+export const metadata: Metadata = { title: 'À propos' };
 
 const AboutPage = () => {
 	return (

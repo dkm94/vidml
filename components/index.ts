@@ -8,6 +8,7 @@ import ContactFormTextArea from './inputs/ContactFormTextarea';
 import SubmitButton from './buttons/SubmitButton';
 import Home from './home/Home';
 import ImageComponent from './about-me/ImageComponent';
+import Carousel from './illustrations/Carousel';
 
 export {
 	SquareComponent, 
@@ -19,5 +20,6 @@ export {
 	ContactFormTextArea,
 	SubmitButton,
 	Home,
-	ImageComponent
+	ImageComponent,
+	Carousel
 };
