@@ -4,7 +4,7 @@ import { MutableRefObject, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 import { IllustrationType } from '@/types';
-import { illustrations } from '@/constants';
+import { illustrations, illustrationBlurURL } from '@/constants';
 
 import { PageContent, PageHeader } from '@/components';
 import { Divider } from '@mui/material';
@@ -95,13 +95,17 @@ const IllustrationsPage = () => {
 									src={url} 
 									height={400} 
 									width={400} 
+									objectFit="cover"
 									className={`carousel-img cursor-pointer md:grayscale object-contain ${ activeClass === i ? 'grayscale-0 md:hover:grayscale-0 current-img' : 'grayscale' }`}
 									style={{
 										transform: `translateX(-${ translateX }px) ${ activeClass === i ? 'scale(1)' : 'scale(0.5)' }`, 
 										transition: 'transform .5s ease-in-out'
 									}} 
 									onLoad={handleOnLoad}
-									// priority
+									placeholder='blur' 
+									priority 
+									loading='eager' 
+									blurDataURL={illustrationBlurURL}
 								/>
 							);
 						})}
