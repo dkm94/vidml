@@ -101,6 +101,7 @@ const IllustrationsPage = () => {
 										transition: 'transform .5s ease-in-out'
 									}} 
 									onLoad={handleOnLoad}
+									// priority
 								/>
 							);
 						})}
