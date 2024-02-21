@@ -19,7 +19,6 @@ const Carousel = ({ children }: { children: any }) => {
 	const [ gallery, setGallery ] = useState<CloudinaryResource[]>([]);
 	const [ activeClass, setActiveClass ] = useState<number>(0);
 	const [ translateX, setTranslateX ] = useState<number | undefined>(0);
-	console.log('🚀 ~ Carousel ~ translateX:', translateX);
 	const [ imageWidth, setImageWidth ] = useState<number | null>(null);
 
 	function isValidPublicId(publicId: string) {
@@ -29,10 +28,7 @@ const Carousel = ({ children }: { children: any }) => {
 	}
 	
 	useEffect(() => setGallery(images), [ images ]);
-	
-	// 1. Est-ce que imageName existe ? S'il n'existe pas, rediriger vers la première image
-	// 2. Est-ce que imageName est une string ?
-	// 3. Est-ce que imageName est un public_id valide ?
+
 	useEffect(() => {
 		if(!imageName){
 			router.replace(`/illustrations/${ images?.[ activeClass ]?.filename }`);
@@ -65,25 +61,10 @@ const Carousel = ({ children }: { children: any }) => {
 		};
 	  }, []);
 
-	// useEffect(() => {
-	// 	alert("1")
-	// 	const images = document.querySelectorAll('img');
-	// 	images.forEach((image, i) => {
-	// 		image.addEventListener('click', () => setActiveClass(i));
-	// 	});
-
-	// 	return () => {
-	// 		images.forEach((image, i) => {
-	// 			image.removeEventListener('click', () => setActiveClass(i));
-	// 		});
-	// 	};
-	// }, []);
-
 	useEffect(() => {
 		if(imageWidth){
 			const getItem = (element: string) => element === imageName;
 			const index: number = Array.isArray(arrayOfIds) ? arrayOfIds.findIndex(getItem) : -1;
-			console.log('🚀 ~ useEffect ~ index:', index);
 			setTranslateX(imageWidth! * index);
 			setActiveClass(index);
 		}
@@ -113,9 +94,7 @@ const Carousel = ({ children }: { children: any }) => {
 
 	if(typeof imageName === 'string'){
 		if(!isValidPublicId(imageName)){
-			// Problème index retour et translateX sur le bouton retour
 			return <NotFound />;
-			// throw new Error('L\'image demandée n\'existe pas. Veuillez vérifier le nom de l\'image.');
 		}
 	}
 
