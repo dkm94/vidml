@@ -36,6 +36,7 @@ const Carousel = ({ children }: { children: any }) => {
 		} else {
 			router.replace(`/illustrations/${ imageName }`);
 		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [ imageName ]);
 	
 	const resize = (): void => {

@@ -9,7 +9,6 @@ import SubmitButton from './buttons/SubmitButton';
 import Home from './home/Home';
 import ImageComponent from './about-me/ImageComponent';
 import Carousel from './illustrations/Carousel';
-// import ImagesList from './illustrations/ImagesList';
 import CloudinaryImg from './illustrations/CloudinaryImg';
 import CarouselButton from './buttons/CarouselButtons/CarouselButton';
 
