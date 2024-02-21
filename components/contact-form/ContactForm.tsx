@@ -24,7 +24,7 @@ const ContactForm = () => {
 					<ContactFormTextArea label='Message' name='content' onChange={(e) => setContent(e.target?.value)} />
 				</div>
 				<div className='flex justify-end'>
-					<SubmitButton />
+					<SubmitButton className={''} text={'Envoyer'} type={'submit'} />
 				</div>
 			</form>
 		</div>

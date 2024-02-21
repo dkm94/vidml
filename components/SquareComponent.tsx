@@ -1,7 +1,15 @@
 'use client';
 
-import { SquareComponentsProps } from '@/types';
 import Link from 'next/link';
+import { ComponentPropsWithoutRef } from 'react';
+
+interface SquareComponentsProps extends ComponentPropsWithoutRef<'div'> {
+	isLink: boolean;
+	path?: string;
+	containerStyle: string;
+	childStyle: string;
+	text: string;
+}
 
 const SquareComponent = ({ isLink, path, containerStyle, childStyle, text }: SquareComponentsProps) => {
 	return (

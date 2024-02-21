@@ -1,31 +1,46 @@
 'use client';
 
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 
 import { CloudinaryResource } from '@/utils/api/cachedImages';
 import { CarouselButton, CloudinaryImg } from '..';
+import { NotFound } from '../layout';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Carousel = ({ children }: { children: any }) => {
+	const { imageName } = useParams();
 	const images = children?.[ 0 ]?.props?.resources;
-
+	const arrayOfIds = Array.isArray(images) && images.map(({ filename }) => filename);
 	const imageRef: MutableRefObject<HTMLImageElement | null> = useRef(null);
+	
+	const router = useRouter();
 
 	const [ gallery, setGallery ] = useState<CloudinaryResource[]>([]);
 	const [ activeClass, setActiveClass ] = useState<number>(0);
 	const [ translateX, setTranslateX ] = useState<number | undefined>(0);
+	console.log('🚀 ~ Carousel ~ translateX:', translateX);
 	const [ imageWidth, setImageWidth ] = useState<number | null>(null);
 
-	const router = useRouter();
-
-	useEffect(() => setGallery(images), [ images ]);
-
-	useEffect(() => {
-		if(gallery){
-			router.replace(`/illustrations/${ images?.[ activeClass ]?.filename }`);
+	function isValidPublicId(publicId: string) {
+		if(Array.isArray(arrayOfIds)){
+			return arrayOfIds.includes(publicId);
 		}
-	}, [ gallery ]);
+	}
+	
+	useEffect(() => setGallery(images), [ images ]);
+	
+	// 1. Est-ce que imageName existe ? S'il n'existe pas, rediriger vers la première image
+	// 2. Est-ce que imageName est une string ?
+	// 3. Est-ce que imageName est un public_id valide ?
+	useEffect(() => {
+		if(!imageName){
+			router.replace(`/illustrations/${ images?.[ activeClass ]?.filename }`);
+			return;
+		} else {
+			router.replace(`/illustrations/${ imageName }`);
+		}
+	}, [ imageName ]);
 	
 	const resize = (): void => {
 		if (imageRef.current) {
@@ -50,22 +65,29 @@ const Carousel = ({ children }: { children: any }) => {
 		};
 	  }, []);
 
-	useEffect(() => {
-		const images = document.querySelectorAll('img');
-		images.forEach((image, i) => {
-			image.addEventListener('click', () => setActiveClass(i));
-		});
+	// useEffect(() => {
+	// 	alert("1")
+	// 	const images = document.querySelectorAll('img');
+	// 	images.forEach((image, i) => {
+	// 		image.addEventListener('click', () => setActiveClass(i));
+	// 	});
 
-		return () => {
-			images.forEach((image, i) => {
-				image.removeEventListener('click', () => setActiveClass(i));
-			});
-		};
-	}, []);
+	// 	return () => {
+	// 		images.forEach((image, i) => {
+	// 			image.removeEventListener('click', () => setActiveClass(i));
+	// 		});
+	// 	};
+	// }, []);
 
 	useEffect(() => {
-	  setTranslateX(imageWidth! * activeClass);
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+		if(imageWidth){
+			const getItem = (element: string) => element === imageName;
+			const index: number = Array.isArray(arrayOfIds) ? arrayOfIds.findIndex(getItem) : -1;
+			console.log('🚀 ~ useEffect ~ index:', index);
+			setTranslateX(imageWidth! * index);
+			setActiveClass(index);
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [ imageWidth ]);
 	
 
@@ -89,7 +111,14 @@ const Carousel = ({ children }: { children: any }) => {
 		router.replace(images[ activeClass + 1 ].filename);
 	};
 
-	
+	if(typeof imageName === 'string'){
+		if(!isValidPublicId(imageName)){
+			// Problème index retour et translateX sur le bouton retour
+			return <NotFound />;
+			// throw new Error('L\'image demandée n\'existe pas. Veuillez vérifier le nom de l\'image.');
+		}
+	}
+
 	return (
 		<>
 			<div className='w-full h-full flex justify-center'>

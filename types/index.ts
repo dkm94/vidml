@@ -1,13 +1,5 @@
 import { ReactNode } from 'react';
 
-export interface SquareComponentsProps {
-    isLink: boolean;
-    path?: string;
-    containerStyle: string;
-    childStyle: string;
-    text: string;
-}
-
 export type Gallery = {
     id: string;
     title: string;
@@ -24,10 +16,6 @@ export type ImageType = {
 export type IllustrationType = {
     id: number;
     url: string;
-}
-
-export interface PageHeaderProps {
-    title: string;
 }
 
 export interface PageContentProps {
@@ -48,10 +36,6 @@ export interface NavLinkProps {
 export interface LayoutProps {
 	children: ReactNode | undefined;
   };
-
-export interface VideoProps {
-    src: string;
-}
 
 export interface MobileNavbarProps {
 	path: string;
