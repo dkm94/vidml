@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { ComponentPropsWithoutRef } from 'react';
 
-const CarouselButton = () => {
+interface CarouselButtonProps extends ComponentPropsWithoutRef<'button'>{
+	content: string;
+	className: string;
+};
+
+const CarouselButton = (props: CarouselButtonProps) => {
+	const { content, className, ...rest } = props;
+
+	const combinedClassName = `w-10 h-10 bg-[#eaeae9] rounded-full ${ className || '' }`;
+
 	return (
-		<div>CarouselButton</div>
+		<button {...rest} className={combinedClassName}>{content}</button>
 	);
 };
 

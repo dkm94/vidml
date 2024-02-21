@@ -1,8 +1,12 @@
+import { Metadata } from 'next';
+
 import { Divider } from '@mui/material'; 
 
 import { PageContent, PageHeader } from '@/components';
 
-const ServicesPage = () => {
+export const metadata: Metadata = { title: 'Services' };
+
+function ServicesPage(){
 	return (
 		<main className='services h-full flex flex-col bg-[#09080B]'>
 			<PageHeader title='Services'/>
@@ -14,6 +18,6 @@ const ServicesPage = () => {
 			</PageContent>
 		</main>
 	);
-};
+}
 
 export default ServicesPage;

@@ -1,6 +1,10 @@
+import { Metadata } from 'next';
+
 import { Divider } from '@mui/material';
 
 import { ContactForm, PageContent, PageHeader } from '@/components';
+
+export const metadata: Metadata = { title: 'Contact' };
 
 const ContactPage = () => {
 	return (

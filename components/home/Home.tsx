@@ -7,10 +7,11 @@ import Video from '../video/Video';
 import { WindowWidthContext } from '../layout/ThirdPartiesWrapper';
 import { useShowLinks } from '@/utils/contexts/ShowLinksContext';
 
+
 const Home = () => {
 	const { showLinks: toggle, setShowLinks: setToggle } = useShowLinks();
 	const windowWidthContext = useContext(WindowWidthContext);
-    
+	
 	const isMobile = windowWidthContext?.isMobile ?? false;
 	const isTablet = windowWidthContext?.isTablet ?? false;
 	const isDesktop = windowWidthContext?.isDesktop ?? false;
@@ -20,7 +21,22 @@ const Home = () => {
 	const handleClick = () => {
 		setToggle(!toggle);
 	};
+	
+	const videoSources = {
+		mobile: '/assets/home-video-mobile.mp4',
+		tablet: '/assets/home-video-md.mp4',
+		desktop: '/assets/home-video-mobile.mp4',
+		large: '/assets/home-video-hd-cut.mp4',
+	};
 
+	const getVideoSource = () => {
+		if (isMobile) return videoSources.mobile;
+		if (isTablet) return videoSources.tablet;
+		if (isDesktop) return videoSources.desktop;
+		if (isLarge) return videoSources.large;
+		throw new Error('Error loading video. Please refresh the page');
+	};
+	
 	return (
 		<div className={`${ !isMobile && 'w-full' }`}>
 			<main className={`overflow-hidden relative ${ isMobile ? 'h-[94vh]' : 'h-[100vh]' } bg-[#09080B]`}>
@@ -31,18 +47,7 @@ const Home = () => {
 						onClick={handleClick}>Menu</button>
 				)}
 				<div className="absolute top-0 left-0 w-full h-full z-[99]" />
-				{isMobile && (
-					<Video src="/assets/home-video-mobile.mp4" />
-				)}
-				{isTablet && (
-					<Video src="/assets/home-video-md.mp4" />
-				)}
-				{isDesktop && (
-					<Video src="/assets/home-video-mobile.mp4" />
-				)}
-				{isLarge && (
-					<Video src="/assets/home-video-hd-cut.mp4" />
-				)}
+				<Video src={getVideoSource()} />
 			</main>
 		</div>
 	);

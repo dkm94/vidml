@@ -19,13 +19,21 @@ const DesktopNavbar: FC<DesktopNavbarProps> = () => {
 	const windowWidthContext = useContext(WindowWidthContext);
 	const isMobile = windowWidthContext?.isMobile ?? false;
 
+	function setActiveLink(staticLink: string){
+		if(staticLink === '/'){
+			return pathname === staticLink;
+		} else {
+			return pathname.startsWith(staticLink);
+		}
+	}
+	
 	return (
 		<div className={'sticky top-0 w-[30%] min-w-[200px] max-w-[350px] z-[100] bg-[#09080B] border-white border-solid border-r-[0.5px] h-[100vh]'}>
 			<div className={`${ isMobile ? 'absolute justify-center' : 'max-h-[1200px]' } overflow-y-auto h-full text-white flex flex-col`}>
 				<Logo background="bg-white" height='h-fit' width="w-full" />
 				<ul className="flex flex-col p-8 gap-y-4 mt-auto">
 					{navlinks.map((link: NavLink, index: number): ReactNode => {
-						return <Link className={`nav-link w-[100px] text-white uppercase text-base 2xl:text-xs ${ inter.className } ${ pathname === link.path && 'font-black' }`} key={index} href={link.path} >{link.title}</Link>;
+						return <Link className={`nav-link w-[100px] text-white uppercase text-base 2xl:text-xs ${ inter.className } ${ setActiveLink(link.path) && 'font-black' }`} key={index} href={link.path} >{link.title}</Link>;
 					})}
 				</ul>
 				<div className='mt-auto'>

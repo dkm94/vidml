@@ -8,14 +8,22 @@ import { App, ThirdPartiesWrapper } from '@/components/layout';
 
 import { LayoutProps } from '@/types';
 
-export const metadata: Metadata | null = (typeof window !== 'undefined')
-	? {
-		title: 'ViDML | Gallery',
-		description: 'Portfolio de ViDML',
-	}
-	: null;
+// export const metadata: Metadata | null = (typeof window !== 'undefined')
+// 	? {
+// 		title: 'ViDML | Gallery',
+// 		description: 'Portfolio de ViDML',
+// 	}
+// 	: null;
+export const metadata: Metadata = {
+	title: {
+	  template: '%s | ViDML',
+	  default: 'ViDML Gallery',
+	},
+	description: 'Explorez l\'univers des illustrations avec Virginie DML. Découvrez des créations originales qui fusionnent l\'esthétique artistique et les tendances de la mode.',
+	// metadataBase: new URL('https://vidml-gallery.fr/'),
+};
 
-export const RootLayout: FunctionComponent<LayoutProps> = ( props: LayoutProps ) => {
+export const RootLayout: FunctionComponent<LayoutProps> = ( props ) => {
 	const { children } = props;
 	
 	return (
