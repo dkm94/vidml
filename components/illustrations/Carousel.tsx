@@ -4,7 +4,7 @@ import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { CloudinaryResource } from '@/utils/api/cachedImages';
-import { CloudinaryImg } from '..';
+import { CarouselButton, CloudinaryImg } from '..';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Carousel = ({ children }: { children: any }) => {
@@ -123,7 +123,7 @@ const Carousel = ({ children }: { children: any }) => {
 									onLoad={handleOnLoad}
 									src={public_id}
 									alt={public_id}
-									className={`carousel-img cursor-pointer md:grayscale object-contain ${ activeClass === i ? 'grayscale-0 md:hover:grayscale-0 current-img' : 'grayscale' }`}
+									className={`carousel-img md:grayscale object-contain ${ activeClass === i ? 'grayscale-0 md:hover:grayscale-0 current-img' : 'grayscale' }`}
 									style={{
 										transform: `translateX(-${ translateX }px) ${ activeClass === i ? 'scale(1)' : 'scale(0.5)' }`, 
 										transition: 'transform .5s ease-in-out',
@@ -137,12 +137,22 @@ const Carousel = ({ children }: { children: any }) => {
 			</div>
 			<div className='relative'>
 				<div className='flex gap-2 absolute top-[85%] left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
-					<button disabled={activeClass === 0} onClick={handlePrevButton} className={`w-10 h-10 bg-[#eaeae9] rounded-full ${ activeClass === 0 && 'opacity-50' }`}>{'<'}</button>
-					<button disabled={activeClass === gallery?.length - 1} onClick={handleNextButton} className={`w-10 h-10 bg-[#eaeae9] rounded-full ${ activeClass === gallery?.length - 1 && 'opacity-50' }`}>{'>'}</button>
+					<CarouselButton 
+						disabled={activeClass === 0} 
+						onClick={handlePrevButton} 
+						className={` ${ activeClass === 0 && 'opacity-50' }`} 
+						content={'<'} />
+					<CarouselButton 
+						disabled={activeClass === gallery?.length - 1} 
+						onClick={handleNextButton} 
+						className={`${ activeClass === gallery?.length - 1 && 'opacity-50' }`} 
+						content={'>'} />
 				</div>
 			</div>
 		</>
 	);
 };
+
+// Button props: disabled, onClick, className, content
 
 export default Carousel;

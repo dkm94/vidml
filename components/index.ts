@@ -11,6 +11,7 @@ import ImageComponent from './about-me/ImageComponent';
 import Carousel from './illustrations/Carousel';
 import ImagesList from './illustrations/ImagesList';
 import CloudinaryImg from './illustrations/CloudinaryImg';
+import CarouselButton from './buttons/CarouselButtons/CarouselButton';
 
 export {
 	SquareComponent, 
@@ -25,5 +26,6 @@ export {
 	ImageComponent,
 	Carousel,
 	ImagesList,
-	CloudinaryImg
+	CloudinaryImg,
+	CarouselButton
 };
