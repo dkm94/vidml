@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 	// metadataBase: new URL('https://vidml-gallery.fr/'),
 };
 
-export const RootLayout: FunctionComponent<LayoutProps> = ( props: LayoutProps ) => {
+export const RootLayout: FunctionComponent<LayoutProps> = ( props ) => {
 	const { children } = props;
 	
 	return (

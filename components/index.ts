@@ -9,6 +9,8 @@ import SubmitButton from './buttons/SubmitButton';
 import Home from './home/Home';
 import ImageComponent from './about-me/ImageComponent';
 import Carousel from './illustrations/Carousel';
+import ImagesList from './illustrations/ImagesList';
+import CloudinaryImg from './illustrations/CloudinaryImg';
 
 export {
 	SquareComponent, 
@@ -21,5 +23,7 @@ export {
 	SubmitButton,
 	Home,
 	ImageComponent,
-	Carousel
+	Carousel,
+	ImagesList,
+	CloudinaryImg
 };

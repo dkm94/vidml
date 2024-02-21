@@ -1,3 +1,4 @@
 import { PageHeader, PageContent } from '@/components';
+import IllustrationLayout from './illustrations/layout';
 
-export { PageHeader, PageContent };
+export { PageHeader, PageContent, IllustrationLayout };
