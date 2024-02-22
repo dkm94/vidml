@@ -31,10 +31,10 @@ const Carousel = ({ children }: { children: any }) => {
 
 	useEffect(() => {
 		if(!imageName){
-			router.replace(`/illustrations/${ images?.[ activeClass ]?.filename }`);
+			router.push(`/illustrations/${ images?.[ activeClass ]?.filename }`);
 			return;
 		} else {
-			router.replace(`/illustrations/${ imageName }`);
+			router.push(`/illustrations/${ imageName }`);
 		}
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [ imageName ]);
@@ -70,7 +70,7 @@ const Carousel = ({ children }: { children: any }) => {
 			setActiveClass(index);
 		}
 	// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [imageName, imageWidth]);
+	}, [ imageName, imageWidth ]);
 	
 
 	const handlePrevButton = (): void => {
@@ -80,7 +80,7 @@ const Carousel = ({ children }: { children: any }) => {
 			setActiveClass(activeClass - 1);
 		}
 		setTranslateX(translateX! - imageWidth!);
-		router.replace(images[ activeClass - 1 ].filename);
+		router.push(images[ activeClass - 1 ].filename);
 	};
 
 	const handleNextButton = (): void => {
@@ -90,7 +90,7 @@ const Carousel = ({ children }: { children: any }) => {
 			setActiveClass(activeClass + 1);
 		}
 		setTranslateX(translateX! + imageWidth!);
-		router.replace(images[ activeClass + 1 ].filename);
+		router.push(images[ activeClass + 1 ].filename);
 	};
 
 	if(typeof imageName === 'string'){
