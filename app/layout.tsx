@@ -2,7 +2,7 @@ import './globals.css';
 
 import React, { FunctionComponent } from 'react';
 import type { Metadata } from 'next';
-import { bebasNeue, cardo, inria } from './fonts';
+import { bebasNeue, cardo, inria, inter } from './fonts';
 
 import { App, ThirdPartiesWrapper } from '@/components/layout';
 
@@ -28,7 +28,7 @@ export const RootLayout: FunctionComponent<LayoutProps> = ( props ) => {
 	
 	return (
 		<html lang="fr" className={`${ cardo.variable } ${ inria.variable } ${ bebasNeue.variable }`} suppressHydrationWarning={true}>
-			<body className="min-[815px]:min-h-[100vh]">
+			<body className={`${ inter.className } antialiased min-[815px]:min-h-[100vh]`}>
 				<ThirdPartiesWrapper>
 					<App>{children}</App>
 				</ThirdPartiesWrapper>

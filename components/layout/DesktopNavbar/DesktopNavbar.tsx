@@ -42,9 +42,9 @@ const DesktopNavbar: FC<DesktopNavbarProps> = () => {
 						<SocialButton path='mailto:vidml@gmail.com' icon={<MailOutlineIcon />} />
 					</div>
 					<div className='pr-6 pb-4 text-end'>
-						<span className='font-light'>Copyright © 2024 </span>
-						<span className='font-light'>Designed by </span>
-						<span className='font-semibold'>DKM</span>
+						<span className='text-xs font-light'>Copyright © 2024 </span>
+						<span className='text-xs font-light'>Designed by </span>
+						<span className='text-xs font-semibold'>DKM</span>
 					</div>
 				</div>
 			</div>

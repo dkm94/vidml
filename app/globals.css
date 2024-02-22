@@ -34,9 +34,6 @@
      @apply text-center;
     font-family: 'Inter', sans-serif;
   }
-  form {
-    font-family: 'Inter', sans-serif;
-  }
 }
 
 .text-balance {
@@ -56,20 +53,8 @@
   @apply max-w-[1175px] m-auto flex justify-between w-full items-center text-gray-500 flex-wrap h-16 py-0 px-8 
 }
 
-.square-title {
-  font-family: 'Bebas Neue', sans-serif;
-}
-
-.font-neue {
-  font-family: 'Bebas Neue', sans-serif;
-}
-
 .content-bg {
   @apply  bg-fixed bg-cover absolute top-0 bottom-0 left-0 right-0 content-[""] opacity-40;
-}
-
-.navlink > .navbar__item > .navlink-a {
-  font-family: "Inria", serif;
 }
 
 .text-nowrap {
