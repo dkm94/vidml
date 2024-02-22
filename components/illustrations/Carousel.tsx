@@ -9,6 +9,7 @@ import { NotFound } from '../layout';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Carousel = ({ children }: { children: any }) => {
+	alert('CAROUSEL');
 	const { imageName } = useParams();
 	const images = children?.[ 0 ]?.props?.resources;
 	const arrayOfIds = Array.isArray(images) && images.map(({ filename }) => filename);
@@ -70,7 +71,7 @@ const Carousel = ({ children }: { children: any }) => {
 			setActiveClass(index);
 		}
 	// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [imageName, imageWidth]);
+	}, [ imageName, imageWidth ]);
 	
 
 	const handlePrevButton = (): void => {
@@ -139,6 +140,7 @@ const Carousel = ({ children }: { children: any }) => {
 										maxWidth: 'unset'
 									}} 
 								/>
+								{children}
 							</div>
 						);
 					})}

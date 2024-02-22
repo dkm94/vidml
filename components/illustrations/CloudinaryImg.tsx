@@ -7,6 +7,8 @@ import { useWindowWidth } from '@/utils';
 
 const CloudinaryImg = (props: CldImageProps) => {
 	const { src } = props;
+	alert('CloudinaryImg');
+	console.log('🚀 ~ CloudinaryImg ~ src:', src);
 
 	const { width } = useWindowWidth();
 

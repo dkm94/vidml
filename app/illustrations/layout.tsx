@@ -1,4 +1,5 @@
 import React, { Children, cloneElement } from 'react';
+import { Metadata } from 'next';
 
 import { Divider } from '@mui/material';
 
@@ -6,6 +7,8 @@ import { PageContent, PageHeader } from '..';
 import { Carousel } from '@/components';
 
 import { getResults } from '@/utils';
+
+export const metadata: Metadata = { title: 'Illustrations' };
 
 interface LayoutProps {
     children: React.ReactElement | React.ReactElement[];

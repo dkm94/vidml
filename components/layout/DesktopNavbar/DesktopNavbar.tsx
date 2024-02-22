@@ -1,6 +1,6 @@
 import React, { FC, ReactNode, useContext } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 import InstagramIcon from '@mui/icons-material/Instagram';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
@@ -15,6 +15,7 @@ import { WindowWidthContext } from '../ThirdPartiesWrapper';
 
 const DesktopNavbar: FC<DesktopNavbarProps> = () => {
 	const pathname = usePathname();
+	const router = useRouter();
 
 	const windowWidthContext = useContext(WindowWidthContext);
 	const isMobile = windowWidthContext?.isMobile ?? false;
@@ -33,6 +34,9 @@ const DesktopNavbar: FC<DesktopNavbarProps> = () => {
 				<Logo background="bg-white" height='h-fit' width="w-full" />
 				<ul className="flex flex-col p-8 gap-y-4 mt-auto">
 					{navlinks.map((link: NavLink, index: number): ReactNode => {
+						if(link.path === '/illustrations'){
+							return <Link key={index} href={`${ link.path }`} >{link.title}</Link>;
+						}
 						return <Link className={`nav-link w-[100px] text-white uppercase text-base 2xl:text-xs ${ inter.className } ${ setActiveLink(link.path) && 'font-black' }`} key={index} href={link.path} >{link.title}</Link>;
 					})}
 				</ul>

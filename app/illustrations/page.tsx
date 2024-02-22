@@ -1,7 +1,14 @@
-import { Metadata } from 'next';
+'use client';
 
-export const metadata: Metadata = { title: 'Illustrations' };
+import { useEffect } from 'react' ;
+import { useRouter } from 'next/navigation';
 
-export default function IllustrationsPage() {
-	return;
+export default function IllustrationsPage(props: { imageName: string }) {
+	const { imageName } = props;
+	const router = useRouter();
+	
+	useEffect(() => {
+		router.push(`/illustrations/${ imageName }`);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 };
