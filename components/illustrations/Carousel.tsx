@@ -69,8 +69,8 @@ const Carousel = ({ children }: { children: any }) => {
 			setTranslateX(imageWidth! * index);
 			setActiveClass(index);
 		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [ imageWidth ]);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [imageName, imageWidth]);
 	
 
 	const handlePrevButton = (): void => {
