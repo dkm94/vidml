@@ -15,9 +15,9 @@ export default function IllustrationPage (props: IllustrationPageProps) {
 	const router = useRouter();
 
 	useEffect(() => {
-		router.replace(`/illustrations/${ imageName }`);
+		router.prefetch(`/illustrations/${ imageName }`);
 		
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-	return;
+	return <p>imageName</p>;
 };

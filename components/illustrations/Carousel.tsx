@@ -1,7 +1,7 @@
 'use client';
 
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 
 import { CloudinaryResource } from '@/utils/api/cachedImages';
 import { CarouselButton, CloudinaryImg } from '..';
@@ -14,8 +14,6 @@ const Carousel = ({ children }: { children: any }) => {
 	const arrayOfIds = Array.isArray(images) && images.map(({ filename }) => filename);
 	const imageRef: MutableRefObject<HTMLImageElement | null> = useRef(null);
 	
-	const router = useRouter();
-
 	const [ gallery, setGallery ] = useState<CloudinaryResource[]>([]);
 	const [ activeClass, setActiveClass ] = useState<number>(0);
 	const [ translateX, setTranslateX ] = useState<number | undefined>(0);
@@ -29,15 +27,15 @@ const Carousel = ({ children }: { children: any }) => {
 	
 	useEffect(() => setGallery(images), [ images ]);
 
-	useEffect(() => {
-		if(!imageName){
-			router.replace(`/illustrations/${ images?.[ activeClass ]?.filename }`);
-			return;
-		} else {
-			router.replace(`/illustrations/${ imageName }`);
-		}
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [ imageName ]);
+	// useEffect(() => {
+	// 	if(!imageName){
+	// 		router.push(`/illustrations/${ images?.[ activeClass ]?.filename }`);
+	// 		return;
+	// 	} else {
+	// 		router.push(`/illustrations/${ imageName }`);
+	// 	}
+	// // eslint-disable-next-line react-hooks/exhaustive-deps
+	// }, [ imageName ]);
 	
 	const resize = (): void => {
 		if (imageRef.current) {
@@ -62,17 +60,16 @@ const Carousel = ({ children }: { children: any }) => {
 		};
 	  }, []);
 
-	useEffect(() => {
-		if(imageWidth){
-			const getItem = (element: string) => element === imageName;
-			const index: number = Array.isArray(arrayOfIds) ? arrayOfIds.findIndex(getItem) : -1;
-			setTranslateX(imageWidth! * index);
-			setActiveClass(index);
-		}
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [imageName, imageWidth]);
+	// useEffect(() => {
+	// 	if(imageWidth){
+	// 		const getItem = (element: string) => element === imageName;
+	// 		const index: number = Array.isArray(arrayOfIds) ? arrayOfIds.findIndex(getItem) : -1;
+	// 		setTranslateX(imageWidth! * index);
+	// 		setActiveClass(index);
+	// 	}
+	// // eslint-disable-next-line react-hooks/exhaustive-deps
+	// }, [ imageName, imageWidth ]);
 	
-
 	const handlePrevButton = (): void => {
 		if (activeClass === 0) {
 			setActiveClass(gallery.length - 1);
@@ -80,7 +77,7 @@ const Carousel = ({ children }: { children: any }) => {
 			setActiveClass(activeClass - 1);
 		}
 		setTranslateX(translateX! - imageWidth!);
-		router.replace(images[ activeClass - 1 ].filename);
+		// router.push(images[ activeClass - 1 ].filename);
 	};
 
 	const handleNextButton = (): void => {
@@ -90,7 +87,7 @@ const Carousel = ({ children }: { children: any }) => {
 			setActiveClass(activeClass + 1);
 		}
 		setTranslateX(translateX! + imageWidth!);
-		router.replace(images[ activeClass + 1 ].filename);
+		// router.push(images[ activeClass + 1 ].filename);
 	};
 
 	if(typeof imageName === 'string'){
@@ -161,7 +158,5 @@ const Carousel = ({ children }: { children: any }) => {
 		</>
 	);
 };
-
-// Button props: disabled, onClick, className, content
 
 export default Carousel;
