@@ -17,7 +17,7 @@ const links = [
 	},
 	{
 		name: 'Mes réseaux',
-		href: '/dashboard/networks',
+		href: '/dashboard/network',
 	},
 	{
 		name: 'Mes comptes',

@@ -1,3 +1,3 @@
 export default function Page() {
-	return <p>Dashboard Page</p>;
+	return <h2 className="text-start text-white">Dashboard Page</h2>;
 }
