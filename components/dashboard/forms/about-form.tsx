@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import CustomFormInput from '../custom-input';
-import CustomFormTextarea from '../custom-textarea';
+import CustomFormInput from './custom-input';
+import CustomFormTextarea from './custom-textarea';
 
 const AboutMeForm = () => {
 	const [ title, setTitle ] = useState<string>('');

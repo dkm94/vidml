@@ -20,7 +20,6 @@ const App: FC<AppProps> = (props) => {
 	const { children } = props;
 
 	const pathname: string = usePathname();
-	console.log('🚀 ~ pathname:', pathname);
 	const { getWindowWidth } = useWindowWidth();
 
 	const windowWidthContext = useContext(WindowWidthContext);
