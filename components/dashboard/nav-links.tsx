@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -49,9 +49,7 @@ export default function NavLinks() {
 						href={link.href}
 						className={clsx(
 							'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-[#f2eee6]  md:flex-none md:justify-start md:p-2 md:px-3',
-							{
-							  'bg-[#f7e0b7]': pathname === link.href,
-							},
+							{ 'bg-[#f7e0b7]': pathname === link.href, },
 						  )}
 					>
 						<p className="hidden md:block">{link.name}</p>

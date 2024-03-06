@@ -2,8 +2,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import NavLinks from './nav-links';
-import { Logo } from '@/components';
-
 
 export default function SideNav() {
 	return (
@@ -13,15 +11,6 @@ export default function SideNav() {
 				href="/"
 			>
 				<div className="text-white">
-					{/* <Logo background="bg-white" height='h-fit' width="w-full" /> */}
-					{/* <Image src='/assets/logo-2.png' 
-						height={50}
-						width={120} 
-						alt='logo' 
-						className='h-full object-contain'
-						style={{ width: 'auto' }}
-						priority
-					/> */}
           Tableau de bord
 				</div>
 			</Link>
