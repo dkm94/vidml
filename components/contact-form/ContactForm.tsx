@@ -13,6 +13,7 @@ const ContactForm = () => {
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+		console.log(name, email, subject, content);
 	};
 
 	return (

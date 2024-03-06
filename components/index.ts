@@ -12,6 +12,9 @@ import Carousel from './illustrations/Carousel';
 import CloudinaryImg from './illustrations/CloudinaryImg';
 import CarouselButton from './buttons/CarouselButtons/CarouselButton';
 import SideNav from './dashboard/sidenav';
+import CustomFormInput from './dashboard/form/custom-input';
+import AboutMeForm from './dashboard/form/about/about-form';
+import CustomFormTextarea from './dashboard/form/custom-textarea';
 
 export {
 	SquareComponent, 
@@ -27,5 +30,8 @@ export {
 	Carousel,
 	CloudinaryImg,
 	CarouselButton,
-	SideNav
+	SideNav,
+	CustomFormInput,
+	AboutMeForm,
+	CustomFormTextarea
 };
