@@ -1,4 +1,4 @@
-import React, { Children, cloneElement } from 'react';
+import React, { Children, Suspense, cloneElement } from 'react';
 import { Metadata } from 'next';
 
 import { Divider } from '@mui/material';
@@ -32,7 +32,9 @@ export default async function IllustrationLayout({ children }: LayoutProps) {
 			<Divider className='h-2 bg-white min-[815px]:h-[1px]'/>
 			<main className='illustrations flex flex-col bg-[rgb(9,8,11)]'>
 				<PageContent>
-					<Carousel>{childrenWithProps}</Carousel>
+					<Suspense fallback={<p className='text-white'>Loading...</p>}>
+						<Carousel>{childrenWithProps}</Carousel>
+					</Suspense>
 				</PageContent>
 			</main>
 		</>

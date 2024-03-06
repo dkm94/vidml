@@ -1,14 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	formats: [ 'image/avif', 'image/webp' ],
-	remotePatterns: [
-		{
-			protocol: 'https',
-			hostname: 'res.cloudinary.com',
-			port: '',
-			pathname: '/dbj8kfftk/**',
-		},
-	],
+	// formats: [ 'image/avif', 'image/webp' ],
+	// remotePatterns: [
+	// 	{
+	// 		protocol: 'https',
+	// 		hostname: 'res.cloudinary.com',
+	// 		port: '',
+	// 		pathname: '/dbj8kfftk/**',
+	// 	},
+	// ],
 	images: 
     {
     	domains: 

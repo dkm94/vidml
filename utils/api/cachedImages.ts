@@ -18,6 +18,5 @@ export default async function getResults() {
 
 		cachedResults = fetchedResults;
 	}
-
 	return cachedResults;
 }
