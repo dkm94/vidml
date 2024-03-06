@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import CustomFormInput from './custom-input';
-import CustomFormTextarea from './custom-textarea';
+import CustomFormInput from '../../ui/dashboard/custom-input';
+import CustomFormTextarea from '../../ui/dashboard/custom-textarea';
 
 const AboutMeForm = () => {
 	const [ title, setTitle ] = useState<string>('');
@@ -15,7 +15,7 @@ const AboutMeForm = () => {
 	};
     
 	return (
-		<form action={handleSubmit} className="w-full max-w-[34rem] flex flex-col gap-4">
+		<form action={handleSubmit} className="about-form w-full max-w-[34rem] flex flex-col gap-4">
 			<CustomFormInput name={'title'} type={'text'} label={'Titre'} id={'title'} placeholder={'Titre, citation...'} onChange={e => setTitle(e?.target?.value)} />
 			<CustomFormInput name={'subtitle'} type={'text'} label={'Sous-titre'} id={'subtitle'} placeholder={'Sous-titre, auteur de la citation...'} onChange={e => setSubtitle(e?.target?.value)} />
 			<CustomFormTextarea label={'Texte de présentation'} id={'about-me'} onChange={e => setAboutMe((e.target as HTMLTextAreaElement).value)} />

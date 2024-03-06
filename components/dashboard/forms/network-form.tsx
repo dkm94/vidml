@@ -1,7 +1,7 @@
 'use client';
 
 import React, { ChangeEvent, useState } from 'react';
-import CustomFormInput from './custom-input';
+import CustomFormInput from '../../ui/dashboard/custom-input';
 
 const NetworkForm = () => {
 	const [ instagramAccount, setInstagramAccount ] = useState<string>('');
@@ -13,7 +13,7 @@ const NetworkForm = () => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit} className="w-full max-w-[34rem] flex flex-col gap-4">
+		<form onSubmit={handleSubmit} className="network-form w-full max-w-[34rem] flex flex-col gap-4">
 			<CustomFormInput 
 				name={'network-instagram'} 
 				type={'text'} 
@@ -28,6 +28,9 @@ const NetworkForm = () => {
 				id={'network-mail'} 
 				placeholder={'nom@gmail.com'} 
 				onChange={e => setEmail(e?.target?.value)} />
+			<div className="mb-3 flex flex-col">
+				<button type='submit' className="btn btn-primary self-end bg-zinc-700 text-slate-50  border-solid border-slate-50 border-2 rounded w-fit px-3 py-1 uppercase">Enregistrer</button>
+			</div>
 		</form>
 	);
 };

@@ -5,7 +5,7 @@ interface CustomFormInputProps extends ComponentPropsWithoutRef<'div'> {
     type: string;
 	label: string;
     id: string;
-    placeholder: string;
+    placeholder?: string;
 	onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -16,6 +16,7 @@ const CustomFormInput = (props: CustomFormInputProps) => {
 		<div className="mb-3 flex flex-col">
 			<label htmlFor={id} className="form-label text-slate-50">{label}</label>
 			<input 
+				autoComplete='off'
 				name={name}
 				id={id} 
 				onChange={handleChange}
