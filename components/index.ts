@@ -17,6 +17,7 @@ import AboutMeForm from './dashboard/forms/about-form';
 import CustomFormTextarea from './ui/dashboard/custom-textarea';
 import NetworkForm from './dashboard/forms/network-form';
 import SettingsForm from './dashboard/forms/settings-form';
+import LoginForm from './login/LoginForm';
 
 export {
 	SquareComponent, 
@@ -37,5 +38,6 @@ export {
 	AboutMeForm,
 	CustomFormTextarea,
 	NetworkForm,
-	SettingsForm
+	SettingsForm,
+	LoginForm
 };
