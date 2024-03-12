@@ -23,17 +23,17 @@ const LoginForm = () => {
 				name={'email'} 
 				type={'text'} 
 				label={'Email'} 
-				id={'settings-email'} 
+				id={'login-email'} 
 				onChange={e => setEmail(e?.target?.value)} />
 			<CustomFormInput
 				name={'password'}
 				type={'password'}
 				label={'Mot de passe'}
-				id={'settings-current-pwd'}
+				id={'login-current-pwd'}
 				onChange={e => setPassword(e?.target?.value)} />
 			
 			<div className="mb-3 flex flex-col">
-				<button type='submit' className="btn btn-primary self-end bg-zinc-700 text-slate-50  border-solid border-slate-50 border-2 rounded w-fit px-3 py-1 uppercase">Créer mon compte</button>
+				<button type='submit' className="btn btn-primary self-end bg-zinc-700 text-slate-50  border-solid border-slate-50 border-2 rounded w-fit px-3 py-1 uppercase">Se connecter</button>
 			</div>
 		</form>
 	);

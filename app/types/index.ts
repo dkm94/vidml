@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from "zod"
 // export interface User {
 //     email: string;
 //     password: string;
@@ -23,7 +23,7 @@ export const SignUpSchema = z
 			.string()
 			.min(8, { message: 'Password must be at least 8 characters long' }),
 	}).refine(
-		(values) => {
+		(values: any) => {
 			return values.password === values.confirmPassword;
 		},
 		{

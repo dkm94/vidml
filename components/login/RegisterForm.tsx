@@ -1,52 +1,61 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { CustomFormInput } from '..';
-import { signUp } from '@/app/actions/auth.actions';
+import { State, signUp } from '@/app/actions/auth.actions';
 import { useFormState } from 'react-dom';
 
 const RegisterForm = () => {
-	const [ email, setEmail ] = useState<string>('');
-	const [ password, setPassword ] = useState<string>('');
-	const [ confirmPassword, setConfirmPassword ] = useState<string>('');
-
 	const initialState = {
 		message: null,
 		errors: {} 
 	};
-	const updateInvoiceWithId = signUp.bind(null, {
-		email,
-		password,
-		confirmPassword
-	});
-	const [ state, dispatch ] = useFormState(updateInvoiceWithId, initialState);
+	const [ state, dispatch ] = useFormState<State, FormData>(signUp, initialState);
 
 	return (
 		<form action={dispatch} className="network-form w-full max-w-[34rem] flex flex-col gap-4">
 			<CustomFormInput 
+				ariaDescribedby='email-error'
 				name={'email'} 
 				type={'text'} 
 				label={'Email'} 
-				id={'settings-email'} 
-				onChange={e => setEmail(e?.target?.value)} />
-			<div id="customer-error" aria-live="polite" aria-atomic="true">
-				{state.errors.email && <div className="text-red-500">{state.errors.email}</div>}
+				id={'register-email'} 
+				/>
+			<div id="email-error" aria-live="polite" aria-atomic="true">
+				{state.errors?.email && state.errors.email.map((error: string) => (
+                <p className="mt-2 text-sm text-red-500" key={error}>
+                  {error}
+                </p>
+              ))}
 			</div>
 			<CustomFormInput
+				ariaDescribedby='password-error'
 				name={'password'}
 				type={'password'}
 				label={'Mot de passe'}
-				id={'settings-current-pwd'}
-				onChange={e => setPassword(e?.target?.value)} />
-			<div id="customer-error" aria-live="polite" aria-atomic="true">
-				{state.errors.passord && <div className="text-red-500">{state.errors.email}</div>}
+				id={'register-current-pwd'}
+				 />
+			<div id="password-error" aria-live="polite" aria-atomic="true">
+				{state.errors?.password && state.errors.password.map((error: string) => (
+                <p className="mt-2 text-sm text-red-500" key={error}>
+                  {error}
+                </p>
+              ))}
 			</div>
 			<CustomFormInput 
-				name='confirm-pwd' 
+				ariaDescribedby='confirm-pwd-error'
+				name='confirmPassword' 
 				type={'password'} 
 				label={'Confirmer le mot de passe'} 
-				id={'settings-confirm-pwd'} 
-				onChange={e => setConfirmPassword(e?.target?.value)} />
+				id={'register-confirm-pwd'} 
+				 />
+				<div id="confirm-pwd-error" aria-live="polite" aria-atomic="true">
+				{state.errors?.confirmPassword && state.errors.confirmPassword.map((error: string) => (
+                <p className="mt-2 text-sm text-red-500" key={error}>
+                  {error}
+                </p>
+              ))}
+			</div>
 			<div className="mb-3 flex flex-col">
 				<button type='submit' className="btn btn-primary self-end bg-zinc-700 text-slate-50  border-solid border-slate-50 border-2 rounded w-fit px-3 py-1 uppercase">Créer un compte</button>
 			</div>

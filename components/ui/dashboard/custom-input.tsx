@@ -6,16 +6,18 @@ interface CustomFormInputProps extends ComponentPropsWithoutRef<'div'> {
 	label: string;
     id: string;
     placeholder?: string;
-	onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+	ariaDescribedby?: string;
+	onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const CustomFormInput = (props: CustomFormInputProps) => {
-	const { label, type, name, id, placeholder, onChange: handleChange } = props;
+	const { label, type, name, id, placeholder, ariaDescribedby, onChange: handleChange } = props;
 
 	return (
 		<div className="mb-3 flex flex-col">
 			<label htmlFor={id} className="form-label text-slate-50">{label}</label>
 			<input 
+				aria-describedby={ariaDescribedby}
 				autoComplete='off'
 				name={name}
 				id={id} 
