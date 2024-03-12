@@ -12,16 +12,27 @@ import { z } from "zod"
 //     expiresAt: string;
 //     user: User;
 // }
+
+export type SignUpState = {
+    errors?: {
+        email?: string[];
+        password?: string[];
+        confirmPassword?: string[];
+    };
+    message?: string | null;
+	success: boolean;
+	data?: {
+		userId: string;
+	}
+};
+
 export const SignUpSchema = z
 	.object({
 		email: z.string().email({ message: 'Invalid email' }),
 		password: z
-			.string()
-			.min(8, { message: 'Password must be at least 8 characters long' })
-			.max(50, { message: 'Password shouldn\'t exceed 50 characters' }),
+			.string(),
 		confirmPassword: z
 			.string()
-			.min(8, { message: 'Password must be at least 8 characters long' }),
 	}).refine(
 		(values: any) => {
 			return values.password === values.confirmPassword;

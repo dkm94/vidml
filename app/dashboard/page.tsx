@@ -3,6 +3,7 @@ import { validateRequest } from '../lib/auth';
 
 export default async function Page() {
 	const { user } = await validateRequest();
+	console.log("🚀 ~ Page ~ user:", user)
 
 	if(!user) redirect('/login');
 	

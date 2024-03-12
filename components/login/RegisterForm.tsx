@@ -2,15 +2,17 @@
 
 import React from 'react';
 import { CustomFormInput } from '..';
-import { State, signUp } from '@/app/actions/auth.actions';
+import { signUp } from '@/app/actions/auth.actions';
 import { useFormState } from 'react-dom';
+import { SignUpState } from '@/app/types';
 
 const RegisterForm = () => {
 	const initialState = {
 		message: null,
-		errors: {} 
+		errors: {},
+		success: false,
 	};
-	const [ state, dispatch ] = useFormState<State, FormData>(signUp, initialState);
+	const [ state, dispatch ] = useFormState<SignUpState, FormData>(signUp, initialState);
 
 	return (
 		<form action={dispatch} className="network-form w-full max-w-[34rem] flex flex-col gap-4">
@@ -24,9 +26,9 @@ const RegisterForm = () => {
 			<div id="email-error" aria-live="polite" aria-atomic="true">
 				{state.errors?.email && state.errors.email.map((error: string) => (
                 <p className="mt-2 text-sm text-red-500" key={error}>
-                  {error}
+				{error}
                 </p>
-              ))}
+			))}
 			</div>
 			<CustomFormInput
 				ariaDescribedby='password-error'
@@ -34,13 +36,13 @@ const RegisterForm = () => {
 				type={'password'}
 				label={'Mot de passe'}
 				id={'register-current-pwd'}
-				 />
+			/>
 			<div id="password-error" aria-live="polite" aria-atomic="true">
 				{state.errors?.password && state.errors.password.map((error: string) => (
                 <p className="mt-2 text-sm text-red-500" key={error}>
-                  {error}
+				{error}
                 </p>
-              ))}
+			))}
 			</div>
 			<CustomFormInput 
 				ariaDescribedby='confirm-pwd-error'
@@ -48,13 +50,20 @@ const RegisterForm = () => {
 				type={'password'} 
 				label={'Confirmer le mot de passe'} 
 				id={'register-confirm-pwd'} 
-				 />
+			/>
 				<div id="confirm-pwd-error" aria-live="polite" aria-atomic="true">
 				{state.errors?.confirmPassword && state.errors.confirmPassword.map((error: string) => (
                 <p className="mt-2 text-sm text-red-500" key={error}>
-                  {error}
+				{error}
                 </p>
-              ))}
+			))}
+			</div>
+			<div>
+				{
+				state.success ? 
+				<p className="mt-2 text-sm text-green-500">{state.message}</p> : 
+				<p className="mt-2 text-sm text-red-500">{state.message}</p>
+				}
 			</div>
 			<div className="mb-3 flex flex-col">
 				<button type='submit' className="btn btn-primary self-end bg-zinc-700 text-slate-50  border-solid border-slate-50 border-2 rounded w-fit px-3 py-1 uppercase">Créer un compte</button>
