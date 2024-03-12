@@ -16,6 +16,8 @@
     "@lucia-auth/adapter-prisma": "^4.0.1",
     "@mui/icons-material": "^5.14.3",
     "@mui/material": "^5.14.4",
+    "@node-rs/argon2": "^1.8.0",
+    "@node-rs/bcrypt": "^1.10.0",
     "@prisma/client": "^5.10.2",
     "@types/react-dom": "18.2.7",
     "@vercel/postgres": "^0.7.2",

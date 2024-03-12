@@ -15,6 +15,7 @@ const nextConfig = {
         [ 'localhost', 'res.cloudinary.com', 'picsum.photos', 'images.pexels.com' ], 
     },
 	webpack: (config) => {
+		config.externals.push('@node-rs/argon2', '@node-rs/bcrypt');
 		config.resolve = {
 			...config.resolve,
 			fallback: { fs: false, },

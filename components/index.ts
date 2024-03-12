@@ -18,6 +18,7 @@ import CustomFormTextarea from './ui/dashboard/custom-textarea';
 import NetworkForm from './dashboard/forms/network-form';
 import SettingsForm from './dashboard/forms/settings-form';
 import LoginForm from './login/LoginForm';
+import RegisterForm from './login/RegisterForm';
 
 export {
 	SquareComponent, 
@@ -39,5 +40,6 @@ export {
 	CustomFormTextarea,
 	NetworkForm,
 	SettingsForm,
-	LoginForm
+	LoginForm,
+	RegisterForm
 };
