@@ -1,19 +1,6 @@
 import { z } from "zod"
-// export interface User {
-//     email: string;
-//     password: string;
-//     isAdmin: boolean;
-//     sessions: Session[];    
-// }
 
-// export interface Session {
-//     id: string;
-//     userId: string;
-//     expiresAt: string;
-//     user: User;
-// }
-
-export type SignUpState = {
+export type SignFormState = {
     errors?: {
         email?: string[];
         password?: string[];
@@ -44,10 +31,10 @@ export const SignUpSchema = z
 	);
 
 export const SignInSchema = z.object({
-	username: z.string().min(2).max(50),
+	email: z.string(),
 	password: z
 		.string()
-		.min(8, { message: 'Password must be at least 8 characters long' }),
+		.max(50, { message: 'Password shouldn\'t exceed 50 characters' }),
 });
 
 export interface DatabaseUserAttributes {

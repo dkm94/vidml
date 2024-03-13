@@ -4,7 +4,7 @@ import React from 'react';
 import { CustomFormInput } from '..';
 import { signUp } from '@/app/actions/auth.actions';
 import { useFormState } from 'react-dom';
-import { SignUpState } from '@/app/types';
+import { SignFormState } from '@/app/types';
 
 const RegisterForm = () => {
 	const initialState = {
@@ -12,18 +12,18 @@ const RegisterForm = () => {
 		errors: {},
 		success: false,
 	};
-	const [ state, dispatch ] = useFormState<SignUpState, FormData>(signUp, initialState);
+	const [ state, dispatch ] = useFormState<SignFormState, FormData>(signUp, initialState);
 
 	return (
 		<form action={dispatch} className="network-form w-full max-w-[34rem] flex flex-col gap-4">
 			<CustomFormInput 
-				ariaDescribedby='email-error'
+				ariaDescribedby='register-email-error'
 				name={'email'} 
 				type={'text'} 
 				label={'Email'} 
 				id={'register-email'} 
 				/>
-			<div id="email-error" aria-live="polite" aria-atomic="true">
+			<div id="register-email-error" aria-live="polite" aria-atomic="true">
 				{state.errors?.email && state.errors.email.map((error: string) => (
                 <p className="mt-2 text-sm text-red-500" key={error}>
 				{error}
@@ -31,13 +31,13 @@ const RegisterForm = () => {
 			))}
 			</div>
 			<CustomFormInput
-				ariaDescribedby='password-error'
+				ariaDescribedby='register-password-error'
 				name={'password'}
 				type={'password'}
 				label={'Mot de passe'}
-				id={'register-current-pwd'}
+				id={'register-pwd'}
 			/>
-			<div id="password-error" aria-live="polite" aria-atomic="true">
+			<div id="register-password-error" aria-live="polite" aria-atomic="true">
 				{state.errors?.password && state.errors.password.map((error: string) => (
                 <p className="mt-2 text-sm text-red-500" key={error}>
 				{error}
@@ -45,7 +45,7 @@ const RegisterForm = () => {
 			))}
 			</div>
 			<CustomFormInput 
-				ariaDescribedby='confirm-pwd-error'
+				ariaDescribedby='register-confirm-pwd-error'
 				name='confirmPassword' 
 				type={'password'} 
 				label={'Confirmer le mot de passe'} 

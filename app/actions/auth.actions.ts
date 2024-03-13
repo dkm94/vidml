@@ -2,22 +2,14 @@
 
 import { generateId } from 'lucia';
 import prisma from '../lib/prisma';
-import { ActionResult, SignUpSchema, SignUpState } from '../types';
+import { SignUpSchema, SignFormState, SignInSchema } from '../types';
 import { Argon2id } from "oslo/password";
 import { lucia } from '../lib/auth';
 import { cookies } from 'next/headers';
 import { formatExpiredAt } from '../lib/utils';
+import { redirect } from 'next/navigation';
 
-export type State = {
-    errors?: {
-        email?: string[];
-        password?: string[];
-        confirmPassword?: string[];
-    };
-    message?: string | null;
-};
-
-export async function signUp (state: SignUpState, formData: FormData): Promise<SignUpState> {
+export async function signUp (state: SignFormState, formData: FormData): Promise<SignFormState> {
 	const PASSWORD_LENGTH_MAX = 50;
 	const PASSWORD_LENGTH_MIN = 8;
 	const rawPassword = formData.get('password') as string;
@@ -92,7 +84,46 @@ export async function signUp (state: SignUpState, formData: FormData): Promise<S
 	}
 };
 
-export async function signIn (_: any, formData: FormData): Promise<ActionResult> {
-	console.log('🚀 ~ signUp ~ formData:', formData);
-	return { error: 'Erreur' };
+export async function signIn (state: SignFormState, formData: FormData): Promise<SignFormState> {
+	const formValues = {
+		email: formData.get('email'),
+		password: formData.get('password'),
+	};
+
+	const validatedFields = SignInSchema.safeParse(formValues);
+
+	if (!validatedFields.success) {
+        return {
+			success: false,
+            errors: validatedFields.error.flatten().fieldErrors,
+            message: 'Erreur connexion, veuillez vérifier vos identifiants.',
+        };
+    }
+
+	const existingUser = await prisma.user.findUnique({
+		where: {
+			"email": validatedFields.data.email.toLowerCase()
+		}
+	});
+
+	if(!existingUser) {
+		return {
+			message: 'Incorrect email or password',
+			success: false
+		};
+	}
+
+	const validPassword = await new Argon2id().verify(existingUser.password, validatedFields.data.password);
+	if(!validPassword) {
+		return {
+			message: 'Incorrect email or password',
+			success: false
+		};
+	}
+
+	const session = await lucia.createSession(existingUser.id, {});
+	const sessionCookie = lucia.createSessionCookie(session.id);
+	cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
+
+	return redirect("/dashboard");
 };
