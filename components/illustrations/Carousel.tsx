@@ -18,8 +18,6 @@ const Carousel = ({ resources }: { resources: any }) => {
 	const [ activeClass, setActiveClass ] = useState<number>(0);
 	const [ translateX, setTranslateX ] = useState<number | undefined>(0);
 	const [ imageWidth, setImageWidth ] = useState<number | null>(null); // Issue: ca fait planter le carousel car la valeur par défaut est 0
-	console.log("🚀 ~ Carousel ~ imageWidth:", imageWidth)
-	const [ imageLoaded, setImageLoaded ] = useState<boolean>(false); 
 
 	function isValidPublicId(publicId: string) {
 		if(Array.isArray(arrayOfIds)){
@@ -28,14 +26,6 @@ const Carousel = ({ resources }: { resources: any }) => {
 	}
 	
 	useEffect(() => setGallery(images), [ images ]);
-
-	useEffect(() => {
-        // Vérifiez si imageWidth est mis à jour (différent de null) et mettez à jour l'état imageLoaded en conséquence
-        if (imageWidth !== null) {
-            setImageLoaded(true);
-        }
-    }, []);
-	const imageOpacityClass = imageLoaded ? 'image-visible' : 'image-hidden';
 
 	// useEffect(() => {
 	// 	if(!imageName){
@@ -51,6 +41,7 @@ const Carousel = ({ resources }: { resources: any }) => {
 		if (imageRef.current) {
 			const width = imageRef.current.offsetWidth;
 			setImageWidth(width);
+			setTranslateX(width * activeClass);
 		  }
 	};
 
@@ -107,7 +98,7 @@ const Carousel = ({ resources }: { resources: any }) => {
 	}
 
 	return (	
-		<div className={`${imageWidth ? 'opacity-100' : 'opacity-0'}`} style={{ transition: 'opacity 1s ease-in-out' }}>
+		<>
 			<div className='w-full h-full flex justify-center'>
 				<ul className={`flex flex-row`} style={{
 					height: imageWidth as number,
@@ -166,7 +157,7 @@ const Carousel = ({ resources }: { resources: any }) => {
 						content={'>'} />
 				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 
