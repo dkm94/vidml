@@ -7,6 +7,7 @@ import NavLinks from '../dashboard/nav-links';
 import { signOut } from '@/app/actions/auth.actions';
 
 export default function SideNav() {
+	
 	return (
 		<div className="flex h-full flex-col px-3 py-4 md:px-2">
 			<Link
@@ -14,7 +15,7 @@ export default function SideNav() {
 				href="/"
 			>
 				<div className="text-white">
-          Tableau de bord
+				Tableau de bord
 				</div>
 			</Link>
 			<div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
