@@ -5,7 +5,6 @@ import { CustomFormInput } from '..';
 import { useFormState } from 'react-dom';
 import { SignFormState } from '@/app/types';
 import { signIn } from '@/app/actions/auth.actions';
-import { validateRequest } from '@/app/lib/auth';
 
 const LoginForm = () => {
 	const initialState = {

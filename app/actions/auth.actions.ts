@@ -4,7 +4,7 @@ import { generateId } from 'lucia';
 import prisma from '../lib/prisma';
 import { SignUpSchema, SignFormState, SignInSchema } from '../types';
 import { Argon2id } from "oslo/password";
-import { lucia } from '../lib/auth';
+import { lucia, validateRequest } from '../lib/auth';
 import { cookies } from 'next/headers';
 import { formatExpiredAt } from '../lib/utils';
 import { redirect } from 'next/navigation';
@@ -126,4 +126,27 @@ export async function signIn (state: SignFormState, formData: FormData): Promise
 	cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
 
 	return redirect("/dashboard");
+};
+
+export const signOut = async () => {
+	let authCookie = cookies().get("auth_session");
+
+	const { session } = await validateRequest();
+	if (!session) {
+		return {
+			success: false,
+			message: "No session found"
+		};
+	}
+
+	await lucia.invalidateSession(session.id);
+
+	const sessionCookie = lucia.createBlankSessionCookie();
+	cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
+	authCookie = cookies().get("auth_session");
+
+	//TODO: fix redirection
+	if(authCookie?.value === ""){
+		redirect("/login");
+	}
 };

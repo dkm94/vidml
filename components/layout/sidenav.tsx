@@ -1,7 +1,10 @@
+"use client";
+
 import Link from 'next/link';
 import Image from 'next/image';
 
 import NavLinks from '../dashboard/nav-links';
+import { signOut } from '@/app/actions/auth.actions';
 
 export default function SideNav() {
 	return (
@@ -18,8 +21,9 @@ export default function SideNav() {
 				<NavLinks />
 				<div className="hidden h-auto w-full grow bg-gray-50 md:block"></div>
 				<form>
-					<button className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3">
-						{/* <PowerIcon className="w-6" /> */}
+					<button
+					onClick={() => signOut()}
+					className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3">
 						<Image src={'/assets/power.png'} width={32} height={32} alt='déconnexion' />
 						<div className="hidden md:block">Déconnexion</div>
 					</button>
