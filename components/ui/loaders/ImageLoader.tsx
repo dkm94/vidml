@@ -1,0 +1,1 @@
+export const ImageLoader = () => <div className="loader"></div>;

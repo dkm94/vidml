@@ -20,6 +20,7 @@ import SettingsForm from './dashboard/forms/settings-form';
 import LoginForm from './login/LoginForm';
 import RegisterForm from './login/RegisterForm';
 import { CarouselWrapper } from './illustrations/CarouselWrapper';
+import { ImageLoader } from './ui/loaders/ImageLoader';
 
 export {
 	SquareComponent, 
@@ -43,5 +44,6 @@ export {
 	SettingsForm,
 	LoginForm,
 	RegisterForm,
-	CarouselWrapper
+	CarouselWrapper,
+	ImageLoader
 };
