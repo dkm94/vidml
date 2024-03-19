@@ -19,6 +19,7 @@ import NetworkForm from './dashboard/forms/network-form';
 import SettingsForm from './dashboard/forms/settings-form';
 import LoginForm from './login/LoginForm';
 import RegisterForm from './login/RegisterForm';
+import { CarouselWrapper } from './illustrations/CarouselWrapper';
 
 export {
 	SquareComponent, 
@@ -41,5 +42,6 @@ export {
 	NetworkForm,
 	SettingsForm,
 	LoginForm,
-	RegisterForm
+	RegisterForm,
+	CarouselWrapper
 };
