@@ -12,7 +12,7 @@ const CloudinaryImg = (props: CldImageProps) => {
 
     
 	if (!src) {
-		return 'No image source provided';
+		return 'No image source provided'; // handle empty source
 	}
 
 	return (
