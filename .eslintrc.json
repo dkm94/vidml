@@ -28,7 +28,8 @@
     // "plugin:react-hooks/recommended",
     // "plugin:@next/next/recommended",
     // "prettier"
-    "next", 
+    // "next", 
+    "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     // "plugin:prettier/recommended",
     "next/core-web-vitals",
