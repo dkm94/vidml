@@ -9,6 +9,21 @@
       "files": ["**/*.ts", "**/*.tsx"]
     }
   ],
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [
+        ".ts",
+        ".tsx"
+      ]
+    },
+    "import/resolver": {
+      "alias": {
+        // "map": [["@components", "./components"]],
+        // "extensions": [".ts", ".js", ".json"]
+        // "@": "./components"
+      }
+    }
+  },
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -28,12 +43,12 @@
     "@typescript-eslint/no-explicit-any": ["off"],
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
-    "import/no-unresolved": [
-      "error",
-      {
-        "ignore": ["^components/.+","^public/.+", "^router/.+", "^pages" , "^styles/.+", "^seeds/.+", "^hooks/.+", "^services/.+", "^utils", "^Steps/.+", "^utils/.+"]
-      }
-    ],
+    // "import/no-unresolved": [
+    //   "error",
+    //   {
+    //     "ignore": ["^components/.+","^public/.+", "^router/.+", "^pages" , "^styles/.+", "^seeds/.+", "^hooks/.+", "^services/.+", "^utils", "^Steps/.+", "^utils/.+"]
+    //   }
+    // ],
     "indent": [
       "warn",
       "tab",

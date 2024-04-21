@@ -100,7 +100,7 @@ const Carousel = ({ resources }: { resources: any }) => {
 	return (	
 		<>
 			<div className='w-full h-full flex justify-center'>
-				<ul className={`flex flex-row`} style={{
+				<ul className={'flex flex-row'} style={{
 					height: imageWidth as number,
 					width: imageWidth as number,
 					maxWidth: 400
