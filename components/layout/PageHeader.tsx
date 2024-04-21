@@ -1,5 +1,4 @@
 'use client';
-
 import { ComponentPropsWithoutRef, useContext } from 'react';
 
 import { SquareComponent } from '@/components';

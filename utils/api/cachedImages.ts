@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { cloudinary } from '..';
+import cloudinary from '../cloudinary';
 
 export type CloudinaryResource = {
 	public_id: string;
@@ -18,6 +18,5 @@ export default async function getResults() {
 
 		cachedResults = fetchedResults;
 	}
-
 	return cachedResults;
 }

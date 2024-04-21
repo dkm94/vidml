@@ -28,12 +28,13 @@ const App: FC<AppProps> = (props) => {
 	const width = windowWidthContext?.width ?? 0;
 
 	const isNotDesktop = isMobile || isTablet;
+	const isDashboardPage = pathname.startsWith('/dashboard');
 
 	return (
 		<div className='app'>
 			{ isNotDesktop && <MobileNavbar path={pathname} windowWidth={width} />}
 			<div className={ isNotDesktop ? 'relative' : 'flex flex-row'}>
-				{ width > 815 && <DesktopNavbar path={pathname} />}
+				{ width > 815 && !isDashboardPage && <DesktopNavbar path={pathname} />}
 				{ pathname === '/' && <Page /> }
 				{ pathname !== '/' && <div onLoad={getWindowWidth} className='min-h-[100vh] bg-[#09080B] w-full'>{children}</div>}
 			</div>

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
+import { inter } from '@/app/fonts';
 
 import React, { FormEvent, useState } from 'react';
 import { ContactFormInput, ContactFormTextArea, SubmitButton } from '..';
@@ -12,11 +13,12 @@ const ContactForm = () => {
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+		console.log(name, email, subject, content);
 	};
 
 	return (
 		<div className='flex justify-center mt-20'>
-			<form onSubmit={handleSubmit} className='flex flex-col w-full max-w-2xl bg-[#8B8B8B] py-12 px-10 gap-6'>
+			<form onSubmit={handleSubmit} className={`${ inter.className } flex flex-col w-full max-w-2xl bg-[#8B8B8B] py-12 px-10 gap-6`}>
 				<div className='flex flex-col gap-6'>
 					<ContactFormInput label='Name' type='text' name="name" onChange={(e) => setName(e.target.value)} />
 					<ContactFormInput label='Email' type="text" name="email" onChange={(e) => setEmail(e.target.value)} />

@@ -34,9 +34,6 @@
      @apply text-center;
     font-family: 'Inter', sans-serif;
   }
-  form {
-    font-family: 'Inter', sans-serif;
-  }
 }
 
 .text-balance {
@@ -56,20 +53,8 @@
   @apply max-w-[1175px] m-auto flex justify-between w-full items-center text-gray-500 flex-wrap h-16 py-0 px-8 
 }
 
-.square-title {
-  font-family: 'Bebas Neue', sans-serif;
-}
-
-.font-neue {
-  font-family: 'Bebas Neue', sans-serif;
-}
-
 .content-bg {
   @apply  bg-fixed bg-cover absolute top-0 bottom-0 left-0 right-0 content-[""] opacity-40;
-}
-
-.navlink > .navbar__item > .navlink-a {
-  font-family: "Inria", serif;
 }
 
 .text-nowrap {
@@ -99,4 +84,37 @@
   font-weight: bolder !important;
   font-size: 1rem;
   transform: scale(1.3) translateX(16px);
+}
+
+.logo-linear-bg {
+  background: rgb(9,8,11);
+background: linear-gradient(180deg, rgba(9,8,11,1) 0%, rgba(217,170,80,1) 100%, rgba(235,166,101,1) 100%);
+}
+
+
+/*** Image loader ****/
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  gap: 5px;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  width: 25px;
+  aspect-ratio: 1;
+  box-shadow: 0 0 0 3px inset #fff;
+  animation: l5 1.5s infinite;
+}
+.loader:after {
+  --s:-1;
+}
+@keyframes l5 {
+  0%   {transform:scaleX(var(--s,1)) translate(0) scale(1)}
+  33%  {transform:scaleX(var(--s,1)) translate(calc(50% + 2.5px)) scale(1)}
+  66%  {transform:scaleX(var(--s,1)) translate(calc(50% + 2.5px)) scale(2)}
+  100% {transform:scaleX(var(--s,1)) translate(0) scale(1)}
 }

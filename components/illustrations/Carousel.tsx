@@ -8,16 +8,16 @@ import { CarouselButton, CloudinaryImg } from '..';
 import { NotFound } from '../layout';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Carousel = ({ children }: { children: any }) => {
+const Carousel = ({ resources }: { resources: any }) => {
 	const { imageName } = useParams();
-	const images = children?.[ 0 ]?.props?.resources;
+	const images = resources;
 	const arrayOfIds = Array.isArray(images) && images.map(({ filename }) => filename);
 	const imageRef: MutableRefObject<HTMLImageElement | null> = useRef(null);
 	
 	const [ gallery, setGallery ] = useState<CloudinaryResource[]>([]);
 	const [ activeClass, setActiveClass ] = useState<number>(0);
 	const [ translateX, setTranslateX ] = useState<number | undefined>(0);
-	const [ imageWidth, setImageWidth ] = useState<number | null>(null);
+	const [ imageWidth, setImageWidth ] = useState<number | null>(null); // Issue: ca fait planter le carousel car la valeur par défaut est 0
 
 	function isValidPublicId(publicId: string) {
 		if(Array.isArray(arrayOfIds)){
@@ -41,6 +41,7 @@ const Carousel = ({ children }: { children: any }) => {
 		if (imageRef.current) {
 			const width = imageRef.current.offsetWidth;
 			setImageWidth(width);
+			setTranslateX(width * activeClass);
 		  }
 	};
 
@@ -96,12 +97,13 @@ const Carousel = ({ children }: { children: any }) => {
 		}
 	}
 
-	return (
+	return (	
 		<>
 			<div className='w-full h-full flex justify-center'>
-				<ul className='flex flex-row' style={{
+				<ul className={'flex flex-row'} style={{
 					height: imageWidth as number,
-					width: imageWidth as number 
+					width: imageWidth as number,
+					maxWidth: 400
 				}}>
 					{gallery?.map(({ public_id }, i) => {
 						return (
@@ -133,7 +135,7 @@ const Carousel = ({ children }: { children: any }) => {
 									style={{
 										transform: `translateX(-${ translateX }px) ${ activeClass === i ? 'scale(1)' : 'scale(0.5)' }`, 
 										transition: 'transform .5s ease-in-out',
-										maxWidth: 'unset'
+										maxWidth: 'unset',
 									}} 
 								/>
 							</div>
