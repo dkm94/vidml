@@ -3,7 +3,7 @@ import React from 'react';
 import { validateRequest } from '../lib/auth';
 import { redirect } from 'next/navigation';
 
-export default async function  Page() {
+export default async function Page() {
 	const res = await validateRequest();
 	// 🚀 ~ Page ~ res: {
 	// 	user: { username: 'user@nextmail.com', id: 'r2odpz8qvv1v0rr' },

@@ -48,7 +48,9 @@ export const validateRequest = cache(
 				const sessionCookie = lucia.createBlankSessionCookie();
 				cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
 			}
-		} catch {}
+		} catch(e) {
+			console.log(e);
+		}
 		return result;
 	}
 );

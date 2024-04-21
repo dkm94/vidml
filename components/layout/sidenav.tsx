@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -23,8 +23,8 @@ export default function SideNav() {
 				<div className="hidden h-auto w-full grow bg-gray-50 md:block"></div>
 				<form>
 					<button
-					onClick={() => signOut()}
-					className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3">
+						onClick={() => signOut()}
+						className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3">
 						<Image src={'/assets/power.png'} width={32} height={32} alt='déconnexion' />
 						<div className="hidden md:block">Déconnexion</div>
 					</button>

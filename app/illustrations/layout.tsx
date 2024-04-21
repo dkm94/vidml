@@ -1,15 +1,12 @@
 import React, { Suspense } from 'react';
 import { Metadata } from 'next';
-import { ImageLoader } from '@/components';
+import { ImageLoader, CarouselWrapper, PageContent, PageHeader } from '@/components';
 
 import { Divider } from '@mui/material';
 
-import { PageContent, PageHeader } from '..';
-import { CarouselWrapper } from '@/components';
-
 export const metadata: Metadata = { title: 'Illustrations' };
 
-export default async function IllustrationLayout() {
+export default function IllustrationLayout() {
 	return (
 		<>
 			<PageHeader title='Illustrations' />

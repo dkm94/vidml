@@ -22,13 +22,13 @@ const RegisterForm = () => {
 				type={'text'} 
 				label={'Email'} 
 				id={'register-email'} 
-				/>
+			/>
 			<div id="register-email-error" aria-live="polite" aria-atomic="true">
 				{state.errors?.email && state.errors.email.map((error: string) => (
-                <p className="mt-2 text-sm text-red-500" key={error}>
-				{error}
-                </p>
-			))}
+					<p className="mt-2 text-sm text-red-500" key={error}>
+						{error}
+					</p>
+				))}
 			</div>
 			<CustomFormInput
 				ariaDescribedby='register-password-error'
@@ -39,10 +39,10 @@ const RegisterForm = () => {
 			/>
 			<div id="register-password-error" aria-live="polite" aria-atomic="true">
 				{state.errors?.password && state.errors.password.map((error: string) => (
-                <p className="mt-2 text-sm text-red-500" key={error}>
-				{error}
-                </p>
-			))}
+					<p className="mt-2 text-sm text-red-500" key={error}>
+						{error}
+					</p>
+				))}
 			</div>
 			<CustomFormInput 
 				ariaDescribedby='register-confirm-pwd-error'
@@ -51,18 +51,18 @@ const RegisterForm = () => {
 				label={'Confirmer le mot de passe'} 
 				id={'register-confirm-pwd'} 
 			/>
-				<div id="confirm-pwd-error" aria-live="polite" aria-atomic="true">
+			<div id="confirm-pwd-error" aria-live="polite" aria-atomic="true">
 				{state.errors?.confirmPassword && state.errors.confirmPassword.map((error: string) => (
-                <p className="mt-2 text-sm text-red-500" key={error}>
-				{error}
-                </p>
-			))}
+					<p className="mt-2 text-sm text-red-500" key={error}>
+						{error}
+					</p>
+				))}
 			</div>
 			<div>
 				{
-				state.success ? 
-				<p className="mt-2 text-sm text-green-500">{state.message}</p> : 
-				<p className="mt-2 text-sm text-red-500">{state.message}</p>
+					state.success ? 
+						<p className="mt-2 text-sm text-green-500">{state.message}</p> : 
+						<p className="mt-2 text-sm text-red-500">{state.message}</p>
 				}
 			</div>
 			<div className="mb-3 flex flex-col">

@@ -22,13 +22,13 @@ const LoginForm = () => {
 				type={'text'} 
 				label={'Email'} 
 				id={'login-email'} 
-				/>
+			/>
 			<div id="login-email-error" aria-live="polite" aria-atomic="true">
-			{state.errors?.email && state.errors.email.map((error: string) => (
-			<p className="mt-2 text-sm text-red-500" key={error}>
-			{error}
-			</p>
-			))}
+				{state.errors?.email && state.errors.email.map((error: string) => (
+					<p className="mt-2 text-sm text-red-500" key={error}>
+						{error}
+					</p>
+				))}
 			</div>
 			<CustomFormInput
 				ariaDescribedby='login-password-error'
@@ -36,19 +36,19 @@ const LoginForm = () => {
 				type={'password'}
 				label={'Mot de passe'}
 				id={'login-pwd'}
-				/>
+			/>
 			<div id="login-password-error" aria-live="polite" aria-atomic="true">
 				{state.errors?.password && state.errors.password.map((error: string) => (
-                <p className="mt-2 text-sm text-red-500" key={error}>
-				{error}
-                </p>
-			))}
+					<p className="mt-2 text-sm text-red-500" key={error}>
+						{error}
+					</p>
+				))}
 			</div>
 			<div>
 				{
-				state.success ? 
-				<p className="mt-2 text-sm text-green-500">{state.message}</p> : 
-				<p className="mt-2 text-sm text-red-500">{state.message}</p>
+					state.success ? 
+						<p className="mt-2 text-sm text-green-500">{state.message}</p> : 
+						<p className="mt-2 text-sm text-red-500">{state.message}</p>
 				}
 			</div>
 			<div className="mb-3 flex flex-col">
