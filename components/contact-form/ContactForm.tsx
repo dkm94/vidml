@@ -19,7 +19,7 @@ const ContactForm = () => {
 	return (
 		<div className='flex justify-center mt-20'>
 			<form onSubmit={handleSubmit} className={`${ inter.className } flex flex-col w-full max-w-2xl bg-[#8B8B8B] py-12 px-10 gap-6`}>
-				<div className='flex flex-col gap-6'>
+				<div className='flex flex-col gap-6 text-xs uppercase'>
 					<ContactFormInput label='Name' type='text' name="name" onChange={(e) => setName(e.target.value)} />
 					<ContactFormInput label='Email' type="text" name="email" onChange={(e) => setEmail(e.target.value)} />
 					<ContactFormInput label='Subject' type="text" name="subject" onChange={(e) => setSubject(e.target.value)} />

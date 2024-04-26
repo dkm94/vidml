@@ -9,7 +9,7 @@ interface SubmitButtonProps extends ComponentPropsWithoutRef<'button'>{
 
 const SubmitButton = (props: SubmitButtonProps) => {
 	const { className, text, ...rest } = props;
-	const concatClasses = `text-slate-50 rounded py-2 px-7 ${ className }`;
+	const concatClasses = `border-black border-solid py-2 px-7 ${ className }`;
     
 	return (
 		<button {...rest} className={concatClasses}>{text}</button>
