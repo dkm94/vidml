@@ -28,3 +28,31 @@ model Session {
   expiresAt DateTime
   user      User     @relation(references: [id], fields: [userId], onDelete: Cascade)
 }
+
+enum PageType {
+  ILLUSTRATIONS
+  SERVICES
+  ABOUT
+  CONTACT
+  SOCIAL_MEDIA
+  PRO_ACCOUNTS
+}
+
+model Content {
+  id          Int      @id @default(autoincrement())
+  page        PageType
+  title       String
+  subtitle    String?
+  content     String?
+  image       String?
+  links       Link[]
+}
+
+model Link {
+  id          Int      @id @default(autoincrement())
+  contentId   Int      @unique
+  title       String
+  url         String
+  description String?
+  content     Content  @relation(fields: [contentId], references: [id])
+}
