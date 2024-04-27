@@ -52,7 +52,14 @@ export async function signUp (state: SignFormState, formData: FormData): Promise
 				email,
 				password,
 			}
-		});
+		}).then(async () => {  
+			await prisma.$disconnect();  
+		})  
+			.catch(async (e) => {  
+				console.error(e);  
+				await prisma.$disconnect();  
+				process.exit(1);  
+			});
 		
 		const session = await lucia.createSession(userId, {
 			expiresAt: formatExpiredAt(60 * 60 * 24 * 30),
