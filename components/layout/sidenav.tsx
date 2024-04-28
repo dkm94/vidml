@@ -1,12 +1,19 @@
-'use client';
+'use server';
 
 import Link from 'next/link';
 import Image from 'next/image';
 
 import NavLinks from '../dashboard/nav-links';
 import { signOut } from '@/app/actions/auth.actions';
+import { validateRequest } from '@/app/lib/auth';
+import { redirect } from 'next/navigation';
 
-export default function SideNav() {
+export default async function SideNav() {
+	const res = await validateRequest();
+
+	if (!res.user) {
+		return redirect('/login');
+	}
 	
 	return (
 		<div className="flex h-full flex-col px-3 py-4 md:px-2">
@@ -21,9 +28,9 @@ export default function SideNav() {
 			<div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
 				<NavLinks />
 				<div className="hidden h-auto w-full grow bg-gray-50 md:block"></div>
-				<form>
+				<form action={signOut}>
 					<button
-						onClick={() => signOut()}
+						type='submit'
 						className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3">
 						<Image src={'/assets/power.png'} width={32} height={32} alt='déconnexion' />
 						<div className="hidden md:block">Déconnexion</div>

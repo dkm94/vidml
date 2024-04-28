@@ -128,24 +128,27 @@ export async function signIn (state: SignFormState, formData: FormData): Promise
 };
 
 export const signOut = async () => {
-	let authCookie = cookies().get('auth_session');
+	try {
+		let authCookie = cookies().get('auth_session');
 
-	const { session } = await validateRequest();
-	if (!session) {
-		return {
-			success: false,
-			message: 'No session found'
-		};
-	}
+		const { session } = await validateRequest();
+		if (!session) {
+			return {
+				success: false,
+				message: 'No session found'
+			};
+		}
 
-	await lucia.invalidateSession(session.id);
+		await lucia.invalidateSession(session.id);
 
-	const sessionCookie = lucia.createBlankSessionCookie();
-	cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
-	authCookie = cookies().get('auth_session');
+		const sessionCookie = lucia.createBlankSessionCookie();
+		cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
+		authCookie = cookies().get('auth_session');
 
-	//TODO: fix redirection
-	if(authCookie?.value === ''){
-		redirect('/login');
+		if(authCookie?.value === ''){
+			redirect('/login');
+		}
+	} catch (error: any) {
+		return { error: error?.message };
 	}
 };
