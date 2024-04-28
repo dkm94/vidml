@@ -16,7 +16,7 @@ function ServicesPage(){
 				{/* <div className='text-slate-100 flex flex-col gap-5 min-[815px]:px-16'>
 					<h2 className='text-balance'>Des services sur mesure pour vous aider à réaliser le projet de vos rêves</h2>
 				</div> */}
-				<section className='flex flex-col gap-10 max-w-4xl w-full mt-18 bg-[#222121] text-slate-100'>
+				<section className='flex flex-col gap-10 max-w-4xl w-full mt-18 text-slate-100 border border-x-slate-50 border-solid'>
 					<div className={`services-header text-center pt-8 pb-8 bg-slate-50 text-black text-2xl ${ bebasNeue.className }`}>Tarifs*</div>
 					<div className='grid grid-cols-3'>
 						<div />
@@ -33,6 +33,7 @@ function ServicesPage(){
 						</div>
 						<div />
 					</div>
+					<Divider className='h-2 bg-white min-[815px]:h-[0.5px]'/>
 					<div className='services-content flex flex-col gap-5'>
 						<h3 className='underline underline-offset-4'>Entreprises / Marques</h3>
 						<div className='grid grid-cols-2 gap-32'>
@@ -55,6 +56,7 @@ function ServicesPage(){
 							</div>
 						</div>
 					</div>
+					<Divider className='h-2 bg-white min-[815px]:h-[0.5px]'/>
 					<div className='services-content flex flex-col gap-5'>
 						<h3 className='underline underline-offset-4'>Magazines / Sites WEB</h3>
 						<div className='grid grid-cols-2 gap-32'>
