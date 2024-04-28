@@ -5,6 +5,7 @@ import { ImageLoader, CarouselWrapper, PageContent, PageHeader } from '@/compone
 import { Divider } from '@mui/material';
 
 export const metadata: Metadata = { title: 'Illustrations' };
+// TODO: disable right click 
 
 export default function IllustrationLayout() {
 	return (

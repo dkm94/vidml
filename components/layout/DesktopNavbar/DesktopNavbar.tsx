@@ -39,7 +39,7 @@ const DesktopNavbar: FC<DesktopNavbarProps> = () => {
 				<div className='mt-auto'>
 					<div className='p-8 w-full flex flex-row gap-4 justify-end'>
 						<SocialButton path='https://www.instagram.com/vidml.illustration/' icon={<InstagramIcon />} />
-						<SocialButton path='mailto:vidml@gmail.com' icon={<MailOutlineIcon />} />
+						<SocialButton path='mailto:vidmlillustration@gmail.com' icon={<MailOutlineIcon />} />
 					</div>
 					<div className='pr-6 pb-4 text-end'>
 						<span className='text-xs font-light'>Copyright © 2024 </span>
