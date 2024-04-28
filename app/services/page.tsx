@@ -36,8 +36,8 @@ function ServicesPage(){
 					<Divider className='h-2 bg-white min-[815px]:h-[0.5px]'/>
 					<div className='services-content flex flex-col gap-5'>
 						<h3 className='underline underline-offset-4'>Entreprises / Marques</h3>
-						<div className='grid grid-cols-2 gap-32'>
-							<div className='ml-auto flex flex-col gap-5'>
+						<div className='grid grid-cols-1 gap-32'>
+							<div className='ml-auto mr-auto flex flex-col gap-5'>
 								<div className='flex flex-col'>
 									<span className='font-bold'>Dessin simple</span>
 									<span>De 200 à 400 euros</span>
@@ -47,7 +47,7 @@ function ServicesPage(){
 									<span>De 300 à 600 euros</span>
 								</div>
 							</div>
-							<div>
+							<div className='ml-auto mr-auto'>
 								<span className='font-bold'>Droits d'utilisation</span>
 								<div className='flex flex-col'>
 									<span>Site web: 1000 euros (1 an)</span>
