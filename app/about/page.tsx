@@ -17,9 +17,9 @@ const AboutPage = () => {
 				</div>
 				<div className='flex justify-center'>
 					<div className='flex flex-col px-16 min-[1200px]:flex-row max-w-[1175px] mt-14 md:mt-24 gap-4'>
-						<div className='flex justify-center'>
+						{/* <div className='flex justify-center'>
 							<ImageComponent />
-						</div>
+						</div> */}
 						<div className='relative flex items-center'>
 							<div className='absolute bg-white opacity-50 w-full h-full' aria-hidden="true"/>
 							<div className='relative px-10 py-16 flex flex-col gap-6 text-sm'>
