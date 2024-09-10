@@ -1,17 +1,13 @@
 'use client';
-import React, { FC, useEffect, useRef, useState } from 'react';
-import { IconButton } from '@mui/material';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import PauseIcon from '@mui/icons-material/Pause';
+import React, { FC, useEffect, useRef } from 'react';
 
 interface VideoProps {
-  src: string; // Source de la vidéo passée en prop
+  src: string;
 }
 
 const Video: FC<VideoProps> = ({ src }) => {
 	const videoRef = useRef<HTMLVideoElement | null>(null);
-	const audioRef = useRef<HTMLAudioElement | null>(null);
-	const [ isMuted, setIsMuted ] = useState(true);
+	// const [ isMuted, setIsMuted ] = useState(true);
 
 	useEffect(() => {
 		if (videoRef.current) {
@@ -19,21 +15,12 @@ const Video: FC<VideoProps> = ({ src }) => {
 				console.error('La lecture automatique de la vidéo a été empêchée', error);
 			});
 		}
+	}, []);
 
-		if (audioRef.current) {
-			audioRef.current.muted = isMuted;
-			if (!isMuted) {
-				audioRef.current.play().catch((error: any) => {
-					console.error('La lecture automatique de l’audio a été empêchée', error);
-				});
-			}
-		}
-	}, [ isMuted ]);
-
-	const handleToggleMute = () => {
-		// Inversion de l'état du mute
-		setIsMuted(!isMuted);
-	};
+	// const handleToggleMute = () => {
+	// 	// Inversion de l'état du mute
+	// 	setIsMuted(!isMuted);
+	// };
 
 	return (
 		<>
@@ -48,7 +35,7 @@ const Video: FC<VideoProps> = ({ src }) => {
 			>
 				<p className="text-white">Your browser doesn’t support HTML5 video.</p>
 			</video>
-
+			{/* 
 			<audio ref={audioRef} src={'/assets/music_theme/Gamma.mp3'} loop />
 
 			<div className="absolute top-0 bg-white/20 hover:bg-white/50 pr-3.5 z-[100] w-[210px]">
@@ -69,7 +56,7 @@ const Video: FC<VideoProps> = ({ src }) => {
 						Désactiver le son
 						</div>
 					)}
-			</div>
+			</div> */}
 		</>
 	);
 };

@@ -46,7 +46,7 @@
 
 
 .navigation {
-  @apply sticky top-0 z-[1000] bg-[theme('colors.vlBeige')]
+  @apply sticky top-0 z-[10] bg-[theme('colors.vlBeige')]
 }
 
 .navbar {
