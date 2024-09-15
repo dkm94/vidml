@@ -54,7 +54,7 @@ const App: FC<AppProps> = (props) => {
 		<div className='app'>
 			{ isNotDesktop && (
 				<div className='audio-content'>
-					<audio ref={audioRef} src={'/assets/music_theme/Gamma.mp3'} loop />
+					<audio ref={audioRef} src={'/assets/music_theme/Soon_Hicham_Chahidi.mp3'} loop />
 
 					<div className={`absolute ${ isHomePage ? 'top-[64px]' : 'top-[250px]' } right-0 bg-white/20 hover:bg-white/50 z-[100] flex justify-center`}>
 						{isMuted ? 
