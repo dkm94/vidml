@@ -157,7 +157,7 @@ export const galleries: Gallery[] = [
 	},
 ];
 
-export const introduction: string = 'C\'est avec un grand plaisir que je vous accueil sur ma galerie . Je m\'appel Virginie j\'ai grandis dans la région parisiene. Originaire d\'une famille modeste je n\'ai jamais été en école d\'art n\'y pris de courts. Je suis une autodidacte, passionné d\'illustrations et de mode depuis toujours. J\'ai appris à force de persévérance mais aussi d\'expériences grâce à des entreprises qui m\'ont fait confiance. Merci pour votre visite. Prenez soin de vous.';
+export const introduction: string = 'C\'est avec un grand plaisir que je vous accueil sur ma galerie . Je m\'appel Virginie j\'ai grandis dans la région parisiene. Originaire d\'une famille modeste je n\'ai jamais été en école d\'art n\'y pris de courts. Je suis une autodidacte, passionné de création et de mode depuis toujours. J\'ai appris à force de persévérance mais aussi d\'expériences grâce à des entreprises qui m\'ont fait confiance. Merci pour votre visite. Prenez soin de vous.';
 
 export const illustrations: IllustrationType[] = [
 	{
