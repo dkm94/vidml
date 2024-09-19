@@ -81,7 +81,7 @@ function ServicesPage(){
 					</div>
 					<div className='services-footer flex flex-col text-center pt-8 pb-8 bg-slate-50 text-black'>
 						<span>Les tarifs sont à titre indicatif.</span>
-						<span>Une devis sera réalisé à chaque demande spécifique du client.</span>
+						<span>Un devis sera réalisé à chaque demande spécifique du client.</span>
 					</div>
 				</section>
 			</PageContent>
