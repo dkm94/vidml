@@ -23,7 +23,7 @@ const AboutPage = () => {
 								<p className='text-pretty'>{'C\'est avec un grand plaisir que je vous accueille sur ma galerie.'}</p>
 								<p>{'Je m\'appelle Virginie, j\'ai grandi dans la région parisienne. Originaire d\'une famille modeste, je n\'ai jamais été en école d\'art ni pris de cours. Je suis une autodidacte, passionnée de création et de mode depuis toujours. J\'ai appris à force de persévérance, mais aussi d\'expériences grâce à des entreprises qui m\'ont fait confiance.'}</p>
 								<p>{'Merci pour votre visite. Prenez soin de vous,'}</p>
-								<p className='text-end'>{'Virgine DML'}</p>
+								<p className='text-end'>{'Vi'}</p>
 							</div>
 						</div>
 					</div>
