@@ -1,3 +1,4 @@
 import SocialButton from './SocialButton/SocialButton';
+import AudioButton from './SocialButton/AudioButton';
 
-export { SocialButton };
+export { SocialButton, AudioButton };

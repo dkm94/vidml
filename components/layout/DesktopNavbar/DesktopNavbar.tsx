@@ -6,10 +6,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 
 import { Logo } from '@/components';
-import { SocialButton } from '@/components/buttons';
-import { IconButton } from '@mui/material';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import PauseIcon from '@mui/icons-material/Pause';
+import { AudioButton, SocialButton } from '@/components/buttons';
 
 import { DesktopNavbarProps, NavLink } from '@/types';
 import { navlinks } from '@/constants';
@@ -36,6 +33,13 @@ const DesktopNavbar: FC<DesktopNavbarProps> = () => {
 		}
 	}, [ isMuted ]);
 
+	useEffect(() => {
+		if (pathname !== '/') {
+			console.log('audioRef', audioRef.current);
+			setIsMuted(true);
+		}
+	}, [ pathname ]);
+
 	function setActiveLink(staticLink: string){
 		if(staticLink === '/'){
 			return pathname === staticLink;
@@ -54,25 +58,9 @@ const DesktopNavbar: FC<DesktopNavbarProps> = () => {
 				<div className='audio-content'>
 					<audio ref={audioRef} src={'/assets/music_theme/Gamma.mp3'} loop />
 
-					<div className="absolute top-0 right-0 bg-white/20 hover:bg-white/50 z-[100] flex justify-center">
-						{isMuted ? 
-							(
-								<div>
-									<IconButton onClick={handleToggleMute} className='opacity-5 hover:opacity-100 md:h-[24px] md:w-[24px] md:p-4 mx-3 my-2' style={{ backgroundColor: '#FFFDFB' }} >
-										{<PlayArrowIcon />}
-									</IconButton>
-									{/* Activer le son */}
-								</div>
-							): 
-							(
-								<div>
-									<IconButton onClick={handleToggleMute} className='opacity-5 hover:opacity-100 md:h-[24px] md:w-[24px] md:p-4 mx-3 my-2' style={{ backgroundColor: '#FFFDFB' }} >
-										{<PauseIcon />}
-									</IconButton>
-									{/* Désactiver le son */}
-								</div>
-							)}
-					</div>
+					{/* <div className="absolute top-0 right-0 bg-white/20 hover:bg-white/50 z-[100] flex justify-center">
+						
+					</div> */}
 				</div>
 				<Logo background="bg-white" height='h-fit' width="w-full" />
 				<ul className="flex flex-col p-8 gap-y-4 mt-auto">
@@ -84,6 +72,7 @@ const DesktopNavbar: FC<DesktopNavbarProps> = () => {
 					<div className='p-8 w-full flex flex-row gap-4 justify-end'>
 						<SocialButton path='https://www.instagram.com/vidml.illustration/' icon={<InstagramIcon />} />
 						<SocialButton path='mailto:vidmlillustration@gmail.com' icon={<MailOutlineIcon />} />
+						{pathname === '/' && <AudioButton isMuted={isMuted} handleToggleMute={handleToggleMute} />}
 					</div>
 					<div className='pr-6 pb-4 text-end'>
 						<span className='text-xs font-light'>Copyright © 2024 </span>

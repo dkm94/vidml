@@ -66,6 +66,11 @@ export interface ISocialButtonProps {
     icon: ReactNode;
 }
 
+export interface IAudioButtonProps {
+    isMuted?: boolean;
+    handleToggleMute: () => void;
+}
+
 export interface ImageProps {
     id: number;
     height: string;
