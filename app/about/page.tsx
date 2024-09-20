@@ -20,11 +20,12 @@ const AboutPage = () => {
 				<div>
 					<video muted autoPlay loop playsInline preload="metadata">
 						<source src={'https://res.cloudinary.com/dbj8kfftk/video/upload/q_auto,f_auto,w_auto,h_200,br_500k/e_volume:-100/v1726818392/vidml-videos/petal_20240728_184527_vnxkwd.mp4'} />
+						{/* Mettre une image en local si la vidéo ne charge pas */}
 					</video>
 
 				</div>
 				<div className='flex justify-center'>
-					<div className='flex flex-col px-16 min-[1200px]:flex-row max-w-[1175px] mt-14 md:mt-24 gap-4'>
+					<div className='flex flex-col md:px-16 min-[1200px]:flex-row max-w-[1175px] mt-14 md:mt-24 gap-4'>
 						<div className='relative flex items-center'>
 							<div className='absolute bg-white opacity-50 w-full h-full' aria-hidden="true"/>
 							<div className='relative px-10 pt-16 pb-8 flex flex-col gap-6 text-sm text-center'>
