@@ -1,14 +1,41 @@
 'use client';
-import { useContext } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 import InstagramIcon from '@mui/icons-material/Instagram';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 
-import { SocialButton } from '../buttons';
+import { AudioButton, SocialButton } from '../buttons';
 
 import { WindowWidthContext } from './ThirdPartiesWrapper';
 
 const Footer = () => {
+	const pathname = usePathname();
+	const [ isMuted, setIsMuted ] = useState(true);
+	const audioRef = useRef<HTMLAudioElement | null>(null);
+
+	useEffect(() => {
+		if (audioRef.current) {
+			audioRef.current.muted = isMuted;
+			if (!isMuted) {
+				audioRef.current.play().catch((error: any) => {
+					console.error('La lecture automatique de l’audio a été empêchée', error);
+				});
+			}
+		}
+	}, [ isMuted ]);
+
+	useEffect(() => {
+		if (pathname !== '/') {
+			console.log('audioRef', audioRef.current);
+			setIsMuted(true);
+		}
+	}, [ pathname ]);
+
+	const handleToggleMute = () => {
+		setIsMuted(!isMuted);
+	};
+
 
 	const windowWidthContext = useContext(WindowWidthContext);
 	const isMobile = windowWidthContext?.isMobile ?? false;
@@ -17,6 +44,9 @@ const Footer = () => {
 	
 	return (
 		<footer className='footer flex justify-center'>
+			<div className='audio-content'>
+				<audio ref={audioRef} src={'/assets/music_theme/Soon.mp3'} loop />
+			</div>
 			<div className='sm:flex flex-col sm:flex-row sm:relative pl-12 pr-12 max-w-[1170px] w-full mt-2 mb-2'>
 				{isNotLarge && <div className='text-center text-red-50 py-4 flex flex-col sm:flex-row gap-4'>
 					{/* <span className='uppercase text-nowrap md:self-center text-xs self-center'>contact</span> */}
@@ -24,6 +54,7 @@ const Footer = () => {
 					<div className='flex flex-wrap gap-2 justify-center w-full'>
 						<SocialButton path='https://www.instagram.com/vidml.illustration/' icon={<InstagramIcon />} />
 						<SocialButton path='mailto:vidml@gmail.com' icon={<MailOutlineIcon />} />
+						{pathname === '/' && <AudioButton isMuted={isMuted} handleToggleMute={handleToggleMute} />}
 					</div>
 				</div>}
 			
