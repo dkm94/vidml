@@ -52,7 +52,7 @@ const App: FC<AppProps> = (props) => {
 		<div className='app'>
 			{ isNotDesktop && (
 				<div className='audio-content'>
-					<audio ref={audioRef} src={'/assets/music_theme/Gamma.mp3'} loop />
+					<audio ref={audioRef} src={'/assets/music_theme/Soon.mp3'} loop />
 				</div>
 			)}
 			{ isNotDesktop && <MobileNavbar path={pathname} windowWidth={width} />}

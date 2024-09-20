@@ -56,7 +56,7 @@ const DesktopNavbar: FC<DesktopNavbarProps> = () => {
 		<div className={'sticky top-0 w-[30%] min-w-[200px] max-w-[350px] z-[100] bg-[#09080B] border-white border-solid border-r-[0.5px] h-[100vh]'}>
 			<div className={`${ isMobile ? 'absolute justify-center' : 'max-h-[1200px]' } overflow-y-auto h-full text-white flex flex-col`}>
 				<div className='audio-content'>
-					<audio ref={audioRef} src={'/assets/music_theme/Gamma.mp3'} loop />
+					<audio ref={audioRef} src={'/assets/music_theme/Soon.mp3'} loop />
 
 					{/* <div className="absolute top-0 right-0 bg-white/20 hover:bg-white/50 z-[100] flex justify-center">
 						

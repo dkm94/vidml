@@ -36,7 +36,7 @@ const Video: FC<VideoProps> = ({ src }) => {
 				<p className="text-white">Your browser doesn’t support HTML5 video.</p>
 			</video>
 			{/* 
-			<audio ref={audioRef} src={'/assets/music_theme/Gamma.mp3'} loop />
+			<audio ref={audioRef} src={'/assets/music_theme/Soon.mp3'} loop />
 
 			<div className="absolute top-0 bg-white/20 hover:bg-white/50 pr-3.5 z-[100] w-[210px]">
 				{isMuted ? 
