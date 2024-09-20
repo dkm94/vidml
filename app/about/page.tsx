@@ -33,7 +33,7 @@ const AboutPage = () => {
 								<p>{'Je m\'appelle Virginie, j\'ai grandi dans la région parisienne. Originaire d\'une famille modeste, je n\'ai jamais été en école d\'art ni pris de cours. Je suis une autodidacte, passionnée de création et de mode depuis toujours. J\'ai appris à force de persévérance, mais aussi d\'expériences grâce à des entreprises qui m\'ont fait confiance.'}</p>
 								<p>{'Merci pour votre visite. Prenez soin de vous '}<AutoAwesomeIcon />	 </p>
 								<div className='flex w-full justify-end'>
-									<Image src='/assets/signature.png' alt='signature' width={200} height={100} className='h-14 md:h-22'/>
+									<Image src='/assets/signature_noir.png' alt='signature' width={200} height={100} className='h-14 md:h-22'/>
 								</div>
 							</div>
 						</div>
