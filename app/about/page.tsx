@@ -19,7 +19,7 @@ const AboutPage = () => {
 				</div> */}
 				<div>
 					<video muted autoPlay loop playsInline preload="metadata">
-						<source src={'https://res.cloudinary.com/dbj8kfftk/video/upload/v1726818392/vidml-videos/petal_20240728_184527_vnxkwd.mp4'} />
+						<source src={'https://res.cloudinary.com/dbj8kfftk/video/upload/q_auto,f_auto,w_auto,h_200,br_500k/e_volume:-100/v1726818392/vidml-videos/petal_20240728_184527_vnxkwd.mp4'} />
 					</video>
 
 				</div>
