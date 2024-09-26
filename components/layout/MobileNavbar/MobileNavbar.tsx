@@ -28,19 +28,19 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ path }) => {
 					onClick={handleToggle}>
 					<span className="burger_bar"></span>
 				</button>
-				<div className='navlink hidden lg:flex m-auto'>
+				{/* <div className='navlink hidden lg:flex m-auto'>
 					<Navlink id={1} title={navlinks[ 1 ].title} path={navlinks[ 1 ].path} setShowLinks={handleToggle} />
 				</div>
 				<div className='navlink hidden lg:flex m-auto'>
 					<Navlink id={2} title={navlinks[ 2 ].title} path={navlinks[ 2 ].path} setShowLinks={handleToggle} />
-				</div>
+				</div> */}
 				<Logo background="transparent" height='h-full' width='w-fit' windowWidth={width} />
-				<div className='navlink hidden lg:flex m-auto'>
+				{/* <div className='navlink hidden lg:flex m-auto'>
 					<Navlink id={3} title={navlinks[ 3 ].title} path={navlinks[ 3 ].path} setShowLinks={handleToggle} />
 				</div>
 				<div className='navlink hidden lg:flex m-auto'>
 					<Navlink id={4} title={navlinks[ 4 ].title} path={navlinks[ 4 ].path} setShowLinks={handleToggle} />
-				</div>
+				</div> */}
 				<ul className="navbar__links bg-gray-400 bg-opacity-70 flex lg:hidden">
 					{navlinks.map((link: NavLink, index: number): ReactNode => {
 						return <Navlink key={index} id={index} title={link.title} path={link.path} setShowLinks={handleToggle} />;
