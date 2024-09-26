@@ -46,7 +46,7 @@ const Home = () => {
 						className={'z-[1000] absolute top-[94%] left-1/2 translate-y-[-50%] translate-x-[-50%] square-title width-base width-gray-900 menu-shadow'} 
 						onClick={handleClick}>Menu</button>
 				)}
-				<div className="absolute top-0 left-0 w-full h-full z-[99]" />
+				<div className="absolute top-0 left-0 w-full h-full" />
 				<Video src={getVideoSource()} />
 			</main>
 		</div>
