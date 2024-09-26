@@ -34,9 +34,10 @@ const DesktopNavbar: FC<DesktopNavbarProps> = () => {
 	}, [ isMuted ]);
 
 	useEffect(() => {
-		if (pathname !== '/') {
-			console.log('audioRef', audioRef.current);
+		if (pathname !== '/' && audioRef.current) {
 			setIsMuted(true);
+			audioRef.current.currentTime = 0; // Réinitialise l'audio
+			audioRef.current.pause(); // Stoppe l'audio	
 		}
 	}, [ pathname ]);
 
