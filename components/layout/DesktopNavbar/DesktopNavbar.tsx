@@ -6,7 +6,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 
 import { Logo } from '@/components';
-import { AudioButton, SocialButton } from '@/components/buttons';
+import { AudioButton, PulseButton, SocialButton } from '@/components/buttons';
 
 import { DesktopNavbarProps, NavLink } from '@/types';
 import { navlinks } from '@/constants';
@@ -73,7 +73,8 @@ const DesktopNavbar: FC<DesktopNavbarProps> = () => {
 					<div className='p-8 w-full flex flex-row gap-4 justify-end'>
 						<SocialButton path='https://www.instagram.com/vidml.illustration/' icon={<InstagramIcon />} />
 						<SocialButton path='mailto:vidmlillustration@gmail.com' icon={<MailOutlineIcon />} />
-						{pathname === '/' && <AudioButton isMuted={isMuted} handleToggleMute={handleToggleMute} />}
+						{/* {pathname === '/' && <AudioButton isMuted={isMuted} handleToggleMute={handleToggleMute} />} */}
+						{pathname === '/' && <PulseButton isMuted={isMuted} handleToggleMute={handleToggleMute} />}
 					</div>
 					<div className='pr-6 pb-4 text-end'>
 						<span className='text-xs font-light'>Copyright © 2024 </span>
