@@ -12,7 +12,7 @@ const Navlink = ({ id, title, path, setShowLinks }: NavLinkProps) => {
 	return (
 		<li key={id} className={'navbar__item block lg:translate-y-0 slideDown-1'}>
 			<Link
-				className={`${ inter.className } ${ currentPath === path ? 'font-black active-link' : 'font-light' } px-[5px] text-gray-50 lg:text-slate-900 no-underline block p-4 bg-inherit uppercase text-base lg:text-xs`}
+				className={`${ inter.className } ${ currentPath === path ? 'font-black active-link' : 'font-light' } px-[5px] text-gray-50 lg:text-slate-900 no-underline block p-4 bg-inherit uppercase text-base lg:text-xs focus:outline-none active:bg-transparent`}
 				href={path}
 				onClick={setShowLinks}
 			>
