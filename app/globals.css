@@ -171,3 +171,16 @@ background: linear-gradient(180deg, rgba(9,8,11,1) 0%, rgba(217,170,80,1) 100%, 
     opacity: 0;
  }
 }
+
+@media only screen and (max-width: 815px){
+	.bg-pulse, .button-pulse {
+    position: absolute;
+    width: 41px;
+    height: 41px;
+    border-radius: 100%;
+  }
+
+  .mobile-btns {
+    gap: 1rem !important;
+  }
+}

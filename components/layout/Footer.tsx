@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 
-import { AudioButton, SocialButton } from '../buttons';
+import { AudioButton, PulseButton, SocialButton } from '../buttons';
 
 import { WindowWidthContext } from './ThirdPartiesWrapper';
 
@@ -52,10 +52,10 @@ const Footer = () => {
 				{isNotLarge && <div className='text-center text-red-50 py-4 flex flex-col sm:flex-row gap-4'>
 					{/* <span className='uppercase text-nowrap md:self-center text-xs self-center'>contact</span> */}
 					{/* <div className='flex justify-center sm:hidden'><hr className='bg-orange-50 w-[105px]' /></div> */}
-					<div className='flex flex-wrap gap-2 justify-center w-full'>
+					<div className='mobile-btns flex flex-wrap gap-2 justify-center w-full'>
 						<SocialButton path='https://www.instagram.com/vidml.illustration/' icon={<InstagramIcon />} />
 						<SocialButton path='mailto:vidml@gmail.com' icon={<MailOutlineIcon />} />
-						{pathname === '/' && <AudioButton isMuted={isMuted} handleToggleMute={handleToggleMute} />}
+						{pathname === '/' && <PulseButton isMuted={isMuted} handleToggleMute={handleToggleMute} />}
 					</div>
 				</div>}
 			
