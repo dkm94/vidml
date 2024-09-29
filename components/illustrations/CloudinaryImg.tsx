@@ -43,7 +43,7 @@ const CloudinaryImg = (props: CldImageProps) => {
 			height={400} 
 			width={400}
 			crop='fill'
-			quality={'auto:best'}
+			quality={100}
 			fetchFormat='auto'
 			dpr='auto'
 			responsive
