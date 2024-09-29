@@ -7,7 +7,7 @@
 
 *, *::before, *::after {
   box-sizing: border-box;
-  -webkit-tap-highlight-color: rgba(63, 56, 56,0.6);
+  -webkit-tap-highlight-color: transparent;
 }
 
 :root {
@@ -52,6 +52,10 @@
 
 .navbar {
   @apply max-w-[1175px] m-auto flex justify-between w-full items-center text-gray-500 flex-wrap h-16 py-0 px-8 
+}
+
+.navlink {
+  -webkit-tap-highlight-color: rgba(63, 56, 56,0.6) !important;
 }
 
 .content-bg {
