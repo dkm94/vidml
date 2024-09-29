@@ -7,6 +7,9 @@ import { CloudinaryResource } from '@/utils/api/cachedImages';
 import { CarouselButton, CloudinaryImg } from '..';
 import { NotFound } from '../layout';
 
+import { illustrations } from '@/constants';
+import Image from 'next/image';
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Carousel = ({ resources }: { resources: any }) => {
 	const { imageName } = useParams();
@@ -15,6 +18,7 @@ const Carousel = ({ resources }: { resources: any }) => {
 	const imageRef: MutableRefObject<HTMLImageElement | null> = useRef(null);
 	
 	const [ gallery, setGallery ] = useState<CloudinaryResource[]>([]);
+	const staticgallery = illustrations;
 	const [ activeClass, setActiveClass ] = useState<number>(0);
 	const [ translateX, setTranslateX ] = useState<number | undefined>(0);
 	const [ imageWidth, setImageWidth ] = useState<number | null>(null); // Issue: ca fait planter le carousel car la valeur par défaut est 0
@@ -40,10 +44,9 @@ const Carousel = ({ resources }: { resources: any }) => {
 	const resize = (): void => {
 		if (imageRef.current) {
 			const width = imageRef.current.offsetWidth;
-			console.log('🚀 ~ resize ~ width:', width);
 			setImageWidth(width);
 			setTranslateX(width * activeClass);
-		  }
+		}
 	};
 
 	// Obtenir la largeur au chargement de l'image
@@ -52,7 +55,6 @@ const Carousel = ({ resources }: { resources: any }) => {
 	useEffect(() => {
 		// Appeler la fonction initiale pour obtenir la largeur initiale
 		resize();
-	
 		// Ajouter un écouteur d'événements pour redimensionner
 		window.addEventListener('resize', resize);
 	
@@ -106,7 +108,27 @@ const Carousel = ({ resources }: { resources: any }) => {
 					width: imageWidth as number,
 					maxWidth: 400
 				}}>
-					{gallery?.map(({ public_id }, i) => {
+					{illustrations.map(({ id, url }, i) => {
+						return(
+						// handleOnLoad here
+							<div className='w-fit h-fit' key={id} ref={activeClass === i ? imageRef : null}>
+								<Image 
+									onLoad={handleOnLoad}
+									src={url} 
+									alt="Image" 
+									width={400} 
+									height={400}
+									className={`carousel-img md:grayscale object-contain ${ activeClass === i ? 'grayscale-0 md:hover:grayscale-0 current-img' : 'grayscale' }`}
+									style={{
+										transform: `translateX(-${ translateX }px) ${ activeClass === i ? 'scale(1)' : 'scale(0.5)' }`, 
+										transition: 'transform .5s ease-in-out',
+										maxWidth: 'unset',
+									}}
+								/>
+							</div>
+						);
+					})}
+					{/* {gallery?.map(({ public_id }, i) => {
 						return (
 						// <Image
 						// 	key={i} 
@@ -127,22 +149,24 @@ const Carousel = ({ resources }: { resources: any }) => {
 						// 	loading='eager' 
 						// 	blurDataURL={illustrationBlurURL}
 						// />
-							<div className='w-fit h-fit' key={public_id} ref={activeClass === i ? imageRef : null}>
-								<CloudinaryImg
-									onLoad={handleOnLoad}
-									src={public_id}
-									alt={public_id}
-									quality={100}
-									className={`carousel-img md:grayscale object-contain ${ activeClass === i ? 'grayscale-0 md:hover:grayscale-0 current-img' : 'grayscale' }`}
-									style={{
-										transform: `translateX(-${ translateX }px) ${ activeClass === i ? 'scale(1)' : 'scale(0.5)' }`, 
-										transition: 'transform .5s ease-in-out',
-										maxWidth: 'unset',
-									}} 
-								/>
-							</div>
+
+
+						// <div className='w-fit h-fit' key={public_id} ref={activeClass === i ? imageRef : null}>
+						// 	<CloudinaryImg
+						// 		onLoad={handleOnLoad}
+						// 		src={public_id}
+						// 		alt={public_id}
+						// 		quality={100}
+						// 		className={`carousel-img md:grayscale object-contain ${ activeClass === i ? 'grayscale-0 md:hover:grayscale-0 current-img' : 'grayscale' }`}
+						// 		style={{
+						// 			transform: `translateX(-${ translateX }px) ${ activeClass === i ? 'scale(1)' : 'scale(0.5)' }`, 
+						// 			transition: 'transform .5s ease-in-out',
+						// 			maxWidth: 'unset',
+						// 		}} 
+						// 	/>
+						// </div>
 						);
-					})}
+					})} */}
 				</ul>
 			</div>
 			<div className='relative'>

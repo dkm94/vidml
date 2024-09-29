@@ -40,14 +40,14 @@ const CloudinaryImg = (props: CldImageProps) => {
 			{...props} 
 			src={`${ src }`} 
 			alt={src || 'Image'} 
-			height={400} 
-			width={400}
-			crop='fill'
+			height={width > 425 ? 400 : 250} 
+			width={width > 425 ? 400 : 250}
+			crop='fit'
 			quality={100}
-			fetchFormat='auto'
+			// fetchFormat='auto'
 			dpr='auto'
-			responsive
-			responsiveUseBreakpoints
+			// responsive
+			// responsiveUseBreakpoints
 		/>
 	);
 };

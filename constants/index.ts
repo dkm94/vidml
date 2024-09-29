@@ -171,5 +171,37 @@ export const illustrations: IllustrationType[] = [
 	{
 		id: 3,
 		url: '/assets/gallery/image3.webp'
+	},
+	{
+		id: 4,
+		url: '/assets/gallery/image4.webp'
+	},
+	{
+		id: 5,
+		url: '/assets/gallery/image5.webp'
+	},
+	{
+		id: 6,
+		url: '/assets/gallery/image6.webp'
+	},
+	{
+		id: 7,
+		url: '/assets/gallery/image7.webp'
+	},
+	{
+		id: 8,
+		url: '/assets/gallery/image8.webp'
+	},
+	{
+		id: 9,
+		url: '/assets/gallery/image9.webp'
+	},
+	{
+		id: 10,
+		url: '/assets/gallery/image10.webp'
+	},
+	{
+		id: 11,
+		url: '/assets/gallery/image11.webp'
 	}
 ];
