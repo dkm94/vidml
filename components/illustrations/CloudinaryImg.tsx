@@ -12,7 +12,7 @@ const CloudinaryImg = (props: CldImageProps) => {
 
     
 	if (!src) {
-		return 'No image source provided'; // handle empty source
+		return <span>L'image n'a pas pu être chargée</span>;
 	}
 
 	return (
@@ -22,8 +22,12 @@ const CloudinaryImg = (props: CldImageProps) => {
 			alt={src || 'Image'} 
 			height={width > 425 ? 400 : 250} 
 			width={width > 425 ? 400 : 250}
-			crop='fill'
+			crop='fit'
 			quality={100}
+			fetchFormat='auto'
+			dpr='auto'
+			responsive
+			responsiveUseBreakpoints
 		/>
 	);
 };
