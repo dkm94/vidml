@@ -19,7 +19,7 @@ const CloudinaryImg = (props: CldImageProps) => {
 		<CldImage 
 			{...props} 
 			src={`${ src }`} 
-			alt={src} 
+			alt={src || 'Image'} 
 			height={width > 425 ? 400 : 250} 
 			width={width > 425 ? 400 : 250}
 			crop='fill'
