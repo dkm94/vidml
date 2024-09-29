@@ -23,6 +23,7 @@ const CloudinaryImg = (props: CldImageProps) => {
 			height={width > 425 ? 400 : 250} 
 			width={width > 425 ? 400 : 250}
 			crop='fill'
+			quality={100}
 		/>
 	);
 };

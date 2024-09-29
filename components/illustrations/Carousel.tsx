@@ -131,6 +131,7 @@ const Carousel = ({ resources }: { resources: any }) => {
 									onLoad={handleOnLoad}
 									src={public_id}
 									alt={public_id}
+									quality={100}
 									className={`carousel-img md:grayscale object-contain ${ activeClass === i ? 'grayscale-0 md:hover:grayscale-0 current-img' : 'grayscale' }`}
 									style={{
 										transform: `translateX(-${ translateX }px) ${ activeClass === i ? 'scale(1)' : 'scale(0.5)' }`, 
