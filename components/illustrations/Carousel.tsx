@@ -40,6 +40,7 @@ const Carousel = ({ resources }: { resources: any }) => {
 	const resize = (): void => {
 		if (imageRef.current) {
 			const width = imageRef.current.offsetWidth;
+			console.log('🚀 ~ resize ~ width:', width);
 			setImageWidth(width);
 			setTranslateX(width * activeClass);
 		  }
