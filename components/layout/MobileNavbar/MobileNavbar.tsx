@@ -24,7 +24,7 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ path }) => {
 		<nav className='navigation'>
 			<div className={`navbar ${ showLinks ? 'show_nav' : '' }`}>
 				<button 
-					className={`${ path === '/' || path.startsWith('/dashboard') ? 'hidden' : '' } w-5 h-3 bg-transparent lg:hidden border-none block z-[1000] cursor-pointer`} 
+					className={`${ path === '/' || path.startsWith('/dashboard') ? 'hidden' : '' } w-5 h-3 bg-transparent lg:hidden border-none block z-[1000] cursor-pointer no-tap-highlight`} 
 					onClick={handleToggle}>
 					<span className="burger_bar"></span>
 				</button>
