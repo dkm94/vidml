@@ -26,6 +26,7 @@ const ContactForm = () => {
 				},
 				(error) => {
 					setMessage('Oups, l\'envoi de votre mail a échoué. Contactez-moi par mail vidml@gmail.com');
+					console.log(error);
 					setTimeout(() => {
 						setMessage('');
 					}, 5000);
