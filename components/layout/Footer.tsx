@@ -54,7 +54,7 @@ const Footer = () => {
 					{/* <div className='flex justify-center sm:hidden'><hr className='bg-orange-50 w-[105px]' /></div> */}
 					<div className='mobile-btns flex flex-wrap gap-2 justify-center w-full'>
 						<SocialButton path='https://www.instagram.com/vidml.illustration/' icon={<InstagramIcon />} />
-						<SocialButton path='mailto:vidml@gmail.com' icon={<MailOutlineIcon />} />
+						<SocialButton path='mailto:vidmlillustration@gmail.com' icon={<MailOutlineIcon />} />
 						{pathname === '/' && <PulseButton isMuted={isMuted} handleToggleMute={handleToggleMute} />}
 					</div>
 				</div>}
